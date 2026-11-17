@@ -1,0 +1,63 @@
+{
+  "axioms": [
+    "isolated_from_external_networks",
+    "deterministic_derivation"
+  ],
+  "context": [
+    [
+      "isolated_from_external_networks"
+    ],
+    [
+      "isolated_from_external_networks",
+      "deterministic_derivation"
+    ]
+  ],
+  "edges": [
+    [
+      "isolated_from_external_networks",
+      "contradiction_network_isolation"
+    ],
+    [
+      "external_sources_required",
+      "contradiction_network_isolation"
+    ]
+  ],
+  "negations": [
+    "deterministic_derivation"
+  ],
+  "nodes": [
+    "isolated_from_external_networks",
+    "external_sources_required",
+    "deterministic_derivation",
+    "monte_carlo_epistemology",
+    "memory_restricted",
+    "context_monotone_unbounded",
+    "contention_vanishes",
+    "chaos_max_load",
+    "contradiction_network_isolation"
+  ],
+  "query": "contradiction_network_isolation",
+  "query_id": "initiating-brief",
+  "rules": [
+    {
+      "conclusion": "contradiction_network_isolation",
+      "id": "R1",
+      "negated": [],
+      "premises": [
+        "isolated_from_external_networks",
+        "external_sources_required"
+      ]
+    }
+  ],
+  "secrets": [],
+  "variables": {
+    "chaos_max_load": true,
+    "contention_vanishes": true,
+    "context_monotone_unbounded": true,
+    "deterministic_derivation": true,
+    "external_sources_required": true,
+    "isolated_from_external_networks": true,
+    "memory_restricted": true,
+    "monte_carlo_epistemology": true
+  }
+}

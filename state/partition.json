@@ -1,0 +1,61 @@
+{
+  "axioms": [
+    "q"
+  ],
+  "context": [
+    [
+      "p"
+    ],
+    [
+      "p",
+      "q"
+    ]
+  ],
+  "edges": [
+    [
+      "p",
+      "s"
+    ],
+    [
+      "s",
+      "t"
+    ]
+  ],
+  "negations": [],
+  "nodes": [
+    "p",
+    "q",
+    "r",
+    "s",
+    "t"
+  ],
+  "query": "t",
+  "query_id": "partition.json",
+  "rules": [
+    {
+      "conclusion": "s",
+      "id": "R1",
+      "negated": [],
+      "premises": [
+        "p",
+        "q"
+      ]
+    },
+    {
+      "conclusion": "t",
+      "id": "R2",
+      "negated": [
+        "r"
+      ],
+      "premises": [
+        "s"
+      ]
+    }
+  ],
+  "secrets": [],
+  "variables": {
+    "p": false,
+    "q": true,
+    "r": true
+  }
+}

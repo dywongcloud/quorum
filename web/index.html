@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QUORUM - closed-loop verification for distributed systems</title>
+<meta name="description" content="QUORUM is a closed-loop formal verification sandbox for distributed systems design, with an adversarial critic quorum and a 400-node anchor graph.">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="install.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="mast">
+  <a class="wordmark" href="#top">QUORUM<span class="wordmark-dot">.</span></a>
+  <nav aria-label="Sections">
+    <a href="#what">What it is</a>
+    <a href="#spec">Specification</a>
+    <a href="#panel">Panel</a>
+    <a href="#install">Install</a>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <p class="eyebrow">Closed-loop formal verification sandbox</p>
+  <h1>Design the system.<br>Prove the failure.</h1>
+  <p class="dek">QUORUM derives a distributed design from a bounded state payload, then tries to falsify its own derivation. No interpolation. No vibes. No truncation.</p>
+  <figure class="hero-art">
+    <svg viewBox="0 0 1200 360" role="img" aria-labelledby="hero-title hero-desc" preserveAspectRatio="xMidYMid meet">
+      <title id="hero-title">A quorum lattice with one partitioned edge</title>
+      <desc id="hero-desc">Twelve nodes arranged in three columns. Eleven links are solid; one link is broken to mark a network partition. The remaining nodes form a quorum.</desc>
+      <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M40 0H0V40" fill="none" stroke="currentColor" stroke-opacity=".08" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="1200" height="360" fill="url(#grid)" color="#0b1f1a"/>
+      <g class="link" fill="none" stroke-width="2">
+        <path d="M180 90 L420 60 M180 90 L420 180 M180 180 L420 60 M180 180 L420 180 M180 180 L420 300 M180 270 L420 180 M180 270 L420 300"/>
+        <path d="M420 60 L700 90 M420 180 L700 90 M420 180 L700 210 M420 300 L700 210"/>
+        <path class="broken" d="M420 60 L700 210"/>
+        <path d="M700 90 L980 150 M700 210 L980 150 M700 210 L980 270"/>
+      </g>
+      <g class="node">
+        <circle cx="180" cy="90" r="13"/><circle cx="180" cy="180" r="13"/><circle cx="180" cy="270" r="13"/>
+        <circle cx="420" cy="60" r="13"/><circle cx="420" cy="180" r="13"/><circle cx="420" cy="300" r="13"/>
+        <circle cx="700" cy="90" r="13"/><circle cx="700" cy="210" r="13"/>
+        <circle cx="980" cy="150" r="19"/><circle cx="980" cy="270" r="13"/>
+      </g>
+      <g class="node-label" font-size="12" font-family="ui-monospace, monospace">
+        <text x="180" y="60" text-anchor="middle">S1</text>
+        <text x="180" y="150" text-anchor="middle">S2</text>
+        <text x="180" y="240" text-anchor="middle">S3</text>
+        <text x="420" y="30" text-anchor="middle">R1</text>
+        <text x="420" y="150" text-anchor="middle">R2</text>
+        <text x="420" y="330" text-anchor="middle">R3</text>
+        <text x="700" y="60" text-anchor="middle">Q1</text>
+        <text x="700" y="240" text-anchor="middle">Q2</text>
+        <text x="980" y="115" text-anchor="middle">DERIVED</text>
+        <text x="980" y="305" text-anchor="middle">Q3</text>
+      </g>
+      <text x="560" y="140" class="partition-note" font-size="12" font-family="ui-monospace, monospace">PARTITION</text>
+    </svg>
+    <figcaption>Eleven solid links and one broken link. The quorum is the intersection that still agrees.</figcaption>
+  </figure>
+</section>
+
+<section class="section" id="what">
+  <p class="section-index">01 / WHAT IT IS</p>
+  <h2>A design agent that argues against itself</h2>
+  <p>DADA traverses an anchor graph of graphic-design literature with a panel of art critics. QUORUM keeps the machinery and replaces the domain: a <span data-figure="nodes">400</span>-node graph built from Site Reliability Engineering, Designing Data-Intensive Applications, the impossibility results, the systems papers, and the operations canon. Its critics are the authorities who wrote them.</p>
+  <p>Each move is a state transition. Each transition is derived, not asserted. A quorum of independent critics examines the measured artifact, and any one of them can stop the line. The run closes only when the frontier is empty, the quorum passes, and every axiom has a live witness.</p>
+  <div class="fault-strip" aria-label="Fault codes">
+    <code>[FAULT: JANK_DETECTED]</code>
+    <code>[FAULT: STATE_UNMAPPED]</code>
+    <code>[FAULT: SELF_REJECTED]</code>
+    <code>[FAULT: IO_FAULT]</code>
+  </div>
+  <p class="fault-count" data-figure="fault_codes">4</p>
+</section>
+
+<section class="section" id="spec">
+  <p class="section-index">02 / SPECIFICATION</p>
+  <h2>The artifact, measured</h2>
+  <p>Every number below is recomputed by one command after the last edit. None is a claim about a past state of the repository.</p>
+  <table class="spec">
+    <caption>QUORUM repository specification, measured at final state</caption>
+    <thead><tr><th scope="col">Property</th><th scope="col">Value</th><th scope="col">Procedure</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Anchor nodes</th><td><span data-figure="nodes">400</span></td><td>graph_walk.py --counts</td></tr>
+      <tr><th scope="row">Edges</th><td><span data-figure="edges">394</span></td><td>graph_walk.py --counts</td></tr>
+      <tr><th scope="row">Solid edges</th><td><span data-figure="solid">347</span></td><td>graph_walk.py --counts</td></tr>
+      <tr><th scope="row">Dotted counterpoints</th><td><span data-figure="dotted">47</span></td><td>graph_walk.py --counts</td></tr>
+      <tr><th scope="row">Clusters</th><td><span data-figure="clusters">15</span></td><td>graph_walk.py --counts</td></tr>
+      <tr><th scope="row">Critic seats</th><td><span data-figure="critic_seats">52</span></td><td>graph_walk.py --counts</td></tr>
+      <tr><th scope="row">Critic counterpoint pairs</th><td><span data-figure="critic_pairs">23</span></td><td>graph_walk.py --counts</td></tr>
+      <tr><th scope="row">Fail-Closed roster</th><td><span data-figure="fail_closed_seats">14</span></td><td>graph_walk.py --roster --mode fail-closed</td></tr>
+      <tr><th scope="row">Axioms</th><td><span data-figure="axioms">24</span></td><td>verify_invariants.py --all</td></tr>
+      <tr><th scope="row">Monte Carlo samples</th><td><span data-figure="probe_samples">400</span></td><td>epistemic_audit.py --probe 400</td></tr>
+      <tr><th scope="row">Selftest cases</th><td><span data-figure="selftest_cases">5</span></td><td>epistemic_audit.py --selftest</td></tr>
+      <tr><th scope="row">Enumeration assignments</th><td><span data-figure="assignment_count">8</span></td><td>epistemic_audit.py --enumerate</td></tr>
+      <tr><th scope="row">Panel verdict files</th><td><span data-figure="panel_verdicts">28</span></td><td>collect_panel.py --json</td></tr>
+    </tbody>
+  </table>
+  <p class="reproduce">Reproduce: <code>python3 -I scripts/validate_figures.py</code></p>
+</section>
+
+<section class="section" id="panel">
+  <p class="section-index">03 / PANEL</p>
+  <h2>One seat per authority</h2>
+  <p>A critic named for two thinkers is two agents, not one composite voice. Fischer, Lynch and Paterson sit separately, each arguing from the FLP paper alone. Clarke and Emerson sit separately on model checking. Susan Leigh Star and Geoffrey Bowker object when the human labor behind the infrastructure is erased from the diagram.</p>
+  <p>Dotted edges join counterpoints: proof against experiment, safety against liveness, transactions against convergence. A seat on a panel pulls its partner onto the panel. That closure is computed from the graph, not assembled by hand.</p>
+  <p class="quorum-line">A round without every required verdict has no quorum. A missing seat is <code>NOT REPORTED</code>, never PASS.</p>
+</section>
+
+<section class="section install-section" id="install">
+  <p class="section-index">04 / INSTALL</p>
+  <h2>Three steps</h2>
+  <ol class="steps">
+    <li><span class="step-n">1</span><p>Clone the repository, or add the skill from the repository URL with your skills CLI.</p></li>
+    <li><span class="step-n">2</span><p>Confirm the workspace discovery link resolves and run <code>python3 -I scripts/validate_skills.py</code>.</p></li>
+    <li><span class="step-n">3</span><p>Invoke <code>$quorum</code> with a distributed-systems design brief. The run writes the five artifacts into <code>QUORUM-LOG.md</code>.</p></li>
+  </ol>
+  <button class="copy" type="button" data-copy="npx skills add AnEntrypoint/quorum -s quorum">Copy install command</button>
+  <p class="copy-status" role="status" aria-live="polite"></p>
+  <p class="prereq">Requires Python 3.10 or later for the graph walk and audit daemon. PyYAML 6.0.2 is required only by <code>validate_skills.py</code>. No network access is needed after the skill is installed.</p>
+</section>
+</main>
+
+<footer>
+  <p class="wordmark">QUORUM<span class="wordmark-dot">.</span></p>
+  <p class="footer-note">Quorum-Ordered Universal Reasoning Over Unreliable Machines. A rework of DADA for distributed systems. Every figure on this page is reproducible after the final edit.</p>
+  <nav aria-label="Footer"><a href="#what">What it is</a><a href="#spec">Specification</a><a href="#panel">Panel</a><a href="#install">Install</a></nav>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

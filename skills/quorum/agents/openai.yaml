@@ -1,0 +1,4 @@
+interface:
+  display_name: "QUORUM: Closed-Loop Verification for Distributed Systems"
+  short_description: "Closed-loop verification for distributed systems design"
+  default_prompt: "Use $quorum to design or harden a distributed system in Fail-Closed or Graceful mode and record the traversal plan, frontier, decision records, panel reports, anchor ledger, and compliance check."

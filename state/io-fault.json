@@ -1,0 +1,63 @@
+{
+  "axioms": [
+    "q"
+  ],
+  "context": [
+    [
+      "p"
+    ],
+    [
+      "p",
+      "q"
+    ]
+  ],
+  "edges": [
+    [
+      "p",
+      "s"
+    ],
+    [
+      "s",
+      "t"
+    ]
+  ],
+  "negations": [
+    "r"
+  ],
+  "nodes": [
+    "p",
+    "q",
+    "r",
+    "s",
+    "t"
+  ],
+  "query": "t",
+  "query_id": "io-fault.json",
+  "rules": [
+    {
+      "conclusion": "s",
+      "id": "maybe-R1",
+      "negated": [],
+      "premises": [
+        "p",
+        "q"
+      ]
+    },
+    {
+      "conclusion": "t",
+      "id": "R2",
+      "negated": [
+        "r"
+      ],
+      "premises": [
+        "s"
+      ]
+    }
+  ],
+  "secrets": [],
+  "variables": {
+    "p": true,
+    "q": true,
+    "r": false
+  }
+}

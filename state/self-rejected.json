@@ -1,0 +1,50 @@
+{
+  "axioms": [
+    "q"
+  ],
+  "context": [
+    [
+      "p"
+    ],
+    [
+      "p",
+      "q"
+    ]
+  ],
+  "edges": [
+    [
+      "p",
+      "s"
+    ],
+    [
+      "s",
+      "t"
+    ]
+  ],
+  "negations": [
+    "r"
+  ],
+  "nodes": [
+    "p",
+    "q",
+    "r",
+    "s",
+    "t"
+  ],
+  "query": "t",
+  "query_id": "self-rejected.json",
+  "rules": [
+    {
+      "conclusion": "s",
+      "id": "R9",
+      "negated": [],
+      "premises": []
+    }
+  ],
+  "secrets": [],
+  "variables": {
+    "p": true,
+    "q": true,
+    "r": false
+  }
+}

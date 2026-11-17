@@ -1,0 +1,116 @@
+{
+  "all_adjudicated": true,
+  "dotted_counterpoint": {
+    "from": "paxos",
+    "label": "understandability counterpoint",
+    "to": "raft"
+  },
+  "final_open_count": 0,
+  "graph_digest": "b17bcff94ed3aad75cd8a954ba235f4c583cbf22afb817cffba4a602acb6424b",
+  "mode": "fail-closed",
+  "rounds": [
+    {
+      "deferred": [
+        {
+          "candidate": "chubby",
+          "reason": "already discharged by the canon row"
+        },
+        {
+          "candidate": "cockroach",
+          "reason": "counterpoint declined: its partner seat was not required in Fail-Closed mode"
+        },
+        {
+          "candidate": "etcd",
+          "reason": "incoming edge grounds an anchor already kept"
+        }
+      ],
+      "frontier_open_count": 15,
+      "round": 1,
+      "taken": "flp",
+      "visited_count": 5
+    },
+    {
+      "deferred": [
+        {
+          "candidate": "megastore",
+          "reason": "already discharged by the canon row"
+        },
+        {
+          "candidate": "multipaxos",
+          "reason": "counterpoint declined: its partner seat was not required in Fail-Closed mode"
+        },
+        {
+          "candidate": "paxos",
+          "reason": "incoming edge grounds an anchor already kept"
+        }
+      ],
+      "frontier_open_count": 11,
+      "round": 2,
+      "taken": "lynchbook",
+      "visited_count": 6
+    },
+    {
+      "deferred": [
+        {
+          "candidate": "verdi",
+          "reason": "already discharged by the canon row"
+        },
+        {
+          "candidate": "cassandra",
+          "reason": "counterpoint declined: its partner seat was not required in Fail-Closed mode"
+        },
+        {
+          "candidate": "failuredetector",
+          "reason": "incoming edge grounds an anchor already kept"
+        }
+      ],
+      "frontier_open_count": 7,
+      "round": 3,
+      "taken": "spanner",
+      "visited_count": 7
+    },
+    {
+      "deferred": [
+        {
+          "candidate": "paxossimple",
+          "reason": "already discharged by the canon row"
+        },
+        {
+          "candidate": "raft",
+          "reason": "counterpoint declined: its partner seat was not required in Fail-Closed mode"
+        },
+        {
+          "candidate": "raftlog",
+          "reason": "incoming edge grounds an anchor already kept"
+        }
+      ],
+      "frontier_open_count": 3,
+      "round": 4,
+      "taken": "merkle",
+      "visited_count": 8
+    },
+    {
+      "deferred": [
+        {
+          "candidate": "sloppyquorum",
+          "reason": "already discharged by the canon row"
+        },
+        {
+          "candidate": "vectorclock",
+          "reason": "counterpoint declined: its partner seat was not required in Fail-Closed mode"
+        }
+      ],
+      "frontier_open_count": 0,
+      "round": 5,
+      "taken": "riak",
+      "visited_count": 9
+    }
+  ],
+  "seed": [
+    "flp",
+    "paxos",
+    "raft",
+    "dynamo"
+  ],
+  "seed_frontier_candidates": 19
+}

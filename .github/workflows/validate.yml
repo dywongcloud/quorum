@@ -1,0 +1,28 @@
+name: Validate skills
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install PyYAML==6.0.2
+      - run: python3 -I scripts/validate_skills.py
+      - run: python3 -I tools/build_graph.py && python3 -I scripts/validate_graph.py
+      - run: python3 -I tools/build_ledger.py && python3 -I tools/run_traversal.py
+      - run: python3 -I tools/build_panel_report.py && python3 -I scripts/validate_figures.py
+      - run: python3 -I skills/quorum/scripts/epistemic_audit.py --selftest
+      - run: python3 -I scripts/validate_graph.py
+      - run: python3 -I scripts/validate_figures.py
+      - run: python3 -I skills/quorum/scripts/verify_invariants.py --all
+      - run: python3 -I skills/quorum/scripts/epistemic_audit.py --selftest
+      - run: python3 -I skills/quorum/scripts/collect_panel.py panel/R1 --roster fail-closed --json
+      - run: python3 -I skills/quorum/scripts/collect_panel.py panel/R2 --roster fail-closed --json
+      - run: git diff --check

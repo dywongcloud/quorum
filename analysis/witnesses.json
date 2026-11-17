@@ -1,0 +1,30 @@
+[
+  {
+    "dispatch_id": "1794899448569-37-329a7813731adb77",
+    "exit_code": 0,
+    "name": "witness-a",
+    "session_id": "74e7b6ba-202b-4e6a-acb1-d05f903aca3b-swarm-witness-a",
+    "stdout": "{\"actual_bytes\": 48995, \"acyclic\": true, \"byte_identical\": true, \"clusters\": 15, \"critic_seats\": 52, \"dangling_edges\": [], \"edges\": 391, \"expected_bytes\": 48995, \"nodes\": 397}\n"
+  },
+  {
+    "dispatch_id": "1794899450433-38-8fbd7089bc00fb9a",
+    "exit_code": 0,
+    "name": "witness-b",
+    "session_id": "74e7b6ba-202b-4e6a-acb1-d05f903aca3b-swarm-witness-b",
+    "stdout": "{\"all_pass\": true, \"cases\": [{\"actual\": \"derived\", \"case\": \"clean\", \"expected\": \"derived\", \"pass\": true}, {\"actual\": \"JANK_DETECTED\", \"case\": \"contradiction\", \"expected\": \"JANK_DETECTED\", \"pass\": true}, {\"actual\": \"STATE_UNMAPPED\", \"case\": \"unmapped\", \"expected\": \"STATE_UNMAPPED\", \"pass\": true}, {\"actual\": \"SELF_REJECTED\", \"case\": \"unstated-assumption\", \"expected\": \"SELF_REJECTED\", \"pass\": true}, "
+  },
+  {
+    "dispatch_id": "1794899452347-39-361fff7206bbf969",
+    "exit_code": 0,
+    "name": "witness-c",
+    "session_id": "74e7b6ba-202b-4e6a-acb1-d05f903aca3b-swarm-witness-c",
+    "stdout": "{\"axiom\": \"A4\", \"measured\": {\"acyclic\": true, \"digest\": \"6e16dd1838ae83670ec8d775eeaa48171050f65c8ec63204840b0554b3a59238\"}, \"status\": \"PASS\"}\n"
+  },
+  {
+    "dispatch_id": "1794899454192-40-5214b0c47e3a0271",
+    "exit_code": 0,
+    "name": "witness-d",
+    "session_id": "74e7b6ba-202b-4e6a-acb1-d05f903aca3b-swarm-witness-d",
+    "stdout": "{\"clusters\": 15, \"critic_pairs\": 23, \"critics\": 52, \"dotted\": 47, \"edges\": 391, \"nodes\": 397, \"solid\": 344}\n"
+  }
+]

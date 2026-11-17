@@ -1,0 +1,59 @@
+{
+  "axioms": [
+    "q"
+  ],
+  "context": [
+    [
+      "p"
+    ],
+    [
+      "p",
+      "q"
+    ]
+  ],
+  "edges": [
+    [
+      "p",
+      "ghost"
+    ]
+  ],
+  "negations": [
+    "r"
+  ],
+  "nodes": [
+    "p",
+    "q",
+    "r",
+    "s",
+    "t"
+  ],
+  "query": "t",
+  "query_id": "jank-dangling.json",
+  "rules": [
+    {
+      "conclusion": "s",
+      "id": "R1",
+      "negated": [],
+      "premises": [
+        "p",
+        "q"
+      ]
+    },
+    {
+      "conclusion": "t",
+      "id": "R2",
+      "negated": [
+        "r"
+      ],
+      "premises": [
+        "s"
+      ]
+    }
+  ],
+  "secrets": [],
+  "variables": {
+    "p": true,
+    "q": true,
+    "r": false
+  }
+}

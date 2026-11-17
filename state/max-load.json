@@ -1,0 +1,102 @@
+{
+  "axioms": [
+    "q"
+  ],
+  "context": [
+    [
+      "p"
+    ],
+    [
+      "p",
+      "q"
+    ]
+  ],
+  "edges": [
+    [
+      "p",
+      "s"
+    ],
+    [
+      "s",
+      "t"
+    ],
+    [
+      "t",
+      "u"
+    ],
+    [
+      "u",
+      "v"
+    ],
+    [
+      "v",
+      "w"
+    ]
+  ],
+  "negations": [
+    "r"
+  ],
+  "nodes": [
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w"
+  ],
+  "query": "w",
+  "query_id": "max-load.json",
+  "rules": [
+    {
+      "conclusion": "s",
+      "id": "R1",
+      "negated": [],
+      "premises": [
+        "p",
+        "q"
+      ]
+    },
+    {
+      "conclusion": "t",
+      "id": "R2",
+      "negated": [
+        "r"
+      ],
+      "premises": [
+        "s"
+      ]
+    },
+    {
+      "conclusion": "u",
+      "id": "R3",
+      "negated": [],
+      "premises": [
+        "t"
+      ]
+    },
+    {
+      "conclusion": "v",
+      "id": "R4",
+      "negated": [],
+      "premises": [
+        "u"
+      ]
+    },
+    {
+      "conclusion": "w",
+      "id": "R5",
+      "negated": [],
+      "premises": [
+        "v"
+      ]
+    }
+  ],
+  "secrets": [],
+  "variables": {
+    "p": true,
+    "q": true,
+    "r": false
+  }
+}
