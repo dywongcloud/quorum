@@ -59,6 +59,7 @@ class Graph:
     clusters: dict[str, str]
     cluster_of: dict[str, str]
     edges: tuple[Edge, ...]
+    class_defs: tuple[str, ...] = ()
 
     def neighbours(self, node: str) -> list[dict[str, str]]:
         found: list[dict[str, str]] = []
@@ -85,6 +86,7 @@ def parse(path: pathlib.Path) -> Graph:
     clusters: dict[str, str] = {}
     cluster_of: dict[str, str] = {}
     edges: list[Edge] = []
+    class_defs: list[str] = []
     current = ""
     inside = False
     for line in text.splitlines():
@@ -117,7 +119,10 @@ def parse(path: pathlib.Path) -> Graph:
             edges.append(Edge(m.group(1), m.group(4), m.group(3),
                               "dotted" if m.group(2) == "-.->" else "solid"))
             continue
-        if line.strip().startswith("classDef") or line.strip().startswith("%%"):
+        if line.strip().startswith("classDef"):
+            class_defs.append(line.strip())
+            continue
+        if line.strip().startswith("%%"):
             continue
         if line.strip() in ("flowchart LR", ""):
             continue
@@ -125,7 +130,7 @@ def parse(path: pathlib.Path) -> Graph:
     for e in edges:
         if e.src not in labels or e.dst not in labels:
             raise ValueError(f"dangling edge {e.src} -> {e.dst}")
-    return Graph(labels, classes, clusters, cluster_of, tuple(edges))
+    return Graph(labels, classes, clusters, cluster_of, tuple(edges), tuple(class_defs))
 
 
 def check_dag(graph: Graph) -> dict[str, object]:
@@ -145,7 +150,7 @@ def check_dag(graph: Graph) -> dict[str, object]:
                 queue.append(nxt)
     acyclic = len(order) == len(graph.labels)
     return {
-        "acyclic": acyclic,
+        "acyclic": acyclic and bool(graph.labels) and bool(graph.edges),
         "node_count": len(graph.labels),
         "edge_count": len(graph.edges),
         "topological_order_size": len(order),
@@ -196,7 +201,7 @@ def frontier(graph: Graph, visited: list[str], priority_flags: dict[str, list[st
         if node not in graph.labels:
             continue
         for item in graph.neighbours(node):
-            key = (item["candidate"], item["via"], item["direction"])
+            key = (item["candidate"], item["via"], item["direction"], item["from"])
             if key in seen:
                 continue
             seen.add(key)
@@ -228,7 +233,7 @@ def rank(item: dict[str, str], flags: dict[str, list[str]]) -> str:
 
 
 def render(graph: Graph, visited: list[str]) -> str:
-    lines = ["```mermaid", "flowchart LR"]
+    lines = ["```mermaid", "flowchart LR", *graph.class_defs]
     for cluster, title in graph.clusters.items():
         lines.append(f'  subgraph {cluster}["{title}"]')
         for nid, label in graph.labels.items():
@@ -298,6 +303,10 @@ def main(argv: list[str]) -> int:
         print(json.dumps(roster(graph, args.mode), sort_keys=True))
         return 0
     visited = [v.strip() for v in args.visited.split(",") if v.strip()]
+    ghost = sorted({v for v in visited if v not in graph.labels})
+    if ghost and (args.frontier or args.render):
+        print(json.dumps({"code": "JANK_DETECTED", "reason":             "undefined-variable: visited " + ",".join(ghost)}, sort_keys=True))
+        return 1
     if args.frontier:
         flags = {k: [x.strip() for x in v.split(",") if x.strip()]
                  for k, v in (("andon", args.andon), ("reopened", args.reopened),

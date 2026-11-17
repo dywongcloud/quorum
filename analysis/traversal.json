@@ -1,5 +1,6 @@
 {
   "all_adjudicated": true,
+  "distinct_seed_candidates": 20,
   "dotted_counterpoint": {
     "from": "paxos",
     "label": "understandability counterpoint",
@@ -8,106 +9,873 @@
   "final_open_count": 0,
   "graph_digest": "de74c409d4b3355703985f9c37b755be891267a4f2f3b55fdc4d84894fce4960",
   "mode": "fail-closed",
+  "round_count": 17,
   "rounds": [
     {
       "deferred": [
         {
-          "candidate": "chubby",
-          "reason": "already discharged by the canon row"
-        },
-        {
           "candidate": "cockroach",
-          "reason": "counterpoint declined: its partner seat was not required in Fail-Closed mode"
+          "from": "raft",
+          "reason": "incoming solid edge via 'replicates via' from `raft`; priority incoming; assessed, not taken this round"
         },
         {
           "candidate": "etcd",
-          "reason": "incoming edge grounds an anchor already kept"
+          "from": "raft",
+          "reason": "incoming solid edge via 'uses' from `raft`; priority incoming; assessed, not taken this round"
+        },
+        {
+          "candidate": "lynchbook",
+          "from": "flp",
+          "reason": "incoming solid edge via 'proves' from `flp`; priority incoming; assessed, not taken this round"
+        },
+        {
+          "candidate": "megastore",
+          "from": "paxos",
+          "reason": "incoming solid edge via 'per-entity replication via' from `paxos`; priority incoming; assessed, not taken this round"
+        },
+        {
+          "candidate": "multipaxos",
+          "from": "raft",
+          "reason": "incoming solid edge via 'refines' from `raft`; priority incoming; assessed, not taken this round"
+        },
+        {
+          "candidate": "verdi",
+          "from": "raft",
+          "reason": "incoming solid edge via 'verifies' from `raft`; priority incoming; assessed, not taken this round"
+        },
+        {
+          "candidate": "flpbound",
+          "from": "flp",
+          "reason": "counterpoint dotted edge via 'bounds liveness of' from `flp`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "spanner",
+          "from": "dynamo",
+          "reason": "counterpoint dotted edge via 'CP counterpoint to AP in' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "cassandra",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "failuredetector",
+          "from": "flp",
+          "reason": "outgoing solid edge via 'motivates' from `flp`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "merkle",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "paxossimple",
+          "from": "paxos",
+          "reason": "outgoing solid edge via 'refines' from `paxos`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "raftlog",
+          "from": "raft",
+          "reason": "outgoing solid edge via 'refines' from `raft`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "riak",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "sloppyquorum",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "vectorclock",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
         }
       ],
       "frontier_open_count": 16,
       "round": 1,
-      "taken": "flp",
+      "taken": "chubby",
+      "taken_from": "paxos",
+      "taken_priority": "incoming",
+      "taken_via": "uses",
       "visited_count": 5
     },
     {
       "deferred": [
         {
+          "candidate": "etcd",
+          "from": "raft",
+          "reason": "incoming solid edge via 'uses' from `raft`; priority incoming; assessed, not taken this round"
+        },
+        {
+          "candidate": "lynchbook",
+          "from": "flp",
+          "reason": "incoming solid edge via 'proves' from `flp`; priority incoming; assessed, not taken this round"
+        },
+        {
           "candidate": "megastore",
-          "reason": "already discharged by the canon row"
+          "from": "paxos",
+          "reason": "incoming solid edge via 'per-entity replication via' from `paxos`; priority incoming; assessed, not taken this round"
         },
         {
           "candidate": "multipaxos",
-          "reason": "counterpoint declined: its partner seat was not required in Fail-Closed mode"
+          "from": "raft",
+          "reason": "incoming solid edge via 'refines' from `raft`; priority incoming; assessed, not taken this round"
         },
         {
           "candidate": "verdi",
-          "reason": "incoming edge grounds an anchor already kept"
+          "from": "raft",
+          "reason": "incoming solid edge via 'verifies' from `raft`; priority incoming; assessed, not taken this round"
+        },
+        {
+          "candidate": "flpbound",
+          "from": "flp",
+          "reason": "counterpoint dotted edge via 'bounds liveness of' from `flp`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "spanner",
+          "from": "dynamo",
+          "reason": "counterpoint dotted edge via 'CP counterpoint to AP in' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "cassandra",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "failuredetector",
+          "from": "flp",
+          "reason": "outgoing solid edge via 'motivates' from `flp`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "merkle",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "paxossimple",
+          "from": "paxos",
+          "reason": "outgoing solid edge via 'refines' from `paxos`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "raftlog",
+          "from": "raft",
+          "reason": "outgoing solid edge via 'refines' from `raft`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "riak",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "sloppyquorum",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "vectorclock",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
         }
       ],
-      "frontier_open_count": 12,
+      "frontier_open_count": 15,
       "round": 2,
-      "taken": "lynchbook",
+      "taken": "cockroach",
+      "taken_from": "raft",
+      "taken_priority": "incoming",
+      "taken_via": "replicates via",
       "visited_count": 6
     },
     {
       "deferred": [
         {
-          "candidate": "failuredetector",
-          "reason": "already discharged by the canon row"
+          "candidate": "lynchbook",
+          "from": "flp",
+          "reason": "incoming solid edge via 'proves' from `flp`; priority incoming; assessed, not taken this round"
+        },
+        {
+          "candidate": "megastore",
+          "from": "paxos",
+          "reason": "incoming solid edge via 'per-entity replication via' from `paxos`; priority incoming; assessed, not taken this round"
+        },
+        {
+          "candidate": "multipaxos",
+          "from": "raft",
+          "reason": "incoming solid edge via 'refines' from `raft`; priority incoming; assessed, not taken this round"
+        },
+        {
+          "candidate": "verdi",
+          "from": "raft",
+          "reason": "incoming solid edge via 'verifies' from `raft`; priority incoming; assessed, not taken this round"
         },
         {
           "candidate": "flpbound",
-          "reason": "counterpoint declined: its partner seat was not required in Fail-Closed mode"
+          "from": "flp",
+          "reason": "counterpoint dotted edge via 'bounds liveness of' from `flp`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "spanner",
+          "from": "dynamo",
+          "reason": "counterpoint dotted edge via 'CP counterpoint to AP in' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "cassandra",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "failuredetector",
+          "from": "flp",
+          "reason": "outgoing solid edge via 'motivates' from `flp`; priority outgoing; assessed, not taken this round"
         },
         {
           "candidate": "merkle",
-          "reason": "incoming edge grounds an anchor already kept"
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "paxossimple",
+          "from": "paxos",
+          "reason": "outgoing solid edge via 'refines' from `paxos`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "raftlog",
+          "from": "raft",
+          "reason": "outgoing solid edge via 'refines' from `raft`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "riak",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "sloppyquorum",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "vectorclock",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
         }
       ],
-      "frontier_open_count": 8,
+      "frontier_open_count": 14,
       "round": 3,
-      "taken": "cassandra",
+      "taken": "etcd",
+      "taken_from": "raft",
+      "taken_priority": "incoming",
+      "taken_via": "uses",
       "visited_count": 7
     },
     {
       "deferred": [
         {
-          "candidate": "paxossimple",
-          "reason": "already discharged by the canon row"
+          "candidate": "megastore",
+          "from": "paxos",
+          "reason": "incoming solid edge via 'per-entity replication via' from `paxos`; priority incoming; assessed, not taken this round"
         },
         {
-          "candidate": "raft",
-          "reason": "counterpoint declined: its partner seat was not required in Fail-Closed mode"
+          "candidate": "multipaxos",
+          "from": "raft",
+          "reason": "incoming solid edge via 'refines' from `raft`; priority incoming; assessed, not taken this round"
+        },
+        {
+          "candidate": "verdi",
+          "from": "raft",
+          "reason": "incoming solid edge via 'verifies' from `raft`; priority incoming; assessed, not taken this round"
+        },
+        {
+          "candidate": "flpbound",
+          "from": "flp",
+          "reason": "counterpoint dotted edge via 'bounds liveness of' from `flp`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "spanner",
+          "from": "dynamo",
+          "reason": "counterpoint dotted edge via 'CP counterpoint to AP in' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "cassandra",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "failuredetector",
+          "from": "flp",
+          "reason": "outgoing solid edge via 'motivates' from `flp`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "merkle",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "paxossimple",
+          "from": "paxos",
+          "reason": "outgoing solid edge via 'refines' from `paxos`; priority outgoing; assessed, not taken this round"
         },
         {
           "candidate": "raftlog",
-          "reason": "incoming edge grounds an anchor already kept"
+          "from": "raft",
+          "reason": "outgoing solid edge via 'refines' from `raft`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "riak",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "sloppyquorum",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "vectorclock",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
         }
       ],
-      "frontier_open_count": 4,
+      "frontier_open_count": 13,
       "round": 4,
-      "taken": "paxos",
+      "taken": "lynchbook",
+      "taken_from": "flp",
+      "taken_priority": "incoming",
+      "taken_via": "proves",
       "visited_count": 8
     },
     {
       "deferred": [
         {
-          "candidate": "sloppyquorum",
-          "reason": "already discharged by the canon row"
+          "candidate": "multipaxos",
+          "from": "raft",
+          "reason": "incoming solid edge via 'refines' from `raft`; priority incoming; assessed, not taken this round"
+        },
+        {
+          "candidate": "verdi",
+          "from": "raft",
+          "reason": "incoming solid edge via 'verifies' from `raft`; priority incoming; assessed, not taken this round"
+        },
+        {
+          "candidate": "flpbound",
+          "from": "flp",
+          "reason": "counterpoint dotted edge via 'bounds liveness of' from `flp`; priority outgoing; assessed, not taken this round"
         },
         {
           "candidate": "spanner",
-          "reason": "counterpoint declined: its partner seat was not required in Fail-Closed mode"
+          "from": "dynamo",
+          "reason": "counterpoint dotted edge via 'CP counterpoint to AP in' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "cassandra",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "failuredetector",
+          "from": "flp",
+          "reason": "outgoing solid edge via 'motivates' from `flp`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "merkle",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "paxossimple",
+          "from": "paxos",
+          "reason": "outgoing solid edge via 'refines' from `paxos`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "raftlog",
+          "from": "raft",
+          "reason": "outgoing solid edge via 'refines' from `raft`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "riak",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "sloppyquorum",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
         },
         {
           "candidate": "vectorclock",
-          "reason": "incoming edge grounds an anchor already kept"
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
         }
       ],
-      "frontier_open_count": 0,
+      "frontier_open_count": 12,
       "round": 5,
-      "taken": "riak",
+      "taken": "megastore",
+      "taken_from": "paxos",
+      "taken_priority": "incoming",
+      "taken_via": "per-entity replication via",
       "visited_count": 9
+    },
+    {
+      "deferred": [
+        {
+          "candidate": "verdi",
+          "from": "raft",
+          "reason": "incoming solid edge via 'verifies' from `raft`; priority incoming; assessed, not taken this round"
+        },
+        {
+          "candidate": "flpbound",
+          "from": "flp",
+          "reason": "counterpoint dotted edge via 'bounds liveness of' from `flp`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "spanner",
+          "from": "dynamo",
+          "reason": "counterpoint dotted edge via 'CP counterpoint to AP in' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "cassandra",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "failuredetector",
+          "from": "flp",
+          "reason": "outgoing solid edge via 'motivates' from `flp`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "merkle",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "paxossimple",
+          "from": "paxos",
+          "reason": "outgoing solid edge via 'refines' from `paxos`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "raftlog",
+          "from": "raft",
+          "reason": "outgoing solid edge via 'refines' from `raft`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "riak",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "sloppyquorum",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "vectorclock",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        }
+      ],
+      "frontier_open_count": 11,
+      "round": 6,
+      "taken": "multipaxos",
+      "taken_from": "raft",
+      "taken_priority": "incoming",
+      "taken_via": "refines",
+      "visited_count": 10
+    },
+    {
+      "deferred": [
+        {
+          "candidate": "verdi",
+          "from": "raft",
+          "reason": "incoming solid edge via 'verifies' from `raft`; priority incoming; assessed, not taken this round"
+        },
+        {
+          "candidate": "flpbound",
+          "from": "flp",
+          "reason": "counterpoint dotted edge via 'bounds liveness of' from `flp`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "spanner",
+          "from": "dynamo",
+          "reason": "counterpoint dotted edge via 'CP counterpoint to AP in' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "cassandra",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "failuredetector",
+          "from": "flp",
+          "reason": "outgoing solid edge via 'motivates' from `flp`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "merkle",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "raftlog",
+          "from": "raft",
+          "reason": "outgoing solid edge via 'refines' from `raft`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "riak",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "sloppyquorum",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "vectorclock",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        }
+      ],
+      "frontier_open_count": 10,
+      "round": 7,
+      "taken": "paxossimple",
+      "taken_from": "multipaxos",
+      "taken_priority": "incoming",
+      "taken_via": "refines",
+      "visited_count": 11
+    },
+    {
+      "deferred": [
+        {
+          "candidate": "flpbound",
+          "from": "flp",
+          "reason": "counterpoint dotted edge via 'bounds liveness of' from `flp`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "spanner",
+          "from": "dynamo",
+          "reason": "counterpoint dotted edge via 'CP counterpoint to AP in' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "cassandra",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "failuredetector",
+          "from": "flp",
+          "reason": "outgoing solid edge via 'motivates' from `flp`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "merkle",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "raftlog",
+          "from": "raft",
+          "reason": "outgoing solid edge via 'refines' from `raft`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "riak",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "sloppyquorum",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "vectorclock",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        }
+      ],
+      "frontier_open_count": 9,
+      "round": 8,
+      "taken": "verdi",
+      "taken_from": "raft",
+      "taken_priority": "incoming",
+      "taken_via": "verifies",
+      "visited_count": 12
+    },
+    {
+      "deferred": [
+        {
+          "candidate": "spanner",
+          "from": "dynamo",
+          "reason": "counterpoint dotted edge via 'CP counterpoint to AP in' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "cassandra",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "failuredetector",
+          "from": "flp",
+          "reason": "outgoing solid edge via 'motivates' from `flp`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "merkle",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "raftlog",
+          "from": "raft",
+          "reason": "outgoing solid edge via 'refines' from `raft`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "riak",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "sloppyquorum",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "vectorclock",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        }
+      ],
+      "frontier_open_count": 8,
+      "round": 9,
+      "taken": "flpbound",
+      "taken_from": "flp",
+      "taken_priority": "outgoing",
+      "taken_via": "bounds liveness of",
+      "visited_count": 13
+    },
+    {
+      "deferred": [
+        {
+          "candidate": "cassandra",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "failuredetector",
+          "from": "flp",
+          "reason": "outgoing solid edge via 'motivates' from `flp`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "merkle",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "raftlog",
+          "from": "raft",
+          "reason": "outgoing solid edge via 'refines' from `raft`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "riak",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "sloppyquorum",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "vectorclock",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        }
+      ],
+      "frontier_open_count": 7,
+      "round": 10,
+      "taken": "spanner",
+      "taken_from": "dynamo",
+      "taken_priority": "outgoing",
+      "taken_via": "CP counterpoint to AP in",
+      "visited_count": 14
+    },
+    {
+      "deferred": [
+        {
+          "candidate": "failuredetector",
+          "from": "flp",
+          "reason": "outgoing solid edge via 'motivates' from `flp`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "merkle",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "raftlog",
+          "from": "raft",
+          "reason": "outgoing solid edge via 'refines' from `raft`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "riak",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "sloppyquorum",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "vectorclock",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        }
+      ],
+      "frontier_open_count": 6,
+      "round": 11,
+      "taken": "cassandra",
+      "taken_from": "dynamo",
+      "taken_priority": "outgoing",
+      "taken_via": "inspires",
+      "visited_count": 15
+    },
+    {
+      "deferred": [
+        {
+          "candidate": "merkle",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "raftlog",
+          "from": "raft",
+          "reason": "outgoing solid edge via 'refines' from `raft`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "riak",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "sloppyquorum",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "vectorclock",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        }
+      ],
+      "frontier_open_count": 5,
+      "round": 12,
+      "taken": "failuredetector",
+      "taken_from": "flp",
+      "taken_priority": "outgoing",
+      "taken_via": "motivates",
+      "visited_count": 16
+    },
+    {
+      "deferred": [
+        {
+          "candidate": "raftlog",
+          "from": "raft",
+          "reason": "outgoing solid edge via 'refines' from `raft`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "riak",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "sloppyquorum",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "vectorclock",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        }
+      ],
+      "frontier_open_count": 4,
+      "round": 13,
+      "taken": "merkle",
+      "taken_from": "dynamo",
+      "taken_priority": "outgoing",
+      "taken_via": "introduced",
+      "visited_count": 17
+    },
+    {
+      "deferred": [
+        {
+          "candidate": "riak",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'inspires' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "sloppyquorum",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "vectorclock",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        }
+      ],
+      "frontier_open_count": 3,
+      "round": 14,
+      "taken": "raftlog",
+      "taken_from": "raft",
+      "taken_priority": "outgoing",
+      "taken_via": "refines",
+      "visited_count": 18
+    },
+    {
+      "deferred": [
+        {
+          "candidate": "sloppyquorum",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        },
+        {
+          "candidate": "vectorclock",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        }
+      ],
+      "frontier_open_count": 2,
+      "round": 15,
+      "taken": "riak",
+      "taken_from": "dynamo",
+      "taken_priority": "outgoing",
+      "taken_via": "inspires",
+      "visited_count": 19
+    },
+    {
+      "deferred": [
+        {
+          "candidate": "vectorclock",
+          "from": "dynamo",
+          "reason": "outgoing solid edge via 'introduced' from `dynamo`; priority outgoing; assessed, not taken this round"
+        }
+      ],
+      "frontier_open_count": 1,
+      "round": 16,
+      "taken": "sloppyquorum",
+      "taken_from": "dynamo",
+      "taken_priority": "outgoing",
+      "taken_via": "introduced",
+      "visited_count": 20
+    },
+    {
+      "deferred": [],
+      "frontier_open_count": 0,
+      "round": 17,
+      "taken": "vectorclock",
+      "taken_from": "dynamo",
+      "taken_priority": "outgoing",
+      "taken_via": "introduced",
+      "visited_count": 21
     }
   ],
   "seed": [
@@ -116,5 +884,5 @@
     "raft",
     "dynamo"
   ],
-  "seed_frontier_candidates": 20
+  "seed_frontier_candidates": 23
 }

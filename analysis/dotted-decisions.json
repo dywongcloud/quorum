@@ -1,0 +1,42 @@
+{
+  "applied": 1,
+  "condition": "S5",
+  "declined": 3,
+  "dotted_edges_from_visited": 4,
+  "rows": [
+    {
+      "decision": "DECLINED",
+      "from": "flp",
+      "label": "bounds liveness of",
+      "reason": "source `flp` visited with ledger verdict KEEP; counterpoint 'bounds liveness of' to `flpbound` recorded as assessed, not adopted in Fail-Closed mode",
+      "source_verdict": "KEEP",
+      "to": "flpbound"
+    },
+    {
+      "decision": "APPLIED",
+      "from": "paxos",
+      "label": "understandability counterpoint",
+      "reason": "source `paxos` visited with ledger verdict KEEP; counterpoint 'understandability counterpoint' to `raft` carried into the understandability counterpoint",
+      "source_verdict": "KEEP",
+      "to": "raft"
+    },
+    {
+      "decision": "DECLINED",
+      "from": "spanner",
+      "label": "CP counterpoint to AP in",
+      "reason": "source `spanner` visited with ledger verdict DEFERRED; counterpoint 'CP counterpoint to AP in' to `dynamo` recorded as assessed, not adopted in Fail-Closed mode",
+      "source_verdict": "DEFERRED",
+      "to": "dynamo"
+    },
+    {
+      "decision": "DECLINED",
+      "from": "chubby",
+      "label": "coordination assumption refused by",
+      "reason": "source `chubby` visited with ledger verdict DEFERRED; counterpoint 'coordination assumption refused by' to `localfirst` recorded as assessed, not adopted in Fail-Closed mode",
+      "source_verdict": "DEFERRED",
+      "to": "localfirst"
+    }
+  ],
+  "undecided": 0,
+  "visited_anchors": 21
+}

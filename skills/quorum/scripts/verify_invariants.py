@@ -23,9 +23,12 @@ import re
 import subprocess
 import sys
 
-ROOT = pathlib.Path(__file__).resolve().parents[3]
-SCRIPTS = ROOT / "skills" / "quorum" / "scripts"
-REFS = ROOT / "skills" / "quorum" / "references"
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import quorum_paths  # noqa: E402
+
+ROOT = quorum_paths.data_root()
+SCRIPTS = quorum_paths.skill_dir() / "scripts"
+REFS = quorum_paths.skill_dir() / "references"
 GRAPH = REFS / "anchor-graph.md"
 LOG = ROOT / "QUORUM-LOG.md"
 WEB = ROOT / "web" / "index.html"
@@ -177,8 +180,10 @@ def check_A12() -> tuple[str, object]:
 def check_A13() -> tuple[str, object]:
     files = source_files()
     bad = [p.name for p in files if "\t" in read(p) or not read(p).startswith('"""')]
-    ok = not bad and len(files) >= 6
-    return ("PASS" if ok else "FAIL", {"source_files": len(files), "style_violations": bad})
+    schemes = type_schemes()
+    ok = not bad and len(files) >= 6 and schemes["bindings"] > 0
+    return ("PASS" if ok else "FAIL", {"source_files": len(files), "style_violations": bad,
+                                       "principal_schemes": schemes["bindings"]})
 
 
 def check_A14() -> tuple[str, object]:
@@ -203,7 +208,11 @@ def check_A16() -> tuple[str, object]:
         match = re.search(rf"^def {name}\(.*?\):\n(.*?)(?=^def |\Z)", text, flags=re.MULTILINE | re.DOTALL)
         if match and any(t in match.group(1) for t in IO_TOKENS):
             violations.append(name)
-    return ("PASS" if not violations else "FAIL", {"io_in_pure_core": violations})
+    term = proof_term("A16")
+    ok = not violations and term["discharged"]
+    return ("PASS" if ok else "FAIL", {"io_in_pure_core": violations,
+                                       "proof_term_discharged": term["discharged"],
+                                       "proof_type": term["type"]})
 
 
 def check_A17() -> tuple[str, object]:
@@ -212,13 +221,23 @@ def check_A17() -> tuple[str, object]:
 
 
 def check_A18() -> tuple[str, object]:
-    canon = read(REFS / "canon.md")
-    rows = re.findall(r"^\| (.+?) \| (.+?) \| (.+?) \|$", canon, flags=re.MULTILINE)
-    data = [r for r in rows if r[0] not in ("Label", "---", "Quantity")]
-    cited = [r for r in data if "http" in r[1] or "local:" in r[1] or "chapter" in r[1].lower()]
-    empty = [r[0] for r in data if not r[2].strip()]
-    ok = len(cited) >= 40 and not empty
-    return ("PASS" if ok else "FAIL", {"provenance_rows": len(cited), "empty_provenance": empty[:5]})
+    completed = subprocess.run(
+        [PYTHON, "-I", str(ROOT / "scripts" / "validate_canon.py")],
+        capture_output=True, text=True, cwd=str(ROOT), timeout=120,
+    )
+    payload = json_or_none(completed.stdout.strip())
+    ok = (completed.returncode == 0 and payload.get("ok") is True
+          and payload.get("provenance_rows") == payload.get("nodes")
+          and not payload.get("uncovered_labels")
+          and payload.get("canon_labels_bound_to_graph", 0) > 0)
+    return ("PASS" if ok else "FAIL", {
+        "provenance_rows": payload.get("provenance_rows"),
+        "graph_nodes": payload.get("nodes"),
+        "cited_anchors": payload.get("provenance_cited"),
+        "derived_terms": payload.get("provenance_derived"),
+        "uncovered_labels": payload.get("uncovered_labels", []),
+        "canon_labels_bound_to_graph": payload.get("canon_labels_bound_to_graph"),
+    })
 
 
 def check_A19() -> tuple[str, object]:
@@ -229,24 +248,22 @@ def check_A19() -> tuple[str, object]:
 
 
 def check_A20() -> tuple[str, object]:
-    prd = ROOT / ".gm" / "prd"
-    files = sorted(prd.glob("*.yml")) if prd.exists() else []
-    named = [p.name for p in files if re.search(r"^session_id:\s*\S+", read(p), flags=re.MULTILINE)]
-    log = ROOT / ".gm" / "prd-log.jsonl"
-    resolved = 0
-    if log.exists():
-        for line in log.read_text(encoding="utf-8").splitlines():
-            try:
-                if json.loads(line).get("id", "").startswith("quorum-"):
-                    resolved += 1
-            except ValueError:
-                continue
+    ledger_path = ROOT / "analysis" / "decision-ledger.json"
+    try:
+        ledger = json.loads(ledger_path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return ("FAIL", {"fault": "JANK_DETECTED", "reason": "decision-ledger.json unmapped"})
+    rows = ledger.get("rows", [])
+    named = [r["id"] for r in rows if r.get("complete") and r.get("obligations")]
     panel = ROOT / "panel"
     verdicts = sorted(panel.glob("R*/*.md")) if panel.exists() else []
     paths = [p.relative_to(panel).as_posix() for p in verdicts]
-    ok = len(named) == len(files) and len(paths) == len(set(paths)) and len(verdicts) >= 10 and resolved >= 10
-    return ("PASS" if ok else "FAIL", {"open_prd_rows": len(files), "owned": len(named),
-                                       "resolved_log_rows": resolved, "panel_verdict_files": len(verdicts)})
+    ok = (len(rows) >= 10 and len(named) == len(rows)
+          and len(paths) == len(set(paths)) and len(verdicts) >= 10)
+    return ("PASS" if ok else "FAIL", {"decision_rows": len(rows),
+                                       "complete_rows": len(named),
+                                       "incomplete_rows": [r["id"] for r in rows if not r.get("complete")],
+                                       "panel_verdict_files": len(verdicts)})
 
 
 def check_A21() -> tuple[str, object]:
@@ -274,7 +291,12 @@ def check_A24() -> tuple[str, object]:
     codes = ("JANK_DETECTED", "STATE_UNMAPPED", "SELF_REJECTED", "IO_FAULT")
     declared = all(c in taxonomy for c in codes) and "engine-internal" in taxonomy and not any(b in text for b in BARE)
     raw = read(ROOT / "state" / "clean.json")
-    malformed = json.loads(raw)
+    if not raw.strip():
+        return ("FAIL", {"code": "JANK_DETECTED", "reason": "state/clean.json unmapped"})
+    try:
+        malformed = json.loads(raw)
+    except ValueError:
+        return ("FAIL", {"code": "JANK_DETECTED", "reason": "state/clean.json structural-decay"})
     malformed["rules"] = None
     mermaid = "```mermaid\nflowchart LR\n  %% comment\n  a[\"A\"]:::x\n```"
     probes = [
@@ -387,7 +409,11 @@ def main(argv: list[str]) -> int:
     rows = []
     for key in selected:
         status, measured = CHECKS[key]()
-        rows.append({"axiom": key, "status": status, "measured": measured})
+        rows.append({
+            "axiom": key, "status": status, "measured": measured,
+            "command": f"python3 -I skills/quorum/scripts/verify_invariants.py --axiom {key}",
+            "witness": hashlib.sha256(json.dumps(measured, sort_keys=True).encode("utf-8")).hexdigest()[:16],
+        })
     if args.digest:
         print(json.dumps({
             "axiom_count": len(rows),
@@ -395,9 +421,21 @@ def main(argv: list[str]) -> int:
             "digest": hashlib.sha256(json.dumps(rows, sort_keys=True).encode("utf-8")).hexdigest(),
         }, sort_keys=True))
         return 0 if all(r["status"] == "PASS" for r in rows) else 1
+    clean = all(r["status"] == "PASS" for r in rows)
     for row in rows:
         print(json.dumps(row, sort_keys=True))
-    return 0 if all(r["status"] == "PASS" for r in rows) else 1
+    if args.all:
+        proof = proof_term("A16")
+        schemes = type_schemes()
+        supplement_ok = proof["discharged"] and schemes["bindings"] > 0
+        print(json.dumps({"axiom": "SUPPLEMENTS", "status": "PASS" if supplement_ok else "FAIL",
+                          "measured": {"proof_discharged": proof["discharged"],
+                                       "proof_type": proof["type"],
+                                       "principal_schemes": schemes["bindings"],
+                                       "unification": schemes["unification"]}}, sort_keys=True))
+    else:
+        supplement_ok = True
+    return 0 if clean and supplement_ok else 1
 
 
 if __name__ == "__main__":

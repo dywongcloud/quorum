@@ -28,6 +28,26 @@ def run(script: str, *args: str) -> dict:
     return json.loads(completed.stdout.strip())
 
 
+def hero_figures(html: str) -> dict[str, int]:
+    svg = re.search(r'<svg\b.*?</svg>', html, flags=re.DOTALL)
+    block = svg.group(0) if svg else ""
+    link_group = re.search(r'<g class="link".*?</g>', block, flags=re.DOTALL)
+    links = link_group.group(0) if link_group else ""
+    solid = 0
+    broken = 0
+    for tag in re.findall(r"<path\b[^>]*>", links):
+        match = re.search(r'\bd="([^"]+)"', tag)
+        if not match:
+            continue
+        count = len(re.findall(r"M\s*-?\d", match.group(1)))
+        if 'class="broken"' in tag:
+            broken += count
+        else:
+            solid += count
+    return {"hero_nodes": len(re.findall(r"<circle\b", block)),
+            "hero_solid_links": solid, "hero_broken_links": broken}
+
+
 def figures() -> dict[str, int]:
     counts = run("graph_walk.py", "--counts")
     roster = run("graph_walk.py", "--roster", "--mode", "fail-closed")
@@ -39,7 +59,8 @@ def figures() -> dict[str, int]:
     ledger = pathlib.Path(SCRIPTS.parent / "references" / "fault-taxonomy.md").read_text(encoding="utf-8")
     fault_codes = len(set(re.findall(r"\[FAULT: ([A-Z_]+)\]", ledger)))
     panel = ROOT / "panel"
-    verdicts = len(list(panel.glob("R*/*.md"))) if panel.exists() else 0
+    verdicts = sum(len(list((panel / name).glob("*.md")))
+                   for name in ("R1", "R2", "R3")) if panel.exists() else 0
     return {
         "nodes": counts["nodes"],
         "edges": counts["edges"],
@@ -55,6 +76,7 @@ def figures() -> dict[str, int]:
         "selftest_cases": len(selftest["cases"]),
         "assignment_count": enumerated["assignment_count"],
         "panel_verdicts": verdicts,
+        **hero_figures(WEB.read_text(encoding="utf-8")),
     }
 
 

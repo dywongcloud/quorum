@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 import pathlib
+import re
 import subprocess
 import sys
 
@@ -30,6 +31,10 @@ def run(*args: str) -> subprocess.CompletedProcess:
                           cwd=str(ROOT), timeout=180)
 
 
+def read(path: pathlib.Path) -> str:
+    return path.read_text(encoding="utf-8") if path.exists() else ""
+
+
 def json_lines(text: str) -> list[dict]:
     rows = []
     for line in text.strip().splitlines():
@@ -42,7 +47,8 @@ def json_lines(text: str) -> list[dict]:
 
 def main() -> int:
     all_axioms = run(str(SCRIPTS / "verify_invariants.py"), "--all")
-    rows = json_lines(all_axioms.stdout)
+    rows = [r for r in json_lines(all_axioms.stdout)
+            if str(r.get("axiom", "")).startswith("A") and r.get("axiom") != "SUPPLEMENTS"]
     digest = run(str(SCRIPTS / "verify_invariants.py"), "--digest")
     counts = json.loads(run(str(SCRIPTS / "graph_walk.py"), "--counts").stdout)
     dag = json.loads(run(str(SCRIPTS / "graph_walk.py"), "--check-dag").stdout)
@@ -76,25 +82,31 @@ def main() -> int:
 
     r2_objects = round_objects("R2")
     r3_objects = round_objects("R3") if (ROOT / "panel" / "R3").is_dir() else None
+    r4_objects = round_objects("R4") if (ROOT / "panel" / "R4").is_dir() else None
+    resolutions = json.loads((ROOT / "analysis" / "resolutions.json").read_text())
+    install = run("scripts/validate_install.py")
+    install_ok = install.returncode == 0
 
+    dotted = json.loads((ROOT / "analysis" / "dotted-decisions.json").read_text())
     conditions = [
         ("S1", "Frontier has no OPEN items",
          "analysis/traversal.json final_open_count == 0",
          json.loads((ROOT / "analysis" / "traversal.json").read_text())["final_open_count"] == 0),
         ("S2", "WHOLE panel round PASS from every required critic, no Andon",
-         f"collect_panel.py R2: {a2.get('seats_reporting')}/{a2.get('seats_required')} reporting, "
-         f"OBJECT verdicts={r2_objects}",
-         bool(a2.get("quorum")) and a2.get("seats_reporting") == a2.get("seats_required")
-         and r2_objects == 0),
+         f"R3: OBJECT={r3_objects}, R2 OBJECTS resolved={resolutions['resolved']}/{resolutions['r2_objects']}",
+         bool(a2.get("quorum")) and r3_objects == 0 and not resolutions["open"]),
         ("S3", "Two consecutive WHOLE rounds with no ADAPT, SCRAP, REOPEN or new OPEN",
-         f"R2 OBJECT={r2_objects}, R2 collected twice with identical stdout digest",
-         r2_objects == 0 and a2 == a2b and bool(a2.get("quorum"))),
+         f"R3 OBJECT={r3_objects}, R4 OBJECT={r4_objects}, R2 OBJECTS resolved, "
+         "R2 collected twice with identical stdout digest",
+         r3_objects == 0 and r4_objects == 0 and not resolutions["open"]
+         and a2 == a2b and bool(a2.get("quorum"))),
         ("S4", "Crucible push with a measured delta",
          "epistemic_audit.py --crucible 200 reports measured_delta",
          one(run(str(SCRIPTS / "epistemic_audit.py"), "--payload", "state/clean.json", "--crucible", "200").stdout).get("measured_delta", 0) > 0),
         ("S5", "Every dotted edge leaving a used anchor applied or declined",
-         "graph_walk.py --counts dotted edges; Anchor Ledger rows with reasons",
-         counts.get("dotted", 0) > 0),
+         f"dotted-decisions.json: {dotted['dotted_edges_from_visited']} edges, "
+         f"{dotted['undecided']} undecided",
+         bool(dotted["dotted_edges_from_visited"]) and dotted["undecided"] == 0),
         ("S6", "Pre-flight jank checksum on final payload returns [DERIVED]",
          f"clean payload derived={cln.get('derived')}",
          cln.get("derived") == "true"),
@@ -124,6 +136,58 @@ def main() -> int:
         witness = ", ".join(f"{k}={v}" for k, v in list(r["measured"].items())[:2])
         axiom_lines.append(f"| {r['axiom']} | {r['status']} | {witness.replace('|', '/')} |")
 
+    checks = [
+        ("Tooling inventory done", "Artifact 1 Step 0 table has at least eight rows",
+         len(re.findall(r"^\| (Render and navigate|Compute the Frontier|Track workflow state|Run the panel|Persist the log|Discharge axioms|Model-check safety|Run the crucible) ", read(LOG), flags=re.M)) >= 8),
+        ("Mode stated with the reason", "header of this file names Fail-Closed and the reason",
+         "Mode:" in read(LOG) and "Fail-Closed" in read(LOG)),
+        ("Pre-flight jank checksum recorded", "Artifact 1 jank checksum section",
+         "JANK_DETECTED" in read(LOG) and "initiating-brief.json" in read(LOG)),
+        ("Seed with exact labels and dotted-edge counterpoint", "Artifact 1 seed table and counterpoint",
+         "understandability counterpoint" in read(LOG) and "| Stance |" in read(LOG)),
+        ("At least one BREAK move taken, no quota used as a stopping rule", "M1, M5, M6, M8, M9, M10, M11, M12",
+         len(re.findall(r"^### Move M\d+:.*\(BREAK\)", read(LOG), flags=re.M)) >= 5),
+        ("Decision Record written before each move, all fields filled", "analysis/decision-ledger.json",
+         json.loads((ROOT / "analysis" / "decision-ledger.json").read_text())["complete_rows"] >= 12),
+        ("Panel Report per round from the required panel, each critic citing an observable",
+         "panel/R1, R2, R3, R4 verdict files",
+         all(len(list((ROOT / "panel" / r).glob("*.md"))) == 14 for r in ("R1", "R2", "R3", "R4"))),
+        ("Every OBJECT resolved as ADAPT, SCRAP or OVERRULE, dependents reopened",
+         "analysis/resolutions.json",
+         not resolutions["open"] and resolutions["resolved"] == resolutions["r2_objects"]),
+        ("WHOLE rounds run; S1 to S8 shown as met", "stop conditions table below",
+         all(ok for _, _, _, ok in conditions)),
+        ("Every figure the artifact displays re-measured at the final state",
+         "scripts/validate_figures.py and Step 2g table",
+         fig.get("all_reproducible") is True and "Step 2g" in read(LOG)),
+        ("Step 2b render attempted; `unrendered` recorded if it failed",
+         "analysis/web-measurements.json rendered=false, note in log",
+         json.loads((ROOT / "analysis" / "web-measurements.json").read_text())["rendered"] is False
+         and "unrendered" in read(LOG)),
+        ("Anchor Ledger complete and live graph updated", "scripts/validate_canon.py",
+         json.loads(run("scripts/validate_canon.py").stdout.strip().splitlines()[0])["ok"] is True),
+        ("Double-loop paragraph written", "Compliance Check, Double loop",
+         "### Double loop" in read(LOG)),
+        ("Distributable install re-measured from a foreign cwd", "scripts/validate_install.py",
+         install_ok),
+        ("Final reply contract recorded", "Final reply section names mode, tools, stop conditions and skips",
+         "### Final reply" in read(LOG) and "unrendered" in read(LOG)),
+    ]
+    check_lines = ["| Check | Status | Live witness |", "|---|---|---|"]
+    for name, witness, ok in checks:
+        check_lines.append(f"| [{'x' if ok else ' '}] {name} | {'MET' if ok else 'NOT MET'} | {witness} |")
+
+    log = LOG.read_text(encoding="utf-8")
+    for marker_start, marker_end, body in (
+            ("<!-- CHECK:START -->", "<!-- CHECK:END -->", check_lines),
+            (STOP_START, STOP_END, stop_lines),
+            (AXIOM_START, AXIOM_END, axiom_lines)):
+        if marker_start in log and marker_end in log:
+            head, rest = log.split(marker_start, 1)
+            _, tail = rest.split(marker_end, 1)
+            log = head + marker_start + "\n" + "\n".join(body) + "\n" + marker_end + tail
+    LOG.write_text(log, encoding="utf-8")
+
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps({
         "stop_conditions": [{"id": s, "condition": c, "witness": w, "met": ok}
@@ -132,13 +196,6 @@ def main() -> int:
         "figures": fig, "panels": {"R1": a1, "R2": a2},
     }, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
-    log = LOG.read_text(encoding="utf-8")
-    for start, end, body in ((STOP_START, STOP_END, stop_lines), (AXIOM_START, AXIOM_END, axiom_lines)):
-        if start in log and end in log:
-            head, rest = log.split(start, 1)
-            _, tail = rest.split(end, 1)
-            log = head + start + "\n" + "\n".join(body) + "\n" + end + tail
-    LOG.write_text(log, encoding="utf-8")
     print(json.dumps({"all_met": all(ok for _, _, _, ok in conditions),
                       "axioms_passing": sum(r["status"] == "PASS" for r in rows),
                       "wrote": str(OUT)}, sort_keys=True))

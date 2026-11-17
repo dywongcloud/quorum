@@ -52,6 +52,7 @@ class State:
     context: tuple[tuple[str, ...], ...]
     secrets: tuple[str, ...]
     query_id: str
+    category_conflicts: tuple[tuple[str, str], ...]
 
 
 @dataclass(frozen=True)
@@ -70,6 +71,7 @@ class Derived:
     state_digest: str
     context_digest: str
     faults_cleared: tuple[str, ...]
+    emitted_at: str | None = None
 
 
 def digest(value: Any) -> str:
@@ -84,6 +86,7 @@ def state_digest(state: State) -> str:
         state.query, list(state.axioms), list(state.negations),
         list(state.nodes), [list(e) for e in state.edges],
         [list(c) for c in state.context], list(state.secrets),
+        [list(x) for x in state.category_conflicts],
     ])
 
 
@@ -105,6 +108,8 @@ def derived_record(d: Derived) -> dict[str, Any]:
         "state_digest": d.state_digest,
         "context_digest": d.context_digest,
         "faults_cleared": list(d.faults_cleared),
+        "derivation": "sat" if d.result else "unsat",
+        **({"emitted_at": d.emitted_at} if d.emitted_at is not None else {}),
     }
 
 
@@ -142,6 +147,14 @@ def parse_state(raw: Any) -> tuple[State | None, Fault | None]:
             return None, Fault("JANK_DETECTED", f"category-error: {key} is not a string array", qid, digest(raw))
     if not isinstance(raw["query"], str):
         return None, Fault("JANK_DETECTED", "category-error: query is not a string", qid, digest(raw))
+    conflicts: list[tuple[str, str]] = []
+    raw_conflicts = raw.get("category_conflicts", [])
+    if not isinstance(raw_conflicts, list):
+        return None, Fault("JANK_DETECTED", "category-error: category_conflicts is not an array", qid, digest(raw))
+    for pair in raw_conflicts:
+        if not isinstance(pair, list) or len(pair) != 2 or not all(isinstance(x, str) for x in pair):
+            return None, Fault("JANK_DETECTED", "category-error: conflict is not a pair of symbols", qid, digest(raw))
+        conflicts.append((pair[0], pair[1]))
     edges: list[tuple[str, str]] = []
     for pair in raw["edges"]:
         if not isinstance(pair, list) or len(pair) != 2 or not all(isinstance(x, str) for x in pair):
@@ -163,6 +176,7 @@ def parse_state(raw: Any) -> tuple[State | None, Fault | None]:
         context=tuple(context),
         secrets=tuple(raw["secrets"]),
         query_id=qid,
+        category_conflicts=tuple(conflicts),
     )
     return state, None
 
@@ -204,13 +218,24 @@ def jank_checksum(state: State) -> Fault | None:
         if not current.issuperset(previous):
             return Fault("JANK_DETECTED", f"structural-decay: context frame {index} loses prior state", qid, state_digest(state))
         previous = current
+    ast_strings = [state.query, state.query_id, *state.nodes, *state.axioms,
+                   *state.negations, *(r.id for r in state.rules),
+                   *(r.conclusion for r in state.rules),
+                   *(p for r in state.rules for p in r.premises + r.negated),
+                   *(x for frame in state.context for x in frame)]
     for secret in state.secrets:
-        if secret in node_set or secret in values:
+        if any(secret and secret in x for x in ast_strings):
             return Fault("JANK_DETECTED", "category-error: secret appears in AST", qid, state_digest(state))
-    blob = json.dumps([list(state.nodes), list(state.axioms), list(state.negations)], ensure_ascii=True)
+    blob = json.dumps(ast_strings, ensure_ascii=True)
     for marker in TRUNCATION_MARKERS:
         if marker in blob:
             return Fault("JANK_DETECTED", f"structural-decay: truncation marker {marker}", qid, state_digest(state))
+    for left, right in state.category_conflicts:
+        if values.get(left) is True and values.get(right) is True:
+            return Fault("JANK_DETECTED", f"logical-contradiction: category conflict {left} / {right}", qid, state_digest(state))
+    for name in tuple(state.axioms) + tuple(state.negations):
+        if name not in declared:
+            return Fault("JANK_DETECTED", f"undefined-variable: {name} has no declaration", qid, state_digest(state))
     return None
 
 
@@ -218,9 +243,6 @@ def mapping_check(state: State) -> Fault | None:
     declared = {n for n, _ in state.variables} | {r.conclusion for r in state.rules} | set(state.nodes)
     if state.query not in declared:
         return Fault("STATE_UNMAPPED", f"missing variable or axiom: {state.query}", state.query_id, state_digest(state))
-    for name in tuple(state.axioms) + tuple(state.negations):
-        if name not in declared:
-            return Fault("STATE_UNMAPPED", f"missing variable or axiom: {name}", state.query_id, state_digest(state))
     return None
 
 
@@ -244,9 +266,11 @@ def derive(state: State) -> tuple[Derived | None, Fault | None]:
                 chain.append(rule.id)
                 changed = True
     result = state.query in derived_set or values.get(state.query) is True
-    for rule in state.rules:
-        if rule.id not in chain and rule.conclusion == state.query and result:
-            return None, Fault("SELF_REJECTED", f"logical-leap: {state.query} asserted without rule {rule.id}", state.query_id, state_digest(state))
+    witnessed = (state.query in state.axioms
+                 or values.get(state.query) is True
+                 or any(r.conclusion == state.query and r.id in chain for r in state.rules))
+    if result and not witnessed:
+        return None, Fault("SELF_REJECTED", f"logical-leap: {state.query} in derived set without an axiom or rule witness", state.query_id, state_digest(state))
     if any(not isinstance(value, bool) for value in values.values()):
         return None, Fault("SELF_REJECTED", "probabilistic-guessing: non-boolean valuation", state.query_id, state_digest(state))
     return Derived(
@@ -255,7 +279,7 @@ def derive(state: State) -> tuple[Derived | None, Fault | None]:
         chain=tuple(chain),
         state_digest=state_digest(state),
         context_digest=digest([list(c) for c in state.context]),
-        faults_cleared=("JANK_DETECTED", "STATE_UNMAPPED", "SELF_REJECTED", "IO_FAULT"),
+        faults_cleared=("JANK_DETECTED", "STATE_UNMAPPED", "SELF_REJECTED", "IO_FAULT") if result else (),
     ), None
 
 
@@ -270,6 +294,8 @@ def audit(state: State) -> dict[str, Any]:
     if outcome is None:
         return fault_record(Fault("SELF_REJECTED", "derivation produced no result", state.query_id, state_digest(state)))
     record = derived_record(outcome)
+    if not outcome.result:
+        record["faults_cleared"] = []
     text = json.dumps(record, sort_keys=True).lower()
     for hedge in HEDGES:
         if hedge in text:
@@ -554,6 +580,12 @@ def main(argv: list[str]) -> int:
         print(json.dumps(fault_record(Fault("IO_FAULT", "no payload path supplied", "unbound", digest(None))), sort_keys=True))
         return 1
     path = pathlib.Path(args.payload)
+    if not path.is_absolute() and not path.exists():
+        sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+        import quorum_paths
+        fallback = quorum_paths.data_root() / path
+        if fallback.exists():
+            path = fallback
     try:
         raw = load_payload(path)
     except (OSError, ValueError) as exc:
@@ -579,12 +611,19 @@ def main(argv: list[str]) -> int:
     first = audit(state)
     if args.replay:
         second = audit(state)
+        replay_stable = digest(first) == digest(second)
+        composition_stable = state_digest(apply(apply(state))) == state_digest(apply(state))
         result = {
-            "replay": "idempotent" if digest(first) == digest(second) else "non-idempotent",
+            "replay": "idempotent" if replay_stable else "non-idempotent",
             "first_digest": digest(first),
             "second_digest": digest(second),
-            "composition": "f(f(x)) = f(x)" if state_digest(apply(apply(state))) == state_digest(apply(state)) else "composition-diverges",
+            "composition": "f(f(x)) = f(x)" if composition_stable else "composition-diverges",
         }
+        if not replay_stable or not composition_stable:
+            print(json.dumps(fault_record(Fault(
+                "SELF_REJECTED", "non-idempotent-replay", state.query_id, state_digest(state)
+            )), sort_keys=True))
+            return 1
         print(json.dumps(result, sort_keys=True))
         return 0
     print(json.dumps(first, sort_keys=True))

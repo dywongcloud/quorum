@@ -18,8 +18,10 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 PY = sys.executable
 STEPS = [
     ("validate_skills", ["scripts/validate_skills.py"]),
-    ("validate_graph", ["scripts/validate_graph.py"]),
+    ("build_provenance", ["tools/build_provenance.py"]),
     ("validate_canon", ["scripts/validate_canon.py"]),
+    ("build_decision_ledger", ["tools/build_decision_ledger.py"]),
+    ("validate_graph", ["scripts/validate_graph.py"]),
     ("build_graph", ["tools/build_graph.py"]),
     ("build_ledger", ["tools/build_ledger.py"]),
     ("run_traversal", ["tools/run_traversal.py"]),
@@ -38,6 +40,8 @@ STEPS = [
     ("collect_R2", ["skills/quorum/scripts/collect_panel.py", "panel/R2", "--roster", "fail-closed", "--json"]),
     ("validate_figures", ["scripts/validate_figures.py"]),
     ("axioms", ["skills/quorum/scripts/verify_invariants.py", "--all"]),
+    ("witnesses", ["skills/quorum/scripts/witnesses.py"]),
+    ("validate_install", ["scripts/validate_install.py"]),
     ("compliance", ["tools/build_compliance.py"]),
 ]
 

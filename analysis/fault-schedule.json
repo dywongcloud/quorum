@@ -1,11 +1,43 @@
 {
-  "timing_model": "asynchronous, no bound on message delay or process pause",
-  "schedule": [
-    {"t": 0, "event": "leader elected", "term": 1, "participants": 14},
-    {"t": 1, "event": "one replica crashes", "term": 1, "participants": 13, "fault": "crash-stop"},
-    {"t": 2, "event": "partition isolates 5 seats", "term": 1, "participants": 8, "fault": "partition"},
-    {"t": 3, "event": "recovery and re-collection", "term": 2, "participants": 14, "fault": "healed"}
-  ],
+  "bivalence": {
+    "initial_configurations": [
+      "decide 0",
+      "decide 1"
+    ],
+    "one_crash_admissible": true,
+    "reason": "FLP forbids deterministic termination for a bivalent initial configuration",
+    "termination_claim_permitted": false
+  },
   "liveness_claim": false,
-  "note": "Safety holds at every t. Termination is not asserted under this schedule; the FLP bound in model-assumptions.md governs."
+  "note": "Safety holds at every t. Termination is not asserted under this schedule; the FLP bound in model-assumptions.md governs.",
+  "schedule": [
+    {
+      "event": "leader elected",
+      "participants": 14,
+      "t": 0,
+      "term": 1
+    },
+    {
+      "event": "one replica crashes",
+      "fault": "crash-stop",
+      "participants": 13,
+      "t": 1,
+      "term": 1
+    },
+    {
+      "event": "partition isolates 5 seats",
+      "fault": "partition",
+      "participants": 8,
+      "t": 2,
+      "term": 1
+    },
+    {
+      "event": "recovery and re-collection",
+      "fault": "healed",
+      "participants": 14,
+      "t": 3,
+      "term": 2
+    }
+  ],
+  "timing_model": "asynchronous, no bound on message delay or process pause"
 }

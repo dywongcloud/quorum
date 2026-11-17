@@ -1,11 +1,17 @@
 # QUORUM canon
 
-Every label in `anchor-graph.md` is a real text, system, or result. This file
-records its source, the cluster it occupies, and the authority under which the
+Every cited label in `anchor-graph.md` is a real text, system, or result, and
+[anchor-provenance.md](anchor-provenance.md) binds all 401 nodes to a real
+resolution site. 146 nodes are cited works; 255 are locally defined derived
+terms whose declaration line in `tools/build_graph.py` is the authority. Those
+derived terms are not presented as external citations. This file records the
+external source, the cluster it occupies, and the authority under which the
 graph reads it. `provenance` states where the label was checked. Local means the
 full text was extracted from a downloaded copy and read during the build; an
 SRE or DDIA chapter reference names the printed chapter. A URL names the
-publisher's page or the authors' copy.
+publisher's page or the authors' copy. `scripts/validate_canon.py` refuses any
+node with no ledger row, no provenance row, or a resolution site that does not
+exist.
 
 ## Primary books (full text read during the build)
 

@@ -12,9 +12,19 @@ from __future__ import annotations
 import argparse
 import json
 import pathlib
+import re
 import sys
 
 MIN_WORDS = 20
+
+
+def panel_path(raw: str) -> pathlib.Path:
+    given = pathlib.Path(raw)
+    if given.is_absolute() or given.is_dir():
+        return given
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+    import quorum_paths
+    return quorum_paths.data_root() / given
 
 
 def collect(panel: pathlib.Path, seats: list[str], as_json: bool) -> int:
@@ -63,6 +73,7 @@ def main(argv: list[str]) -> int:
     parser.add_argument("--quorum", action="store_true")
     parser.add_argument("--replication", action="store_true")
     args = parser.parse_args(argv)
+    panel = panel_path(args.panel)
     seats = list(args.seats)
     graph = None
     if args.roster or args.quorum or args.replication:
@@ -74,23 +85,38 @@ def main(argv: list[str]) -> int:
             raise RuntimeError("graph parser unavailable")
         seats = list(graph_walk.roster(graph, args.roster)["required_seats"])
     if args.replication:
-        files = sorted(pathlib.Path(args.panel).glob("*.md"))
+        files = sorted(panel.glob("*.md"))
         copies = len(files)
         required = len(seats)
+        ballots = []
+        for f in files:
+            match = re.search(r"^Dispatch id:\s*(\S+)", f.read_text(encoding="utf-8", errors="replace"), flags=re.M)
+            if match:
+                ballots.append(match.group(1))
         print(json.dumps({
             "term": 1, "leader": "panel-collector",
             "verdict_files": copies, "required_seats": required,
-            "replicated_to_majority": copies >= (required // 2) + 1,
-            "commit_rule": "durable file per seat, one reader commits after collection",
+            "ballot_numbers": sorted(ballots),
+            "commitIndex": len(ballots),
+            "replicated_to_current_term_majority": copies >= (required // 2) + 1 and len(ballots) == copies,
+            "commit_rule": "durable file per seat, one reader commits after current-term majority replication",
             "evidence": [f.name for f in files],
         }, sort_keys=True))
-        return 0 if copies >= (required // 2) + 1 else 1
+        return 0 if copies >= (required // 2) + 1 and len(ballots) == copies else 1
     if args.quorum:
         if graph is None:
             raise RuntimeError("graph parser unavailable")
-        pairs = graph.counterpoint_pairs()
-        reported = {pathlib.Path(args.panel, s + ".md").stem
-                    for s in seats if pathlib.Path(args.panel, s + ".md").is_file()}
+        roster = set(seats)
+        pairs = [p for p in graph.counterpoint_pairs()
+                 if p[0] in roster and p[1] in roster]
+        reported = {(panel / (s + ".md")).stem
+                    for s in seats if (panel / (s + ".md")).is_file()}
+        ballots = []
+        for s in sorted(reported):
+            match = re.search(r"^Dispatch id:\s*(\S+)", (panel / (s + ".md")).read_text(
+                encoding="utf-8", errors="replace"), flags=re.M)
+            if match:
+                ballots.append(match.group(1))
         uncovered = [[a, b, label] for a, b, label in pairs
                      if a not in reported and b not in reported]
         majority = (len(seats) // 2) + 1
@@ -106,10 +132,11 @@ def main(argv: list[str]) -> int:
             "pairs_uncovered_now": len(uncovered),
             "pairs_a_majority_can_omit_both_members": minimal_uncovered,
             "unanimity_needed": minimal_uncovered > 0,
-            "ballot_numbered": True,
+            "ballot_numbers": sorted(ballots),
+            "ballot_numbered": len(ballots) == len(reported) and len(set(ballots)) == len(ballots),
         }, sort_keys=True))
         return 0 if not uncovered else 1
-    return collect(pathlib.Path(args.panel), seats, args.json)
+    return collect(panel, seats, args.json)
 
 
 if __name__ == "__main__":

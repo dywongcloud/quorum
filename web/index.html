@@ -30,7 +30,7 @@
   <figure class="hero-art">
     <svg viewBox="0 0 1200 360" role="img" aria-labelledby="hero-title hero-desc" preserveAspectRatio="xMidYMid meet">
       <title id="hero-title">A quorum lattice with one partitioned edge</title>
-      <desc id="hero-desc">Twelve nodes arranged in three columns. Eleven links are solid; one link is broken to mark a network partition. The remaining nodes form a quorum.</desc>
+      <desc id="hero-desc">Ten nodes arranged in three columns. Fourteen solid links and one broken link; the broken link marks a network partition. The remaining nodes form a quorum.</desc>
       <defs>
         <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
           <path d="M40 0H0V40" fill="none" stroke="currentColor" stroke-opacity=".08" stroke-width="1"/>
@@ -63,7 +63,7 @@
       </g>
       <text x="560" y="140" class="partition-note" font-size="12" font-family="ui-monospace, monospace">PARTITION</text>
     </svg>
-    <figcaption>Eleven solid links and one broken link. The quorum is the intersection that still agrees.</figcaption>
+    <figcaption><span data-figure="hero_solid_links">14</span> solid links and <span data-figure="hero_broken_links">1</span> broken link across <span data-figure="hero_nodes">10</span> nodes. The quorum is the intersection that still agrees.</figcaption>
   </figure>
 </section>
 
@@ -99,9 +99,9 @@
       <tr><th scope="row">Fail-Closed roster</th><td><span data-figure="fail_closed_seats">14</span></td><td>graph_walk.py --roster --mode fail-closed</td></tr>
       <tr><th scope="row">Axioms</th><td><span data-figure="axioms">24</span></td><td>verify_invariants.py --all</td></tr>
       <tr><th scope="row">Monte Carlo samples</th><td><span data-figure="probe_samples">400</span></td><td>epistemic_audit.py --probe 400</td></tr>
-      <tr><th scope="row">Selftest cases</th><td><span data-figure="selftest_cases">5</span></td><td>epistemic_audit.py --selftest</td></tr>
+      <tr><th scope="row">Selftest cases</th><td><span data-figure="selftest_cases">6</span></td><td>epistemic_audit.py --selftest</td></tr>
       <tr><th scope="row">Enumeration assignments</th><td><span data-figure="assignment_count">8</span></td><td>epistemic_audit.py --enumerate</td></tr>
-      <tr><th scope="row">Panel verdict files</th><td><span data-figure="panel_verdicts">28</span></td><td>collect_panel.py --json</td></tr>
+      <tr><th scope="row">Panel verdict files</th><td><span data-figure="panel_verdicts">42</span></td><td>collect_panel.py --json</td></tr>
     </tbody>
   </table>
   <p class="reproduce">Reproduce: <code>python3 -I scripts/validate_figures.py</code></p>
@@ -119,11 +119,11 @@
   <p class="section-index">04 / INSTALL</p>
   <h2>Three steps</h2>
   <ol class="steps">
-    <li><span class="step-n">1</span><p>Copy the skill directory into your agent skills folder, or clone this repository first.</p></li>
-    <li><span class="step-n">2</span><p>Confirm the workspace discovery link resolves and run <code>python3 -I scripts/validate_skills.py</code>.</p></li>
+    <li><span class="step-n">1</span><p>Run <code>python3 -I tools/install.py ~/.claude/skills/quorum</code> from the repository root. The distributable is repo-wide: the state payloads, panel verdicts, validators and run log travel with the skill.</p></li>
+    <li><span class="step-n">2</span><p>Confirm the installed <code>SKILL.md</code> link resolves, then run <code>python3 -I scripts/validate_skills.py</code> and <code>python3 -I scripts/validate_install.py</code>.</p></li>
     <li><span class="step-n">3</span><p>Invoke <code>$quorum</code> with a distributed-systems design brief. The run writes the five artifacts into <code>QUORUM-LOG.md</code>.</p></li>
   </ol>
-  <button class="copy" type="button" data-copy="cp -R skills/quorum ~/.claude/skills/quorum">Copy install command</button>
+  <button class="copy" type="button" data-copy="python3 -I tools/install.py ~/.claude/skills/quorum">Copy install command</button>
   <p class="copy-status" role="status" aria-live="polite"></p>
   <p class="prereq">Requires Python 3.10 or later for the graph walk and audit daemon. PyYAML 6.0.2 is required only by <code>validate_skills.py</code>. No network access is needed after the skill is installed.</p>
 </section>

@@ -1,0 +1,12 @@
+Anchor used: Brewers Conjecture and the Feasibility (Gilbert, Lynch)
+Observed: Live run of the witnesses script reported stale_read_witness.stale_read_observed=true and stale_read_witness.nonterminating_operation_observed=true, witness "stale-read-and-nonterminating-operation", sacrifice "availability for consistency under partition", and a four-event schedule: write accepted at t=0 with 3 replicas, partition isolates minority at t=1, read from isolated replica at t=2, reconciliation at t=3 in term 2. The linearizability witness separately reports a non-linearizable history with "partition drops the write acknowledgement".
+Verdict: PASS
+Requested change: none
+Command: python3 -I skills/quorum/scripts/witnesses.py
+Dispatch id: 1794908243173-126-812acf6318aeaa1f
+Session id: 74e7b6ba-202b-4e6a-acb1-d05f903aca3b-r3sub12
+Statements of meaning: The CAP trade-off is now exhibited rather than merely declared: a partition isolates a minority replica, a read served from that isolated replica returns a stale value, and an operation fails to terminate while the design keeps consistency. The named sacrifice, availability for consistency under partition, is matched to the concrete events that realize it.
+Designer questions: Does the design show which guarantee is sacrificed under a network partition, and does it produce an executing schedule with a stale read or nonterminating operation that demonstrates the sacrifice? The witness answers yes: the partition schedule and observed stale read are both present.
+Critic questions: I tested whether the live witness log contains both gate conditions, stale_read_witness.stale_read_observed=true and an explicit partition schedule, rather than only a boolean declaration of sacrifice as in R2. I also checked that the schedule events actually isolate a minority replica and place a read on it before reconciliation, and that a nonterminating operation was observed.
+Opinions: The measured output clears my R2 objection. The schedule is concrete and timed, the stale read is observed rather than asserted, and the linearizability witness corroborates the partition-induced safety violation. Note that partitioned_derived is false and packaged_chain is empty while the control chain is derived, so the stale read is traced through the schedule rather than a derived chain; this does not negate the two required gate conditions, which the output plainly satisfies. PASS is warranted on this evidence.
+Andon pulled: none

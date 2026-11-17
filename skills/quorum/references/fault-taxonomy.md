@@ -65,6 +65,7 @@ satisfies `forall e in Exc: e in Handled or Propagated`.
 ## Idempotence
 
 `f(f(x)) = f(x)` is checked by replaying the same payload twice and comparing
-SHA-256 digests of the emitted JSON with the volatile `emitted_at` field
-removed. A mismatch is `[FAULT: SELF_REJECTED]` with reason
-`non-idempotent-replay`.
+SHA-256 digests of the emitted JSON. The daemon carries an optional
+`emitted_at` field on a derived record; replay never emits it, so no
+volatile field is present in either digest. A mismatch is
+`[FAULT: SELF_REJECTED]` with reason `non-idempotent-replay` and exit code 1.

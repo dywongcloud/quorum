@@ -38,15 +38,23 @@ Its output port accepts JSON, YAML or rigid Markdown tables only. The faults are
 ## Install
 
 ```sh
-cp -R skills/quorum ~/.claude/skills/quorum
+python3 -I tools/install.py ~/.claude/skills/quorum
 ```
+
+The skill is repo-wide. `skills/quorum/` carries the graph, the engine and the
+references; the state payloads, panel verdicts, validators, landing page and
+run log live beside it under `state/`, `panel/`, `scripts/`, `tools/`, `web/`,
+`analysis/` and `QUORUM-LOG.md`. Copying `skills/quorum/` alone leaves the
+runtime data plane behind. `tools/install.py` installs both halves, preserves
+the root `SKILL.md` link, refuses to overwrite a non-empty target, and never
+copies local session state, git metadata or caches. `scripts/validate_install.py`
+performs that install into a fresh temporary directory and runs all 24 axiom
+discharges from a foreign working directory; that live run is the portability
+witness.
 
 Once the repository is published, the skills CLI form is
 `npx skills add <owner>/quorum -s quorum`; that URL is not claimed as an
-existing remote in this checkout. The workspace
-discovery link `.agents/skills/quorum` points at that directory; confirm it
-resolves before invoking the skill. Preserve any existing installation before
-replacing it.
+existing remote in this checkout.
 
 Invoke `$quorum` with a design brief. The skill writes five artifacts to
 `QUORUM-LOG.md`: Traversal Plan with a living Frontier, Decision Records, Panel
@@ -63,8 +71,10 @@ python3 -I skills/quorum/scripts/epistemic_audit.py --payload state/clean.json -
 python3 -I skills/quorum/scripts/collect_panel.py panel/R1 --roster fail-closed --json
 ```
 
-`state/` holds six payloads: one clean derivation and one for each fault mode.
-None is a test fixture; each is a real input to the daemon.
+`state/` holds 11 payloads: one clean derivation, a maximum-load chain, an FLP
+bound, a partition, a model counterexample, the encoded initiating brief, and
+one input for each fault code. None is a test fixture; each is a real input to
+the daemon.
 
 ## Validation
 

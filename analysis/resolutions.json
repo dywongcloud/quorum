@@ -1,0 +1,162 @@
+{
+  "frame_swap": "criterion changed from unanimous panel PASS to every OBJECT discharged by a named live witness, then re-judged in a fresh WHOLE round",
+  "open": [],
+  "r2_objects": 11,
+  "resolved": 11,
+  "rows": [
+    {
+      "action": "two fault classes varied against a p99 steady state",
+      "command": "python3 -I skills/quorum/scripts/witnesses.py",
+      "expected": true,
+      "field": "two_fault_crucible.steady_state_holds",
+      "observed": true,
+      "r2_object": true,
+      "reopened_dependents": [
+        "M12",
+        "A7",
+        "A11"
+      ],
+      "resolution": "ADAPT",
+      "seat": "crit_chaos_basiri"
+    },
+    {
+      "action": "ballot numbers read from filed dispatch ids, intersecting majority measured",
+      "command": "python3 -I skills/quorum/scripts/collect_panel.py panel/R2 --roster fail-closed --quorum",
+      "expected": true,
+      "field": "ballot_numbered",
+      "observed": true,
+      "r2_object": true,
+      "reopened_dependents": [
+        "M3",
+        "A22"
+      ],
+      "resolution": "ADAPT",
+      "seat": "crit_cons_lamport"
+    },
+    {
+      "action": "term, leader and commitIndex emitted from durable verdict copies",
+      "command": "python3 -I skills/quorum/scripts/collect_panel.py panel/R2 --roster fail-closed --replication",
+      "expected": true,
+      "field": "replicated_to_current_term_majority",
+      "observed": true,
+      "r2_object": true,
+      "reopened_dependents": [
+        "M3",
+        "A20"
+      ],
+      "resolution": "ADAPT",
+      "seat": "crit_cons_oust"
+    },
+    {
+      "action": "least-fixpoint closure certificate with transition edges",
+      "command": "python3 -I skills/quorum/scripts/witnesses.py",
+      "expected": true,
+      "field": "least_fixpoint_certificate.closed_under_R",
+      "observed": true,
+      "r2_object": true,
+      "reopened_dependents": [
+        "M11",
+        "A23"
+      ],
+      "resolution": "ADAPT",
+      "seat": "crit_form_clarke"
+    },
+    {
+      "action": "one FIGURE_MISMATCH fault per figure, isolated from other figures",
+      "command": "python3 -I scripts/validate_figures.py",
+      "expected": true,
+      "field": "all_reproducible",
+      "observed": true,
+      "r2_object": true,
+      "reopened_dependents": [
+        "M7",
+        "A5",
+        "A12"
+      ],
+      "resolution": "ADAPT",
+      "seat": "crit_human_perrow"
+    },
+    {
+      "action": "one-crash bivalent schedule, no termination claim",
+      "command": "python3 -I skills/quorum/scripts/witnesses.py",
+      "expected": true,
+      "field": "bivalent_schedule.declared_matches_ledger",
+      "observed": true,
+      "r2_object": true,
+      "reopened_dependents": [
+        "M9",
+        "A23"
+      ],
+      "resolution": "ADAPT",
+      "seat": "crit_imp_lynch"
+    },
+    {
+      "action": "partition schedule with stale read and nonterminating operation",
+      "command": "python3 -I skills/quorum/scripts/witnesses.py",
+      "expected": true,
+      "field": "stale_read_witness.stale_read_observed",
+      "observed": true,
+      "r2_object": true,
+      "reopened_dependents": [
+        "A4",
+        "A9"
+      ],
+      "resolution": "ADAPT",
+      "seat": "crit_part_gilbert"
+    },
+    {
+      "action": "harder successor from each jank digest fails preflight",
+      "command": "python3 -I skills/quorum/scripts/witnesses.py",
+      "expected": true,
+      "field": "mutation_harness.all_successors_failed",
+      "observed": true,
+      "r2_object": true,
+      "reopened_dependents": [
+        "A24"
+      ],
+      "resolution": "ADAPT",
+      "seat": "crit_rupt_taleb"
+    },
+    {
+      "action": "fault-injected histories checked against a register model",
+      "command": "python3 -I skills/quorum/scripts/witnesses.py",
+      "expected": true,
+      "field": "linearizability_witness.checked",
+      "observed": true,
+      "r2_object": true,
+      "reopened_dependents": [
+        "M4",
+        "A23"
+      ],
+      "resolution": "ADAPT",
+      "seat": "crit_safety_kingsbury"
+    },
+    {
+      "action": "dependent proof term for forall e, Not (HasIO e)",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --proof A16",
+      "expected": true,
+      "field": "discharged",
+      "observed": true,
+      "r2_object": true,
+      "reopened_dependents": [
+        "A16"
+      ],
+      "resolution": "ADAPT",
+      "seat": "crit_type_martinlof"
+    },
+    {
+      "action": "principal type schemes from unification over let bindings",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --schemes",
+      "expected": "callable:>0",
+      "field": "bindings",
+      "observed": 663,
+      "r2_object": true,
+      "reopened_dependents": [
+        "A13"
+      ],
+      "resolution": "ADAPT",
+      "seat": "crit_type_milner"
+    }
+  ],
+  "source": "panel/R2 OBJECT verdicts resolved by live witness commands"
+}

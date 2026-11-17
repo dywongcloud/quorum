@@ -1,0 +1,313 @@
+{
+  "complete_rows": 12,
+  "required_fields": [
+    "Depends on",
+    "Anchors",
+    "Intent",
+    "Formal argument",
+    "State delta",
+    "Invariant obligations",
+    "Alternatives rejected",
+    "Consequence",
+    "Fence",
+    "Frontier effect"
+  ],
+  "row_count": 12,
+  "rows": [
+    {
+      "body_digest": "fa0b9e92d38f6c775ce5c1c0a469549e83fe752261a7b80158370c621e337960",
+      "complete": true,
+      "fields_present": [
+        "Depends on",
+        "Anchors",
+        "Intent",
+        "Formal argument",
+        "State delta",
+        "Invariant obligations",
+        "Alternatives rejected",
+        "Consequence",
+        "Fence",
+        "Frontier effect"
+      ],
+      "id": "M1",
+      "missing_fields": [],
+      "obligations": [
+        "A4",
+        "A5",
+        "A18",
+        "A23."
+      ],
+      "title": "replace the art canon with a distributed-systems canon (BREAK)"
+    },
+    {
+      "body_digest": "f58db1483dfe86a570c07c31a59a09fae52847157839fdc1725e0ec30a7a11e5",
+      "complete": true,
+      "fields_present": [
+        "Depends on",
+        "Anchors",
+        "Intent",
+        "Formal argument",
+        "State delta",
+        "Invariant obligations",
+        "Alternatives rejected",
+        "Consequence",
+        "Fence",
+        "Frontier effect"
+      ],
+      "id": "M2",
+      "missing_fields": [],
+      "obligations": [
+        "A9",
+        "A12."
+      ],
+      "title": "replace Autonomous/Adaptive with Fail-Closed/Graceful (KEEP-THE-RULE)"
+    },
+    {
+      "body_digest": "8f37e42a414f62eb3ba29b35b3c6c47bbbae7db8862893f35c8959b6d5c6ba9f",
+      "complete": true,
+      "fields_present": [
+        "Depends on",
+        "Anchors",
+        "Intent",
+        "Formal argument",
+        "State delta",
+        "Invariant obligations",
+        "Alternatives rejected",
+        "Consequence",
+        "Fence",
+        "Frontier effect"
+      ],
+      "id": "M3",
+      "missing_fields": [],
+      "obligations": [
+        "A20",
+        "A22."
+      ],
+      "title": "build the adversarial critic panel (KEEP-THE-RULE)"
+    },
+    {
+      "body_digest": "70aedecd4da9de5f49e6cece62ea35f23cae62d0617cb22c9a039b930359b772",
+      "complete": true,
+      "fields_present": [
+        "Depends on",
+        "Anchors",
+        "Intent",
+        "Formal argument",
+        "State delta",
+        "Invariant obligations",
+        "Alternatives rejected",
+        "Consequence",
+        "Fence",
+        "Frontier effect"
+      ],
+      "id": "M4",
+      "missing_fields": [],
+      "obligations": [
+        "A1",
+        "A10",
+        "A14",
+        "A16",
+        "A19",
+        "A21",
+        "A23",
+        "A24."
+      ],
+      "title": "implement the executable daemon (KEEP-THE-RULE)"
+    },
+    {
+      "body_digest": "92857802e145232e567f8844cb4f160f84b0c20bb5d8dfd628f98e5fa1913449",
+      "complete": true,
+      "fields_present": [
+        "Depends on",
+        "Anchors",
+        "Intent",
+        "Formal argument",
+        "State delta",
+        "Invariant obligations",
+        "Alternatives rejected",
+        "Consequence",
+        "Fence",
+        "Frontier effect"
+      ],
+      "id": "M5",
+      "missing_fields": [],
+      "obligations": [
+        "A4",
+        "A23."
+      ],
+      "title": "discharge the seven graph cycles (BREAK)"
+    },
+    {
+      "body_digest": "a1852f4b71c34ca556cf5aebf47a470dda4f84d7920415e42ad3eb5639c9871e",
+      "complete": true,
+      "fields_present": [
+        "Depends on",
+        "Anchors",
+        "Intent",
+        "Formal argument",
+        "State delta",
+        "Invariant obligations",
+        "Alternatives rejected",
+        "Consequence",
+        "Fence",
+        "Frontier effect"
+      ],
+      "id": "M6",
+      "missing_fields": [],
+      "obligations": [
+        "A4",
+        "A23."
+      ],
+      "title": "Pugh-Matrix for the two branch candidates (BREAK)"
+    },
+    {
+      "body_digest": "e8616d95961136a890f5a67fa16936200e6bcf9b5e29078ff0971e1337eb57be",
+      "complete": true,
+      "fields_present": [
+        "Depends on",
+        "Anchors",
+        "Intent",
+        "Formal argument",
+        "State delta",
+        "Invariant obligations",
+        "Alternatives rejected",
+        "Consequence",
+        "Fence",
+        "Frontier effect"
+      ],
+      "id": "M7",
+      "missing_fields": [],
+      "obligations": [
+        "A5",
+        "A12",
+        "A17."
+      ],
+      "title": "rebrand and rebuild the landing page (KEEP-THE-RULE)"
+    },
+    {
+      "body_digest": "1bf75479969d640a4031b6c81fae3eba83a82251b2d9af5d8767b5d0646e72d5",
+      "complete": true,
+      "fields_present": [
+        "Depends on",
+        "Anchors",
+        "Intent",
+        "Formal argument",
+        "State delta",
+        "Invariant obligations",
+        "Alternatives rejected",
+        "Consequence",
+        "Fence",
+        "Frontier effect"
+      ],
+      "id": "M8",
+      "missing_fields": [],
+      "obligations": [
+        "A7",
+        "A9",
+        "A11",
+        "A24."
+      ],
+      "title": "M-crucible, the ambition push under partition and max load (BREAK)"
+    },
+    {
+      "body_digest": "79141c8628a26aefe1aa42f4555460f2ae26bcc7f6632a26c52a325ce0b260b0",
+      "complete": true,
+      "fields_present": [
+        "Depends on",
+        "Anchors",
+        "Intent",
+        "Formal argument",
+        "State delta",
+        "Invariant obligations",
+        "Alternatives rejected",
+        "Consequence",
+        "Fence",
+        "Frontier effect"
+      ],
+      "id": "M9",
+      "missing_fields": [],
+      "obligations": [
+        "A4",
+        "A5",
+        "A12",
+        "A23."
+      ],
+      "title": "discharge the FLP objection with an explicit assumption anchor (BREAK)"
+    },
+    {
+      "body_digest": "853b4566044a27cca73e3b673e1bd68c0c2073cf4acd993fa1b41db046c806b9",
+      "complete": true,
+      "fields_present": [
+        "Depends on",
+        "Anchors",
+        "Intent",
+        "Formal argument",
+        "State delta",
+        "Invariant obligations",
+        "Alternatives rejected",
+        "Consequence",
+        "Fence",
+        "Frontier effect"
+      ],
+      "id": "M10",
+      "missing_fields": [],
+      "obligations": [
+        "A2",
+        "A3",
+        "A4",
+        "A22."
+      ],
+      "title": "make dotted edges reachable as counterpoints (BREAK)"
+    },
+    {
+      "body_digest": "31fb614137d9a4c7da360fe592ea8a22b27b90f285ac149ccfc67cd4010759ad",
+      "complete": true,
+      "fields_present": [
+        "Depends on",
+        "Anchors",
+        "Intent",
+        "Formal argument",
+        "State delta",
+        "Invariant obligations",
+        "Alternatives rejected",
+        "Consequence",
+        "Fence",
+        "Frontier effect"
+      ],
+      "id": "M11",
+      "missing_fields": [],
+      "obligations": [
+        "A16",
+        "A23",
+        "A24."
+      ],
+      "title": "answer the model-checking objection with a real finite model (BREAK)"
+    },
+    {
+      "body_digest": "0b7a49144c491029008532b645bc21eb8ece6ba814beef7a93a1ccea27edcd28",
+      "complete": true,
+      "fields_present": [
+        "Depends on",
+        "Anchors",
+        "Intent",
+        "Formal argument",
+        "State delta",
+        "Invariant obligations",
+        "Alternatives rejected",
+        "Consequence",
+        "Fence",
+        "Frontier effect"
+      ],
+      "id": "M12",
+      "missing_fields": [],
+      "obligations": [
+        "A7",
+        "A9",
+        "A11",
+        "A24."
+      ],
+      "title": "answer the chaos objection with a fault-injected control/treatment (BREAK)"
+    }
+  ],
+  "source": "QUORUM-LOG.md, Artifact 2. Decision Records"
+}

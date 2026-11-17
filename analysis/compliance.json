@@ -2,193 +2,263 @@
   "axioms": [
     {
       "axiom": "A1",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A1",
       "measured": {
         "frozen_state": true,
         "replay": "idempotent"
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "5518d630b4ac8b3b"
     },
     {
       "axiom": "A2",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A2",
       "measured": {
         "frontier_open_counts": [
           16,
+          15,
+          14,
+          13,
           12,
+          11,
+          10,
+          9,
           8,
+          7,
+          6,
+          5,
           4,
+          3,
+          2,
+          1,
           0
         ],
         "subtractive": true
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "c915ab6b0c6fe68e"
     },
     {
       "axiom": "A3",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A3",
       "measured": {
         "pugh_rows": 2
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "26b4428c609af844"
     },
     {
       "axiom": "A4",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A4",
       "measured": {
         "acyclic": true,
         "cap_sacrifice_declared": true,
         "digest": "de74c409d4b3355703985f9c37b755be891267a4f2f3b55fdc4d84894fce4960"
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "0d3fd95f8927e2a0"
     },
     {
       "axiom": "A5",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A5",
       "measured": {
         "bound_rows": 4,
-        "web_figures": 15
+        "web_figures": 18
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "717ef674f5cb6d26"
     },
     {
       "axiom": "A6",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A6",
       "measured": {
         "boundary_rows": 7
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "5bde2ae62fe338f5"
     },
     {
       "axiom": "A7",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A7",
       "measured": {
         "budget_ms": 5.0,
-        "p99_ms": 0.3897,
+        "p99_ms": 0.1628,
         "sample_count": 400
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "76beb373cba013ce"
     },
     {
       "axiom": "A8",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A8",
       "measured": {
-        "passing": 22,
+        "passing": 23,
         "total": 23
       },
-      "status": "FAIL"
+      "status": "PASS",
+      "witness": "a6e8f329c256dd5b"
     },
     {
       "axiom": "A9",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A9",
       "measured": {
         "budget_named": true,
         "mode_field_named": true,
         "p99_named": true
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "96781928a0c769a9"
     },
     {
       "axiom": "A10",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A10",
       "measured": {
         "ambient_env": false,
         "secret_shapes_found": []
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "57e998cb908af11d"
     },
     {
       "axiom": "A11",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A11",
       "measured": {
         "crucible_move": true
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "b4847f7245432213"
     },
     {
       "axiom": "A12",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A12",
       "measured": {
-        "all_reproducible": false,
-        "figures": 14
+        "all_reproducible": true,
+        "figures": 17
       },
-      "status": "FAIL"
+      "status": "PASS",
+      "witness": "0244a1e377eeb50c"
     },
     {
       "axiom": "A13",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A13",
       "measured": {
-        "source_files": 15,
+        "principal_schemes": 669,
+        "source_files": 23,
         "style_violations": []
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "a649aa9b7d104941"
     },
     {
       "axiom": "A14",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A14",
       "measured": {
         "dynamic_execution": []
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "5d1432c6801e31ce"
     },
     {
       "axiom": "A15",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A15",
       "measured": {
         "modules": [
           "validate_canon.py",
           "validate_figures.py",
           "validate_graph.py",
+          "validate_install.py",
           "validate_skills.py",
           "verify_all.py",
           "collect_panel.py",
           "epistemic_audit.py",
           "graph_walk.py",
+          "quorum_paths.py",
           "verify_invariants.py",
+          "witnesses.py",
           "build_compliance.py",
+          "build_decision_ledger.py",
+          "build_dotted_decisions.py",
           "build_graph.py",
           "build_ledger.py",
           "build_panel_report.py",
+          "build_provenance.py",
+          "build_resolutions.py",
+          "install.py",
           "measure_web.py",
           "run_traversal.py"
         ]
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "97805b995c5954d4"
     },
     {
       "axiom": "A16",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A16",
       "measured": {
-        "io_in_pure_core": []
+        "io_in_pure_core": [],
+        "proof_term_discharged": true,
+        "proof_type": "Pi (f : PureCore). NoIO f"
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "56cf4d9868ea000c"
     },
     {
       "axiom": "A17",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A17",
       "measured": {
         "deferral_markers": []
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "253dd26287edcb46"
     },
     {
       "axiom": "A18",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A18",
       "measured": {
-        "empty_provenance": [],
-        "provenance_rows": 96
+        "canon_labels_bound_to_graph": 50,
+        "cited_anchors": 146,
+        "derived_terms": 255,
+        "graph_nodes": 401,
+        "provenance_rows": 401,
+        "uncovered_labels": []
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "7321ddc04c26883d"
     },
     {
       "axiom": "A19",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A19",
       "measured": {
         "composition": "f(f(x)) = f(x)",
         "replay": "idempotent"
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "5d32591fac9f0faa"
     },
     {
       "axiom": "A20",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A20",
       "measured": {
-        "open_prd_rows": 0,
-        "owned": 0,
-        "panel_verdict_files": 24,
-        "resolved_log_rows": 11
+        "complete_rows": 12,
+        "decision_rows": 12,
+        "incomplete_rows": [],
+        "panel_verdict_files": 56
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "c9ceb1329e7660b6"
     },
     {
       "axiom": "A21",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A21",
       "measured": {
         "shared_state_tokens": []
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "a72a56f41e30ed3a"
     },
     {
       "axiom": "A22",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A22",
       "measured": {
         "batches": [
           "3",
@@ -203,18 +273,22 @@
           "2"
         ]
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "6daf8c6f000c0870"
     },
     {
       "axiom": "A23",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A23",
       "measured": {
         "assignment_count": 8,
         "finite": true
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "4e62c45a7b20b8c2"
     },
     {
       "axiom": "A24",
+      "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A24",
       "measured": {
         "bare_handlers": [],
         "fault_codes": [
@@ -250,7 +324,8 @@
           }
         ]
       },
-      "status": "PASS"
+      "status": "PASS",
+      "witness": "b48a0447ff190017"
     }
   ],
   "dag": {
@@ -263,30 +338,13 @@
   },
   "digest": {
     "axiom_count": 24,
-    "digest": "4cce7533b053af12b95a9762982c8e3f0d1ea261f3ff61d56052106bcb7234f8",
-    "passing": 22
+    "digest": "73c9be537e5a63d6b43f901654edcb03438aa9837543ed38b0ec44c2c9e03abf",
+    "passing": 24
   },
   "figures": {
-    "all_reproducible": false,
-    "faults": [
-      {
-        "computed": 25,
-        "fault": "FIGURE_MISMATCH",
-        "figure": "panel_verdicts",
-        "printed": [
-          28
-        ]
-      },
-      {
-        "computed": 6,
-        "fault": "FIGURE_MISMATCH",
-        "figure": "selftest_cases",
-        "printed": [
-          5
-        ]
-      }
-    ],
-    "figure_count": 14,
+    "all_reproducible": true,
+    "faults": [],
+    "figure_count": 17,
     "figures_not_printed": [],
     "rows": [
       {
@@ -371,6 +429,33 @@
         "reproducible": true
       },
       {
+        "computed": 1,
+        "figure": "hero_broken_links",
+        "occurrences": 1,
+        "printed": [
+          1
+        ],
+        "reproducible": true
+      },
+      {
+        "computed": 10,
+        "figure": "hero_nodes",
+        "occurrences": 1,
+        "printed": [
+          10
+        ],
+        "reproducible": true
+      },
+      {
+        "computed": 14,
+        "figure": "hero_solid_links",
+        "occurrences": 1,
+        "printed": [
+          14
+        ],
+        "reproducible": true
+      },
+      {
         "computed": 401,
         "figure": "nodes",
         "occurrences": 2,
@@ -380,13 +465,13 @@
         "reproducible": true
       },
       {
-        "computed": 25,
+        "computed": 42,
         "figure": "panel_verdicts",
         "occurrences": 1,
         "printed": [
-          28
+          42
         ],
-        "reproducible": false
+        "reproducible": true
       },
       {
         "computed": 400,
@@ -402,9 +487,9 @@
         "figure": "selftest_cases",
         "occurrences": 1,
         "printed": [
-          5
+          6
         ],
-        "reproducible": false
+        "reproducible": true
       },
       {
         "computed": 348,
@@ -510,13 +595,9 @@
     },
     "R2": {
       "empty": [],
-      "missing": [
-        "crit_cons_oust",
-        "crit_rupt_taleb",
-        "crit_safety_kingsbury"
-      ],
+      "missing": [],
       "panel": "panel/R2",
-      "quorum": false,
+      "quorum": true,
       "rows": [
         {
           "seat": "crit_chaos_basiri",
@@ -530,8 +611,8 @@
         },
         {
           "seat": "crit_cons_oust",
-          "status": "MISSING",
-          "words": 0
+          "status": "REPORTED",
+          "words": 106
         },
         {
           "seat": "crit_form_clarke",
@@ -570,13 +651,13 @@
         },
         {
           "seat": "crit_rupt_taleb",
-          "status": "MISSING",
-          "words": 0
+          "status": "REPORTED",
+          "words": 98
         },
         {
           "seat": "crit_safety_kingsbury",
-          "status": "MISSING",
-          "words": 0
+          "status": "REPORTED",
+          "words": 86
         },
         {
           "seat": "crit_type_martinlof",
@@ -589,7 +670,7 @@
           "words": 98
         }
       ],
-      "seats_reporting": 11,
+      "seats_reporting": 14,
       "seats_required": 14
     }
   },
@@ -603,14 +684,14 @@
     {
       "condition": "WHOLE panel round PASS from every required critic, no Andon",
       "id": "S2",
-      "met": false,
-      "witness": "collect_panel.py R2: 11/14 reporting, OBJECT verdicts=8"
+      "met": true,
+      "witness": "R3: OBJECT=0, R2 OBJECTS resolved=11/11"
     },
     {
       "condition": "Two consecutive WHOLE rounds with no ADAPT, SCRAP, REOPEN or new OPEN",
       "id": "S3",
-      "met": false,
-      "witness": "R2 OBJECT=8, R2 collected twice with identical stdout digest"
+      "met": true,
+      "witness": "R3 OBJECT=0, R4 OBJECT=0, R2 OBJECTS resolved, R2 collected twice with identical stdout digest"
     },
     {
       "condition": "Crucible push with a measured delta",
@@ -622,7 +703,7 @@
       "condition": "Every dotted edge leaving a used anchor applied or declined",
       "id": "S5",
       "met": true,
-      "witness": "graph_walk.py --counts dotted edges; Anchor Ledger rows with reasons"
+      "witness": "dotted-decisions.json: 4 edges, 0 undecided"
     },
     {
       "condition": "Pre-flight jank checksum on final payload returns [DERIVED]",
@@ -633,8 +714,8 @@
     {
       "condition": "Every axiom has a live witness",
       "id": "S7",
-      "met": false,
-      "witness": "verify_invariants.py --all: 22/24 PASS"
+      "met": true,
+      "witness": "verify_invariants.py --all: 24/24 PASS"
     },
     {
       "condition": "Replay is idempotent",

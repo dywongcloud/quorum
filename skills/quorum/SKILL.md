@@ -98,7 +98,7 @@ witness for each row. An axiom that cannot be discharged is a blocking OBJECT.
 |---|---|---|
 | Use when | The brief names an invariant, a safety property, money, identity, or "no data loss" | The brief names availability, an audience, an SLO, an edge or offline deployment |
 | Governing criterion | The invariant holds in every reachable state (Clarke-compliant abstraction, Pi-type discharge) | **Bounded Optimism**: the ambitious pole (maximum decentralization and resilience) and the acceptable pole (p99-bounded operability) must both hold; if either is weak, revise the move |
-| Required critics | Impossibility (Fischer, Lynch, Paterson), Formalist (Clarke, Emerson), Type Theorist (Milner, Martin-Lof), plus at least one more; 7 to 9 seats | Chaos (Basiri, Allspaw), Operability (Beyer, Jones), Erasure (Star, Bowker), plus at least three more chosen for maximum difference |
+| Required critics | Impossibility (Fischer, Lynch, Paterson), Formalist (Clarke, Emerson), Type Theorist (Milner, Martin-Lof), plus at least one more; 14 seats after dotted-pair closure, measured by `graph_walk.py --roster --mode fail-closed` | Chaos (Basiri, Allspaw), Operability (Beyer, Jones), Erasure (Star, Bowker), plus at least three more chosen for maximum difference; 9 seats after closure, measured by `graph_walk.py --roster --mode graceful` |
 | Extra record field | Safety pole: the invariant discharged and the model that discharges it | Ambitious pole and Operable pole, each with its anchor and measured bound |
 
 If the person does not name a mode, use **Fail-Closed** unless the brief names
