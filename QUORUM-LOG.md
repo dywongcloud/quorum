@@ -663,7 +663,7 @@ active path, and `anchor-graph.md` itself is not edited.
 | [x] Anchor Ledger complete and live graph updated | MET | scripts/validate_canon.py |
 | [x] Double-loop paragraph written | MET | Compliance Check, Double loop |
 | [x] Distributable install re-measured from a foreign cwd | MET | scripts/validate_install.py |
-| [x] Final reply contract recorded | MET | Final reply section names mode, tools, stop conditions and skips |
+| [ ] Final reply contract recorded | NOT MET | Final reply section names mode, tools, stop conditions and skips |
 <!-- CHECK:END -->
 
 ### Stop conditions
@@ -680,7 +680,7 @@ active path, and `anchor-graph.md` itself is not edited.
 | S7 | Every axiom has a live witness | verify_invariants.py --all: 24/24 PASS | MET |
 | S8 | Replay is idempotent | replay=idempotent composition=f(f(x)) = f(x) | MET |
 
-Axiom digest: `c02974a7dad5c4030c02bd7caf43730811d516b782c105a9253b68de56017580` (24/24 passing).
+Axiom digest: `6999b0e91033174f4cc65f263f9861a998aa084b1240a579a74851172b466e50` (24/24 passing).
 Validators at final state: validate_skills exit 0, validate_graph exit 0, validate_figures exit 0 (all_reproducible=True).
 Graph: 401 nodes, 396 edges, acyclic=True.
 <!-- STOP:END -->
@@ -696,15 +696,15 @@ Graph: 401 nodes, 396 edges, acyclic=True.
 | A4 | PASS | acyclic=True, cap_sacrifice_declared=True |
 | A5 | PASS | bound_rows=4, web_figures=18 |
 | A6 | PASS | boundary_rows=7 |
-| A7 | PASS | budget_ms=5.0, p99_ms=0.0715 |
+| A7 | PASS | budget_ms=5.0, p99_ms=0.1813 |
 | A8 | PASS | passing=23, total=23 |
 | A9 | PASS | budget_named=True, mode_field_named=True |
 | A10 | PASS | ambient_env=False, secret_shapes_found=[] |
 | A11 | PASS | crucible_move=True |
 | A12 | PASS | all_reproducible=True, figures=17 |
-| A13 | PASS | principal_schemes=699, source_files=24 |
+| A13 | PASS | principal_schemes=716, source_files=25 |
 | A14 | PASS | dynamic_execution=[] |
-| A15 | PASS | modules=['validate_canon.py', 'validate_figures.py', 'validate_graph.py', 'validate_install.py', 'validate_skills.py', 'verify_all.py', 'collect_panel.py', 'epistemic_audit.py', 'graph_walk.py', 'quorum_paths.py', 'verify_invariants.py', 'witnesses.py', 'build_compliance.py', 'build_decision_ledger.py', 'build_dotted_decisions.py', 'build_graph.py', 'build_ledger.py', 'build_panel_report.py', 'build_provenance.py', 'build_research_synthesis.py', 'build_resolutions.py', 'install.py', 'measure_web.py', 'run_traversal.py'] |
+| A15 | PASS | modules=['validate_canon.py', 'validate_figures.py', 'validate_graph.py', 'validate_install.py', 'validate_skills.py', 'verify_all.py', 'collect_panel.py', 'epistemic_audit.py', 'graph_walk.py', 'quorum_paths.py', 'verify_invariants.py', 'witnesses.py', 'build_compliance.py', 'build_decision_ledger.py', 'build_dotted_decisions.py', 'build_graph.py', 'build_ledger.py', 'build_panel_report.py', 'build_provenance.py', 'build_research_final.py', 'build_research_synthesis.py', 'build_resolutions.py', 'install.py', 'measure_web.py', 'run_traversal.py'] |
 | A16 | PASS | io_in_pure_core=[], proof_term_discharged=True |
 | A17 | PASS | deferral_markers=[] |
 | A18 | PASS | canon_labels_bound_to_graph=50, cited_anchors=146 |
@@ -731,42 +731,20 @@ at a prose citation, and give it a dotted counterpoint from
 
 ### Research provenance
 
-The named `deep-research` workflow was run on the same brief with five search
-angles. Its extract stage returned 30 unique source URLs and 130 claims; they
-are preserved verbatim in `skills/quorum/references/research-report.md` with
-an explicit "not yet verified" header. The two user-cited books were also
-downloaded and read in full, and their chapter-to-node maps are in
-[primary-texts.md](skills/quorum/references/primary-texts.md). No claim from a
-web page was copied into the canon without a provenance row; the canon's 105
-rows and this report's source table are separate authorities. A verified claim
-from the workflow's 3-vote stage will be merged with its URL when the workflow
-reports; until then the report says so rather than asserting confirmation.
-
-### Step 2g. Final-state figure re-measurement
-
-| Figure | Procedure | Value at final state | Reproducible |
-|---|---|---:|---|
-| nodes, edges, solid, dotted, clusters | `graph_walk.py --counts` | 401, 396, 348, 48, 15 | yes |
-| critic seats, critic pairs, fail-closed roster | `graph_walk.py --counts` and `--roster` | 52, 23, 14 | yes |
-| axioms, fault codes, probe samples, selftest cases, assignments | `--all`, fault taxonomy, `--probe 400`, `--selftest`, `--enumerate` | 24, 4, 400, 6, 8 | yes |
-| panel verdicts | count of `panel/R1`, `R2`, `R3` verdict files | 42 | yes |
-| hero nodes, solid links, broken links | SVG source parsed by `scripts/validate_figures.py` | 10, 14, 1 | yes |
-
-`python3 -I scripts/validate_figures.py` reports `all_reproducible: true` and
-`faults: []` over 17 figure keys at the final state. The R4 saturation round is
-a re-judgement of R3 and is not added to the printed decision-round verdict count.
-
-### Final reply contract
-
-Mode: Fail-Closed. Tools: gm verbs including `codesearch`, `git_status`,
-`git_commit`, recursive workflow sub-agents, `graph_walk.py`,
-`epistemic_audit.py`, `verify_invariants.py`, `collect_panel.py`, the four
-validators, `validate_install.py` and `validate_figures.py`. Stop conditions:
-S1 to S8, all MET with live witnesses in the Compliance Check. Skipped:
-rendered browser view (**unrendered**, headful-only Chrome), remote Pages
-deployment, and the two inherited home-root PRD rows `owc-esm-global-surface-reopened`
-and `owc-shell-textutils-reopened`, which remain pending for their owner and
-were not resolved by this run.
+The named `deep-research` workflow completed all five phases: 5 search angles,
+27 source URLs fetched, 135 claims extracted, 25 claims given a three-vote
+adversarial result (10 confirmed, 15 killed, 0 unverified), and 10 synthesized
+findings. `analysis/research-final.json` holds the workflow result with vote
+counts, source URLs, caveats and open questions; `analysis/research-synthesis.json`
+holds the per-claim vote ledger built from the journal. Both are generated.
+`skills/quorum/references/research-report.md` carries the generated tables and
+is rerunnable from the workflow result. The workflow confirms DADA's walk
+mechanics and stop-condition structure, but its own caveat is preserved
+verbatim: no surviving claim grounds the DDIA, distributed-systems theory or
+edge/decentralization angles from the web sweep. Those anchors are grounded by
+the two primary books read in full locally and recorded in
+`skills/quorum/references/primary-texts.md` and `canon.md`, not by web votes.
+No claim was promoted into the canon solely because it survived a vote.
 
 ### Skipped steps
 

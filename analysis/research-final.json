@@ -1,0 +1,308 @@
+{
+  "caveats": "Coverage is uneven: the surviving claims ground DADA's workflow mechanics (angle 5), two SRE facts (angle 1), LLM-judge failure modes and ToG (part of angle 5), but NO surviving claim grounds the Kleppmann/DDIA angle, the distributed-systems theory canon (CAP/PACELC, FLP, Paxos/Raft/Viewstamped, Byzantine agreement, CRDTs, gossip/SWIM, consistent hashing, quorums, vector clocks, linearizability vs serializability, TLA+/Clarke model checking, fallacies, p99), or edge/decentralization (MEC/fog, CDN/anycast, DHT/P2P, local-first, split brain, zero-trust, chaos engineering, graceful degradation). Those angles need fresh primary-source research before the new graph can be populated. Epistemic status: DADA is a self-published 1-star repo whose AGENTS.md notes the text is repackaged gdaw workflow material; the claims are descriptive of that spec, not evidence of efficacy, and no converged published run exists (the traversal ledger ends at R3 with S1/S2 unmet). DADA is a log-auditable protocol, NOT formal verification: S2/S3 rest on subjective LLM verdicts, CI does not enforce S1-S5, and Lite mode bypasses them. Contradiction in the verification record: three \"refuted\" DADA claims about five artifacts, panel durability and premise measurement were re-verified verbatim in the current primary source; what fails is their extrapolation to monotonic context / formal-verification epistemics (a design inference), not the DADA facts. Conversely, several empirically strong-sounding critic-panel claims were refuted (0-3/1-2), so absence from the confirmed set means unverified, not disproven. Position-bias direction comes from 2023-era models under one template and recent 2026 work qualifies it; swap-consistency is not correctness. Error-budget \"quarterly\" is this chapter's convention (Google's workbook uses four-week windows), and using it as a sandbox predicate is a design inference. Time sensitivity: DADA HEAD ed948eb was pushed 2026-10-28 (checked 2026-11-17); judge papers span 2023-2026.",
+  "findings": [
+    {
+      "claim": "DADA's canonical walk is a non-linear living-Frontier traversal of a Mermaid anchor graph (302 node definitions, 52 :::critic nodes, 375 solid and 159 dotted edges), reaching candidates along outgoing, incoming and dotted edges from visited anchors with an exact six-rank priority (open Andon, REOPENED, dotted counterpoints of BREAK moves, sharpest critic disagreement, incoming grounding anchors, outgoing solid edges), plus Pugh-Matrix branching between rival Breakers, REOPENED marking of dependents on ADAPT/SCRAP, and merge of interacting moves as new candidates. A distributed-systems port must support bidirectional and dotted edges, not a linear checklist.",
+      "confidence": "high",
+      "evidence": "Merged claims [0] and [2]. SKILL.md lines 33-42 and 179 verbatim; raw main SKILL.md (22,542 bytes, SHA-256 c8b80122...) byte-identical to local clone at HEAD ed948eb and to installed/fork copies. Grep reproduction: 302 nodes, 52 critic nodes, 375 solid, 159 dotted; traversal-ledger.md line 7 'Counts: 302 nodes, 302 judged in this run, 0 visited in an earlier run...'. README L5/L28, AGENTS.md L7, merged PR #1 (2026-10-06) corroborate; stable since commit 3cf2303. Qualifiers: three-edge taxonomy is loose (dotted can itself be a back-reference); equal-rank tie-break (structure over value, deletion over addition), Frontier OPEN/DEFERRED/TAKEN status and conjunctive S1-S5 are also required for fidelity.",
+      "sources": [
+        "https://raw.githubusercontent.com/AnEntrypoint/dada/main/skills/dada/SKILL.md",
+        "https://raw.githubusercontent.com/AnEntrypoint/dada/main/README.md",
+        "https://raw.githubusercontent.com/AnEntrypoint/dada/main/AGENTS.md",
+        "https://github.com/AnEntrypoint/dada/pulls/1",
+        "https://raw.githubusercontent.com/AnEntrypoint/dada/main/skills/dada/references/anchor-graph.md",
+        "https://raw.githubusercontent.com/AnEntrypoint/dada/main/skills/dada/references/traversal-ledger.md"
+      ],
+      "vote": "2-1 ([0]) + 3-0 ([2])"
+    },
+    {
+      "claim": "DADA defines convergence as a conjunction of five explicit stop conditions S1-S5 (no OPEN Frontier items; a WHOLE round with PASS from every required critic and no Andon; two consecutive saturated WHOLE rounds; a deliberately escalated Breaker with measured delta OR a measured finding that the intended lever was inert; every dotted edge from a used anchor applied or declined with a reason), gated by Step 2g re-measuring every displayed figure at final state, with no move quota and a Step 3 frame swap after three consecutive WHOLE rounds each producing a new OBJECT. Failure returns the run to Step 2.",
+      "confidence": "high",
+      "evidence": "Merged claims [1] and [3], both verified against primary SKILL.md: lines 148-156 enumerate S1-S5 verbatim; lines 140-142 define 2g and 'Run 2g after the last edit'; line 146 defines the 3-WHOLE-round frame-swap trigger; lines 18 and 178 state 'There is no move quota' and 'A move count is never a stopping criterion'. README L28 and AGENTS.md L7/L11 corroborate; PR #1 states conditions are conjunctive. Restrictions on strength: it is a log-auditable specification, not formal verification - no published converged run (ledger ends R3 with S1/S2 unmet), CI validator does not check S1-S5, S2/S3 depend on subjective LLM verdicts, and Lite mode is a documented bypass.",
+      "sources": [
+        "https://raw.githubusercontent.com/AnEntrypoint/dada/main/skills/dada/SKILL.md",
+        "https://github.com/AnEntrypoint/dada/blob/ed948eb8c210af6a56ee3f8eb0a39c9e0a864866/skills/dada/SKILL.md#L148-L156",
+        "https://github.com/AnEntrypoint/dada/pulls/1",
+        "https://raw.githubusercontent.com/AnEntrypoint/dada/main/AGENTS.md"
+      ],
+      "vote": "3-0 (both)"
+    },
+    {
+      "claim": "DADA's own anchor graph is NOT acyclic: independent Tarjan SCC computation on the raw Mermaid file yields 302 nodes, 375 solid + 159 dotted edges and six cyclic SCCs of sizes 25, 4, 4, 2, 2, 2 (the largest is the CRITICS cluster). Therefore the requested Topology=Monoidal strict-DAG invariant cannot be a 1:1 graph isomorphism; the port must break/unroll cycles while preserving counterpoint and back-reference semantics.",
+      "confidence": "high",
+      "evidence": "Reproduced independently: downloaded https://raw.githubusercontent.com/AnEntrypoint/dada/main/skills/dada/references/anchor-graph.md (49,135 bytes), parsed labelled Mermaid edges '-->/label/' and '-.->/label/', got nodes=302, solid=375, dotted=159, 303 unique ids, cyclic SCCs=6 with sizes [25,4,4,2,2,2]; matches the verifier evidence attached to claim [0]. This is a structural conflict with the user's invariant, not a defect in the DADA claim.",
+      "sources": [
+        "https://raw.githubusercontent.com/AnEntrypoint/dada/main/skills/dada/references/anchor-graph.md"
+      ],
+      "vote": "emerges from verifier evidence on [0]/[2] (3-0), independently recomputed"
+    },
+    {
+      "claim": "DADA's contract requires exactly five named artifacts in DESIGN-LOG.md (Traversal Plan with living Frontier, Decision Records one per move, Panel Reports one per round, Anchor Ledger, Compliance Check), forbids a move quota as a stopping rule, and resumes from an Open frontier rather than restarting. Its panel is hardened with file-based verdicts ('A verdict is a file, not a return value'), at most three concurrent seats, ~350-word prompts, three retries, NOT REPORTED on transport failure, one agent per literary reference, and measured premise testing before OVERRULE. Documented spec-vs-practice contradiction: field-notes section 6 admits every shipped run batched Decision Records and ran panels per WHOLE round.",
+      "confidence": "high",
+      "evidence": "Re-verified directly during synthesis despite the swarm's 0-3 refutation: SKILL.md L10-16 lists the five artifacts verbatim, L18 states no quota and resume-from-Open-frontier, L101 (one agent per literary reference), L104 (Andon), L106 (file verdicts, <=3 seats, 350 words, 3 retries, NOT REPORTED), L126 (measure premise before OVERRULE), README L28/L30. panel-protocol.md L8-11 records 'seven seats ... five died with a gateway error' and L26-51 the resulting rules. field-notes.md L93-99 records the batching deviation. The refutation votes are therefore explicable as rejecting the attached design inference ('a monotonic-context mechanism', 'portable epistemics core for a formal-verification rebrand'), not the descriptive DADA facts - flag this disagreement to the parent.",
+      "sources": [
+        "https://raw.githubusercontent.com/AnEntrypoint/dada/main/skills/dada/SKILL.md",
+        "https://raw.githubusercontent.com/AnEntrypoint/dada/main/skills/dada/references/panel-protocol.md",
+        "https://raw.githubusercontent.com/AnEntrypoint/dada/main/skills/dada/references/field-notes.md",
+        "https://raw.githubusercontent.com/AnEntrypoint/dada/main/README.md"
+      ],
+      "vote": "0-3 as phrased by swarm; descriptive core re-verified in primary source, design inference remains UNMAPPED"
+    },
+    {
+      "claim": "Google's SRE book gives an objective, arithmetic reliability predicate: error budget = SLO minus independently measured uptime; a 99.999%-of-quarterly-queries SLO yields a 0.001% failure budget, and failing 0.0002% of quarterly queries spends 20% of the budget. This supports an exhaustion predicate for a closed-loop sandbox; DADA architecture, SKILL.md, critic panels and formal verification are UNMAPPED in this source.",
+      "confidence": "medium",
+      "evidence": "Claim [9] verified by direct fetch of https://sre.google/sre-book/embracing-risk/: passage verbatim, 0.0002/0.001 = 20% exact, chapter also calls the release gate a control loop and the budget 'a clear, objective metric'. No DADA/formal-verification terms on the page. Qualifiers: quarterly is this chapter's convention (service-level-objectives.md uses daily/weekly/monthly tracking; the SRE workbook defines budget as 1 minus SLO over four weeks), and the sandbox-predicate application is the claimant's design inference, not Google's statement.",
+      "sources": [
+        "https://sre.google/sre-book/embracing-risk/",
+        "https://sre.google/sre-book/service-level-objectives/",
+        "https://sre.google/workbook/error-budget-policy/"
+      ],
+      "vote": "2-1"
+    },
+    {
+      "claim": "The official SRE Book table-of-contents URL is a navigation index, not doctrinal prose, so claims about the book's five parts, seven Principles chapters, Part III topics, the 50% toil cap or p99 mechanics cannot be derived from it; cite the linked chapter pages instead. The related refuted claims about exact part/chapter enumerations therefore lack support in the cited source.",
+      "confidence": "high",
+      "evidence": "Claim [8]: live fetch returned HTTP 200, 57,261 bytes, SHA-256 1a027c22..., byte-identical to cached extract; HTMLParser yields only two duplicated nav lists plus copyright; case-insensitive counts of 'error budget', 'SLO', '50%', 'p99' are all zero in both HTML and text. Chapter pages do contain the doctrine (embracing-risk 17 'error budget'; eliminating-toil 9 '50%'; service-level-objectives 67 'SLO'; monitoring-distributed-systems 2 '99th percentile').",
+      "sources": [
+        "https://sre.google/sre-book/table-of-contents/",
+        "https://sre.google/sre-book/eliminating-toil/",
+        "https://sre.google/sre-book/monitoring-distributed-systems/"
+      ],
+      "vote": "3-0 ([8])"
+    },
+    {
+      "claim": "LLM-judge position bias is measurable and model-specific (in the 2023 study GPT-4 favored the first position, ChatGPT the second), with named metrics Position Consistency and Preference Fairness; design implication for a critic panel: anonymize candidates, swap/randomize presentation order and score consistency across swaps rather than trusting one unblinded verdict.",
+      "confidence": "medium",
+      "evidence": "Claim [4]: quotes verbatim in arXiv:2411.15594 survey; direction traces to Wang et al. arXiv:2305.17926 (ACL 2024), which quantifies GPT-4 51.3% vs 23.8% and ChatGPT 2.5% vs 82.5% by position and proposes Balanced Position Calibration; metrics from Shi et al. arXiv:2406.07791 (15 judges, >150,000 evaluations). Caveats: the cited source is a secondary survey with a defective bibliography link; the 'necessity of anonymous evaluation' sentence in the survey actually follows model-name/compassion-fade bias, a different mechanism; 2026 work qualifies the model-specific direction and shows swap-consistency correlates only weakly with ranking accuracy.",
+      "sources": [
+        "https://arxiv.org/abs/2411.15594",
+        "https://arxiv.org/abs/2305.17926",
+        "https://arxiv.org/abs/2406.07791"
+      ],
+      "vote": "2-1"
+    },
+    {
+      "claim": "LLM judges are gameable by trivial adversarial inputs: a constant-output null model achieves high win rates and universally inserted learned phrases inflate scores without improving quality. An adversarial critic panel therefore needs explicit attack-resistance/meta-evaluation checks and cannot treat critic agreement alone as verification.",
+      "confidence": "high",
+      "evidence": "Claim [5]: all three quotes verbatim in section 4.3 of arXiv:2411.15594v6; primary studies are Zheng et al. arXiv:2410.07137 (ICLR 2025 Oral; fixed reply reaches 86.5% LC win rate on AlpacaEval 2.0, 83.0 Arena-Hard-Auto, 9.55 MT-Bench, transferable cheating outputs) and Raina et al. arXiv:2402.14016 (universal surrogate-learned phrases transfer to unseen judges). Corroboration through 2026 includes rhetorical-cue grade inflation, 15 attacks/8 defenses with no dominant defense, and large ensemble false-positive rates. The 'critic agreement is not verification' clause is a design inference, not a tested finding.",
+      "sources": [
+        "https://arxiv.org/abs/2411.15594",
+        "https://arxiv.org/abs/2410.07137",
+        "https://arxiv.org/abs/2402.14016"
+      ],
+      "vote": "3-0"
+    },
+    {
+      "claim": "Think-on-Graph (ToG) is the closest canonical precedent for a graph-walk port: an LLM-as-agent iterative beam search maintaining top-N reasoning paths over a knowledge graph, with a Search-and-Prune cycle scored by the LLM followed by an LLM adequacy Yes/No evaluation that repeats exploration until positive or max depth. It has no adversarial critic panel, no falsification loopback and no JANK_DETECTED / SELF_REJECTED / monotonic-context or machine-readable state semantics - all explicitly UNMAPPED in this source.",
+      "confidence": "high",
+      "evidence": "Merged claims [6] and [7], both 3-0 and verified against the primary paper (Sun et al., ICLR 2024). Abstract quote verbatim; ar5iv full text gives initialization/exploration/reasoning, top-N Search and Prune with width and max depth set to 3, and the LLM sufficiency prompt 'whether it's sufficient for you to answer the question with these triples and your knowledge (Yes or No)'. Section 3.3 knowledge traceability/correctability is optional post-hoc human/other-LLM KG repair, not an adversarial convergence mechanism. Searches for critic/adversarial/falsification/debate/reflection inside the automatic loop found none.",
+      "sources": [
+        "https://arxiv.org/abs/2307.07697",
+        "https://ar5iv.labs.arxiv.org/html/2307.07697",
+        "https://arxiv.org/html/2307.07697"
+      ],
+      "vote": "3-0 + 3-0"
+    },
+    {
+      "claim": "Several empirical claims frequently used to justify critic panels are NOT established by this verification run and must not be used as canonical foundation without re-checking: intrinsic self-correction degrading accuracy, debate losing to cost-matched self-consistency, oracle-labelled gains, heterogeneous personas being necessary, panels beating single judges, majority-vote convergence, ToG traceability as strict derivation, and SRE TOC part/chapter enumerations were all refuted (0-3 or 1-2). Refutation means unverified here, not falsified - contrast with the DADA spec facts in the preceding finding, which were refuted but independently confirmed.",
+      "confidence": "medium",
+      "evidence": "Refuted-claim list from the task record: arXiv:2310.01798 (self-correction, debate-vs-baseline, oracle labels) 0-3/1-2; arXiv:2308.07201 (panel accuracy, persona necessity, no-consensus rule) 0-3; arXiv:2411.15594 (independent critics, majority voting, peer review) 0-3; arXiv:2307.07697 (traceability) 1-2; SRE TOC enumerations 0-3. No primary re-verification was performed for these in this synthesis, so their truth values remain open; their absence from the confirmed set is the only defensible conclusion.",
+      "sources": [
+        "https://arxiv.org/abs/2310.01798",
+        "https://arxiv.org/abs/2308.07201",
+        "https://arxiv.org/abs/2411.15594",
+        "https://arxiv.org/abs/2307.07697",
+        "https://sre.google/sre-book/table-of-contents/"
+      ],
+      "vote": "0-3 / 1-2 (refuted)"
+    }
+  ],
+  "open_questions": [
+    "What external deterministic checker or witness supplies ground truth for the SELF_REJECTED / boolean-derivation loopback (TLA+ or Clarke-style model checker, invariant checker, SLO/error-budget arithmetic), given the refuted evidence that oracle labels and same-model self-critique are not agent capabilities?",
+    "How can DADA's six cyclic SCCs - especially the 25-node CRITICS cluster - be broken or unrolled into a strict monoidal DAG without losing the dotted counterpoint/back-reference semantics that REOPEN and frame swaps depend on?",
+    "Which primary sources should anchor the new graph for the DDIA and edge/decentralization angles (replication, consensus, CRDTs, CAP/PACELC, MEC/fog, DHT/P2P, local-first, zero-trust), since no surviving claim covers them?",
+    "How should the port replace subjective 'every required critic PASS' with a measurable termination predicate (error-budget exhaustion, p99 SLO breach, model-checking coverage), and what equal-inference-cost baseline demonstrates the adversarial panel adds value beyond extra samples?"
+  ],
+  "refuted_count": 15,
+  "source_workflow": "deep-research",
+  "sources": [
+    {
+      "angle": "Primary architecture: dada repo internals + adversarial critic / graph-walk agent SOTA",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://raw.githubusercontent.com/AnEntrypoint/dada/main/skills/dada/SKILL.md"
+    },
+    {
+      "angle": "Primary architecture: dada repo internals + adversarial critic / graph-walk agent SOTA",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://github.com/AnEntrypoint/dada"
+    },
+    {
+      "angle": "Primary architecture: dada repo internals + adversarial critic / graph-walk agent SOTA",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://arxiv.org/abs/2310.01798"
+    },
+    {
+      "angle": "Primary architecture: dada repo internals + adversarial critic / graph-walk agent SOTA",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://arxiv.org/abs/2411.15594"
+    },
+    {
+      "angle": "Primary architecture: dada repo internals + adversarial critic / graph-walk agent SOTA",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://arxiv.org/abs/2307.07697"
+    },
+    {
+      "angle": "Primary architecture: dada repo internals + adversarial critic / graph-walk agent SOTA",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://arxiv.org/abs/2308.07201"
+    },
+    {
+      "angle": "Practitioner canon: Google SRE book production discipline",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://sre.google/sre-book/table-of-contents/"
+    },
+    {
+      "angle": "Practitioner canon: Google SRE book production discipline",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://sre.google/sre-book/embracing-risk/"
+    },
+    {
+      "angle": "Practitioner canon: Google SRE book production discipline",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://sre.google/sre-book/service-level-objectives/"
+    },
+    {
+      "angle": "Practitioner canon: Google SRE book production discipline",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://sre.google/sre-book/addressing-cascading-failures/"
+    },
+    {
+      "angle": "Practitioner canon: Google SRE book production discipline",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://sre.google/sre-book/postmortem-culture/"
+    },
+    {
+      "angle": "Technical canon: DDIA data-system fundamentals",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://0-lucas.github.io/digital-garden/99.-Books/Martin-Kleppmann---Designing-Data-Intensive-Applications_-O%E2%80%99Reilly-Media-(2017).pdf"
+    },
+    {
+      "angle": "Technical canon: DDIA data-system fundamentals",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://dataintensive.net/poster.html"
+    },
+    {
+      "angle": "Technical canon: DDIA data-system fundamentals",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://github.com/ept/ddia-references"
+    },
+    {
+      "angle": "Technical canon: DDIA data-system fundamentals",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://dataintensive.net/"
+    },
+    {
+      "angle": "Technical canon: DDIA data-system fundamentals",
+      "claimCount": 5,
+      "quality": "blog",
+      "url": "https://martin.kleppmann.com/2015/05/11/please-stop-calling-databases-cp-or-ap.html"
+    },
+    {
+      "angle": "Technical canon: DDIA data-system fundamentals",
+      "claimCount": 5,
+      "quality": "blog",
+      "url": "https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html"
+    },
+    {
+      "angle": "Academic theory + formal verification (also the skeptical impossbility check)",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://lamport.azurewebsites.net/tla/tla.html"
+    },
+    {
+      "angle": "Academic theory + formal verification (also the skeptical impossbility check)",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://groups.csail.mit.edu/tds/papers/Gilbert/Brewer2.pdf"
+    },
+    {
+      "angle": "Academic theory + formal verification (also the skeptical impossbility check)",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf"
+    },
+    {
+      "angle": "Academic theory + formal verification (also the skeptical impossbility check)",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://www.cs.umd.edu/~abadi/papers/abadi-pacelc.pdf"
+    },
+    {
+      "angle": "Academic theory + formal verification (also the skeptical impossbility check)",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://doi.org/10.1145/876638.876643"
+    },
+    {
+      "angle": "Industry edge / decentralization + resilience practice",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://www.inkandswitch.com/essay/local-first"
+    },
+    {
+      "angle": "Industry edge / decentralization + resilience practice",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://principlesofchaos.org/"
+    },
+    {
+      "angle": "Industry edge / decentralization + resilience practice",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://arxiv.org/abs/1805.06358"
+    },
+    {
+      "angle": "Industry edge / decentralization + resilience practice",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://csrc.nist.gov/pubs/sp/800/207/final"
+    },
+    {
+      "angle": "Industry edge / decentralization + resilience practice",
+      "claimCount": 5,
+      "quality": "primary",
+      "url": "https://csrc.nist.gov/pubs/sp/500/325/final"
+    }
+  ],
+  "stats": {
+    "afterSynthesis": 10,
+    "agentCalls": 109,
+    "angles": 5,
+    "budgetDropped": 3,
+    "claimsExtracted": 135,
+    "claimsVerified": 25,
+    "confirmed": 10,
+    "killed": 15,
+    "sourcesFetched": 27,
+    "unverified": 0,
+    "urlDupes": 0
+  },
+  "status": "COMPLETE",
+  "summary": "The surviving evidence gives a concrete porting target: DADA's canonical contract is a non-linear living-Frontier walk over a 302-node Mermaid anchor graph (375 solid, 159 dotted edges) with a six-rank candidate priority, branch/reopen/merge operators, five required DESIGN-LOG.md artifacts, and conjunctive stop conditions S1-S5 gated by a final-state re-measurement pass (Step 2g). That contract is log-auditable workflow discipline, not formal verification: the graph has six cyclic SCCs (so a strict-DAG/monoidal port needs cycle-breaking), convergence partly rests on subjective LLM critic verdicts, and no converged run is published. For reliability grounding, Google's SRE book supplies an objective arithmetic predicate (99.999% SLO -> 0.001% budget; 0.0002% failure spends 20%), while its table-of-contents page is navigation-only and cannot ground doctrinal claims. Critic-panel design has measurable failure modes - model-specific position bias and gameability by trivial inputs - and Think-on-Graph is the closest graph-walk precedent but stops on single-judge self-assessment, not falsification loopback. The DDIA, distributed-systems-theory and edge/decentralization angles are effectively unmapped by the surviving claims and need separate primary-source grounding.",
+  "unverified_count": 0
+}

@@ -82,11 +82,11 @@
       "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A7",
       "measured": {
         "budget_ms": 5.0,
-        "p99_ms": 0.0715,
+        "p99_ms": 0.1813,
         "sample_count": 400
       },
       "status": "PASS",
-      "witness": "4063f18045a97849"
+      "witness": "c592a65149df2a18"
     },
     {
       "axiom": "A8",
@@ -142,12 +142,12 @@
       "axiom": "A13",
       "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A13",
       "measured": {
-        "principal_schemes": 699,
-        "source_files": 24,
+        "principal_schemes": 716,
+        "source_files": 25,
         "style_violations": []
       },
       "status": "PASS",
-      "witness": "8e77d0cdf7a03dec"
+      "witness": "963ab59bfbc4eecc"
     },
     {
       "axiom": "A14",
@@ -182,6 +182,7 @@
           "build_ledger.py",
           "build_panel_report.py",
           "build_provenance.py",
+          "build_research_final.py",
           "build_research_synthesis.py",
           "build_resolutions.py",
           "install.py",
@@ -190,7 +191,7 @@
         ]
       },
       "status": "PASS",
-      "witness": "c586b46259ae7d16"
+      "witness": "7fea0954430aeed7"
     },
     {
       "axiom": "A16",
@@ -339,7 +340,7 @@
   },
   "digest": {
     "axiom_count": 24,
-    "digest": "c02974a7dad5c4030c02bd7caf43730811d516b782c105a9253b68de56017580",
+    "digest": "6999b0e91033174f4cc65f263f9861a998aa084b1240a579a74851172b466e50",
     "passing": 24
   },
   "figures": {
