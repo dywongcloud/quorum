@@ -38,10 +38,12 @@ Its output port accepts JSON, YAML or rigid Markdown tables only. The faults are
 ## Install
 
 ```sh
-npx skills add AnEntrypoint/quorum -s quorum
+cp -R skills/quorum ~/.claude/skills/quorum
 ```
 
-Or copy `skills/quorum` into your agent's skills directory. The workspace
+Once the repository is published, the skills CLI form is
+`npx skills add <owner>/quorum -s quorum`; that URL is not claimed as an
+existing remote in this checkout. The workspace
 discovery link `.agents/skills/quorum` points at that directory; confirm it
 resolves before invoking the skill. Preserve any existing installation before
 replacing it.

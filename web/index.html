@@ -119,11 +119,11 @@
   <p class="section-index">04 / INSTALL</p>
   <h2>Three steps</h2>
   <ol class="steps">
-    <li><span class="step-n">1</span><p>Clone the repository, or add the skill from the repository URL with your skills CLI.</p></li>
+    <li><span class="step-n">1</span><p>Copy the skill directory into your agent skills folder, or clone this repository first.</p></li>
     <li><span class="step-n">2</span><p>Confirm the workspace discovery link resolves and run <code>python3 -I scripts/validate_skills.py</code>.</p></li>
     <li><span class="step-n">3</span><p>Invoke <code>$quorum</code> with a distributed-systems design brief. The run writes the five artifacts into <code>QUORUM-LOG.md</code>.</p></li>
   </ol>
-  <button class="copy" type="button" data-copy="npx skills add AnEntrypoint/quorum -s quorum">Copy install command</button>
+  <button class="copy" type="button" data-copy="cp -R skills/quorum ~/.claude/skills/quorum">Copy install command</button>
   <p class="copy-status" role="status" aria-live="polite"></p>
   <p class="prereq">Requires Python 3.10 or later for the graph walk and audit daemon. PyYAML 6.0.2 is required only by <code>validate_skills.py</code>. No network access is needed after the skill is installed.</p>
 </section>
