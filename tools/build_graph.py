@@ -55,6 +55,7 @@ NODES = {
  "youngblood|Notes on Distributed Systems for Young Bloods (Hodges)",
  "waldonote|A Note on Distributed Computing (Waldo, Wyant, Wollrath, Kendall)",
  "endtoendprinciple|The Design Philosophy of the DARPA Internet Protocols (Clark)",
+ "flpbound|FLP Asynchrony Assumption: No Deterministic Termination Witness (Fischer, Lynch, Paterson)",
 ],
 "RULES": [
  "paxos|The Part-Time Parliament (Lamport)",
@@ -488,6 +489,8 @@ def link(src: str, dst: str, label: str, kind: str = "solid") -> None:
 # Stance grounds the rules.
 link("flp", "paxos", "impossibility bounds")
 link("flp", "raft", "impossibility bounds")
+link("flp", "flpbound", "bounds liveness of", "dotted")
+link("flpbound", "failuredetector", "partially discharged by")
 link("flp", "failuredetector", "motivates")
 link("gilbert", "quorumread", "formalizes tradeoff for")
 link("gilbert", "linearizability", "distinguishes from")

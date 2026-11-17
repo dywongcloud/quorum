@@ -1,0 +1,646 @@
+{
+  "axioms": [
+    {
+      "axiom": "A1",
+      "measured": {
+        "frozen_state": true,
+        "replay": "idempotent"
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A2",
+      "measured": {
+        "frontier_open_counts": [
+          16,
+          12,
+          8,
+          4,
+          0
+        ],
+        "subtractive": true
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A3",
+      "measured": {
+        "pugh_rows": 2
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A4",
+      "measured": {
+        "acyclic": true,
+        "cap_sacrifice_declared": true,
+        "digest": "de74c409d4b3355703985f9c37b755be891267a4f2f3b55fdc4d84894fce4960"
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A5",
+      "measured": {
+        "bound_rows": 4,
+        "web_figures": 15
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A6",
+      "measured": {
+        "boundary_rows": 7
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A7",
+      "measured": {
+        "budget_ms": 5.0,
+        "p99_ms": 0.144,
+        "sample_count": 400
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A8",
+      "measured": {
+        "passing": 22,
+        "total": 23
+      },
+      "status": "FAIL"
+    },
+    {
+      "axiom": "A9",
+      "measured": {
+        "budget_named": true,
+        "mode_field_named": true,
+        "p99_named": true
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A10",
+      "measured": {
+        "ambient_env": false,
+        "secret_shapes_found": []
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A11",
+      "measured": {
+        "crucible_move": true
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A12",
+      "measured": {
+        "all_reproducible": false,
+        "figures": 14
+      },
+      "status": "FAIL"
+    },
+    {
+      "axiom": "A13",
+      "measured": {
+        "source_files": 12,
+        "style_violations": []
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A14",
+      "measured": {
+        "dynamic_execution": []
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A15",
+      "measured": {
+        "modules": [
+          "validate_figures.py",
+          "validate_graph.py",
+          "validate_skills.py",
+          "collect_panel.py",
+          "epistemic_audit.py",
+          "graph_walk.py",
+          "verify_invariants.py",
+          "build_compliance.py",
+          "build_graph.py",
+          "build_ledger.py",
+          "build_panel_report.py",
+          "run_traversal.py"
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A16",
+      "measured": {
+        "io_in_pure_core": []
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A17",
+      "measured": {
+        "deferral_markers": []
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A18",
+      "measured": {
+        "empty_provenance": [],
+        "provenance_rows": 96
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A19",
+      "measured": {
+        "composition": "f(f(x)) = f(x)",
+        "replay": "idempotent"
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A20",
+      "measured": {
+        "open_prd_rows": 0,
+        "owned": 0,
+        "panel_verdict_files": 14,
+        "resolved_log_rows": 11
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A21",
+      "measured": {
+        "shared_state_tokens": []
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A22",
+      "measured": {
+        "batches": [
+          "3",
+          "3",
+          "3",
+          "3",
+          "2",
+          "3",
+          "3",
+          "3",
+          "3",
+          "2"
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A23",
+      "measured": {
+        "assignment_count": 8,
+        "finite": true
+      },
+      "status": "PASS"
+    },
+    {
+      "axiom": "A24",
+      "measured": {
+        "bare_handlers": [],
+        "fault_codes": [
+          "JANK_DETECTED",
+          "STATE_UNMAPPED",
+          "SELF_REJECTED",
+          "IO_FAULT"
+        ],
+        "probes": [
+          {
+            "fault_code": "JANK_DETECTED",
+            "probe": "audit-null-rules",
+            "serialized": true,
+            "traceback": false
+          },
+          {
+            "fault_code": null,
+            "probe": "walk-comment",
+            "serialized": true,
+            "traceback": false
+          },
+          {
+            "fault_code": "JANK_DETECTED",
+            "probe": "audit-jank-replay",
+            "serialized": true,
+            "traceback": false
+          },
+          {
+            "fault_code": "JANK_DETECTED",
+            "probe": "audit-jank-enumerate",
+            "serialized": true,
+            "traceback": false
+          }
+        ]
+      },
+      "status": "PASS"
+    }
+  ],
+  "dag": {
+    "acyclic": true,
+    "blocked": [],
+    "digest": "de74c409d4b3355703985f9c37b755be891267a4f2f3b55fdc4d84894fce4960",
+    "edge_count": 396,
+    "node_count": 401,
+    "topological_order_size": 401
+  },
+  "digest": {
+    "axiom_count": 24,
+    "digest": "4c2d23165a7b56cc9f0fa3056c73f4b4dc7160dcde0ccc86317c76cde35593ef",
+    "passing": 22
+  },
+  "figures": {
+    "all_reproducible": false,
+    "faults": [
+      {
+        "computed": 14,
+        "fault": "FIGURE_MISMATCH",
+        "figure": "panel_verdicts",
+        "printed": [
+          28
+        ]
+      }
+    ],
+    "figure_count": 14,
+    "figures_not_printed": [],
+    "rows": [
+      {
+        "computed": 8,
+        "figure": "assignment_count",
+        "occurrences": 1,
+        "printed": [
+          8
+        ],
+        "reproducible": true
+      },
+      {
+        "computed": 24,
+        "figure": "axioms",
+        "occurrences": 1,
+        "printed": [
+          24
+        ],
+        "reproducible": true
+      },
+      {
+        "computed": 15,
+        "figure": "clusters",
+        "occurrences": 1,
+        "printed": [
+          15
+        ],
+        "reproducible": true
+      },
+      {
+        "computed": 23,
+        "figure": "critic_pairs",
+        "occurrences": 1,
+        "printed": [
+          23
+        ],
+        "reproducible": true
+      },
+      {
+        "computed": 52,
+        "figure": "critic_seats",
+        "occurrences": 1,
+        "printed": [
+          52
+        ],
+        "reproducible": true
+      },
+      {
+        "computed": 48,
+        "figure": "dotted",
+        "occurrences": 1,
+        "printed": [
+          48
+        ],
+        "reproducible": true
+      },
+      {
+        "computed": 396,
+        "figure": "edges",
+        "occurrences": 1,
+        "printed": [
+          396
+        ],
+        "reproducible": true
+      },
+      {
+        "computed": 14,
+        "figure": "fail_closed_seats",
+        "occurrences": 1,
+        "printed": [
+          14
+        ],
+        "reproducible": true
+      },
+      {
+        "computed": 4,
+        "figure": "fault_codes",
+        "occurrences": 1,
+        "printed": [
+          4
+        ],
+        "reproducible": true
+      },
+      {
+        "computed": 401,
+        "figure": "nodes",
+        "occurrences": 2,
+        "printed": [
+          401
+        ],
+        "reproducible": true
+      },
+      {
+        "computed": 14,
+        "figure": "panel_verdicts",
+        "occurrences": 1,
+        "printed": [
+          28
+        ],
+        "reproducible": false
+      },
+      {
+        "computed": 400,
+        "figure": "probe_samples",
+        "occurrences": 1,
+        "printed": [
+          400
+        ],
+        "reproducible": true
+      },
+      {
+        "computed": 5,
+        "figure": "selftest_cases",
+        "occurrences": 1,
+        "printed": [
+          5
+        ],
+        "reproducible": true
+      },
+      {
+        "computed": 348,
+        "figure": "solid",
+        "occurrences": 1,
+        "printed": [
+          348
+        ],
+        "reproducible": true
+      }
+    ]
+  },
+  "graph": {
+    "clusters": 15,
+    "critic_pairs": 23,
+    "critics": 52,
+    "dotted": 48,
+    "edges": 396,
+    "nodes": 401,
+    "solid": 348,
+    "timing_model": "asynchronous, no bound on message delay or process pause"
+  },
+  "panels": {
+    "R1": {
+      "empty": [],
+      "missing": [],
+      "panel": "panel/R1",
+      "quorum": true,
+      "rows": [
+        {
+          "seat": "crit_chaos_basiri",
+          "status": "REPORTED",
+          "words": 92
+        },
+        {
+          "seat": "crit_cons_lamport",
+          "status": "REPORTED",
+          "words": 105
+        },
+        {
+          "seat": "crit_cons_oust",
+          "status": "REPORTED",
+          "words": 95
+        },
+        {
+          "seat": "crit_form_clarke",
+          "status": "REPORTED",
+          "words": 73
+        },
+        {
+          "seat": "crit_form_emerson",
+          "status": "REPORTED",
+          "words": 94
+        },
+        {
+          "seat": "crit_human_perrow",
+          "status": "REPORTED",
+          "words": 99
+        },
+        {
+          "seat": "crit_imp_fischer",
+          "status": "REPORTED",
+          "words": 95
+        },
+        {
+          "seat": "crit_imp_lynch",
+          "status": "REPORTED",
+          "words": 96
+        },
+        {
+          "seat": "crit_imp_paterson",
+          "status": "REPORTED",
+          "words": 102
+        },
+        {
+          "seat": "crit_part_gilbert",
+          "status": "REPORTED",
+          "words": 103
+        },
+        {
+          "seat": "crit_rupt_taleb",
+          "status": "REPORTED",
+          "words": 98
+        },
+        {
+          "seat": "crit_safety_kingsbury",
+          "status": "REPORTED",
+          "words": 97
+        },
+        {
+          "seat": "crit_type_martinlof",
+          "status": "REPORTED",
+          "words": 96
+        },
+        {
+          "seat": "crit_type_milner",
+          "status": "REPORTED",
+          "words": 98
+        }
+      ],
+      "seats_reporting": 14,
+      "seats_required": 14
+    },
+    "R2": {
+      "empty": [],
+      "missing": [
+        "crit_chaos_basiri",
+        "crit_cons_lamport",
+        "crit_cons_oust",
+        "crit_form_clarke",
+        "crit_form_emerson",
+        "crit_human_perrow",
+        "crit_imp_fischer",
+        "crit_imp_lynch",
+        "crit_imp_paterson",
+        "crit_part_gilbert",
+        "crit_rupt_taleb",
+        "crit_safety_kingsbury",
+        "crit_type_martinlof",
+        "crit_type_milner"
+      ],
+      "panel": "panel/R2",
+      "quorum": false,
+      "rows": [
+        {
+          "seat": "crit_chaos_basiri",
+          "status": "MISSING",
+          "words": 0
+        },
+        {
+          "seat": "crit_cons_lamport",
+          "status": "MISSING",
+          "words": 0
+        },
+        {
+          "seat": "crit_cons_oust",
+          "status": "MISSING",
+          "words": 0
+        },
+        {
+          "seat": "crit_form_clarke",
+          "status": "MISSING",
+          "words": 0
+        },
+        {
+          "seat": "crit_form_emerson",
+          "status": "MISSING",
+          "words": 0
+        },
+        {
+          "seat": "crit_human_perrow",
+          "status": "MISSING",
+          "words": 0
+        },
+        {
+          "seat": "crit_imp_fischer",
+          "status": "MISSING",
+          "words": 0
+        },
+        {
+          "seat": "crit_imp_lynch",
+          "status": "MISSING",
+          "words": 0
+        },
+        {
+          "seat": "crit_imp_paterson",
+          "status": "MISSING",
+          "words": 0
+        },
+        {
+          "seat": "crit_part_gilbert",
+          "status": "MISSING",
+          "words": 0
+        },
+        {
+          "seat": "crit_rupt_taleb",
+          "status": "MISSING",
+          "words": 0
+        },
+        {
+          "seat": "crit_safety_kingsbury",
+          "status": "MISSING",
+          "words": 0
+        },
+        {
+          "seat": "crit_type_martinlof",
+          "status": "MISSING",
+          "words": 0
+        },
+        {
+          "seat": "crit_type_milner",
+          "status": "MISSING",
+          "words": 0
+        }
+      ],
+      "seats_reporting": 0,
+      "seats_required": 14
+    }
+  },
+  "stop_conditions": [
+    {
+      "condition": "Frontier has no OPEN items",
+      "id": "S1",
+      "met": true,
+      "witness": "analysis/traversal.json final_open_count == 0"
+    },
+    {
+      "condition": "WHOLE panel round PASS from every required critic, no Andon",
+      "id": "S2",
+      "met": false,
+      "witness": "collect_panel.py R2: 0/14 reporting, OBJECT verdicts=0"
+    },
+    {
+      "condition": "Two consecutive WHOLE rounds with no ADAPT, SCRAP, REOPEN or new OPEN",
+      "id": "S3",
+      "met": false,
+      "witness": "R2 OBJECT=0, R2 collected twice with identical stdout digest"
+    },
+    {
+      "condition": "Crucible push with a measured delta",
+      "id": "S4",
+      "met": true,
+      "witness": "epistemic_audit.py --crucible 200 reports measured_delta"
+    },
+    {
+      "condition": "Every dotted edge leaving a used anchor applied or declined",
+      "id": "S5",
+      "met": true,
+      "witness": "graph_walk.py --counts dotted edges; Anchor Ledger rows with reasons"
+    },
+    {
+      "condition": "Pre-flight jank checksum on final payload returns [DERIVED]",
+      "id": "S6",
+      "met": true,
+      "witness": "clean payload derived=true"
+    },
+    {
+      "condition": "Every axiom has a live witness",
+      "id": "S7",
+      "met": false,
+      "witness": "verify_invariants.py --all: 22/24 PASS"
+    },
+    {
+      "condition": "Replay is idempotent",
+      "id": "S8",
+      "met": true,
+      "witness": "replay=idempotent composition=f(f(x)) = f(x)"
+    }
+  ]
+}

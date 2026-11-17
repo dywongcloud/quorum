@@ -6,7 +6,7 @@
     "to": "raft"
   },
   "final_open_count": 0,
-  "graph_digest": "b17bcff94ed3aad75cd8a954ba235f4c583cbf22afb817cffba4a602acb6424b",
+  "graph_digest": "de74c409d4b3355703985f9c37b755be891267a4f2f3b55fdc4d84894fce4960",
   "mode": "fail-closed",
   "rounds": [
     {
@@ -24,7 +24,7 @@
           "reason": "incoming edge grounds an anchor already kept"
         }
       ],
-      "frontier_open_count": 15,
+      "frontier_open_count": 16,
       "round": 1,
       "taken": "flp",
       "visited_count": 5
@@ -40,11 +40,11 @@
           "reason": "counterpoint declined: its partner seat was not required in Fail-Closed mode"
         },
         {
-          "candidate": "paxos",
+          "candidate": "verdi",
           "reason": "incoming edge grounds an anchor already kept"
         }
       ],
-      "frontier_open_count": 11,
+      "frontier_open_count": 12,
       "round": 2,
       "taken": "lynchbook",
       "visited_count": 6
@@ -52,21 +52,21 @@
     {
       "deferred": [
         {
-          "candidate": "verdi",
+          "candidate": "failuredetector",
           "reason": "already discharged by the canon row"
         },
         {
-          "candidate": "cassandra",
+          "candidate": "flpbound",
           "reason": "counterpoint declined: its partner seat was not required in Fail-Closed mode"
         },
         {
-          "candidate": "failuredetector",
+          "candidate": "merkle",
           "reason": "incoming edge grounds an anchor already kept"
         }
       ],
-      "frontier_open_count": 7,
+      "frontier_open_count": 8,
       "round": 3,
-      "taken": "spanner",
+      "taken": "cassandra",
       "visited_count": 7
     },
     {
@@ -84,9 +84,9 @@
           "reason": "incoming edge grounds an anchor already kept"
         }
       ],
-      "frontier_open_count": 3,
+      "frontier_open_count": 4,
       "round": 4,
-      "taken": "merkle",
+      "taken": "paxos",
       "visited_count": 8
     },
     {
@@ -96,8 +96,12 @@
           "reason": "already discharged by the canon row"
         },
         {
-          "candidate": "vectorclock",
+          "candidate": "spanner",
           "reason": "counterpoint declined: its partner seat was not required in Fail-Closed mode"
+        },
+        {
+          "candidate": "vectorclock",
+          "reason": "incoming edge grounds an anchor already kept"
         }
       ],
       "frontier_open_count": 0,
@@ -112,5 +116,5 @@
     "raft",
     "dynamo"
   ],
-  "seed_frontier_candidates": 19
+  "seed_frontier_candidates": 20
 }

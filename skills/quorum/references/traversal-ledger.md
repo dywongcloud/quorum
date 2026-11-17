@@ -13,7 +13,7 @@ change not applied, with reason), **PASS** / **OBJECT** (panel seat),
 
 | Line | Node | Class | Cluster | Verdict | Evidence |
 |---:|---|---|---|---|---|
-| 1 | `flp` | stance | STANCE | KEEP | canon row present; 1 incoming, 3 outgoing edges |
+| 1 | `flp` | stance | STANCE | KEEP | canon row present; 1 incoming, 4 outgoing edges |
 | 2 | `gilbert` | stance | STANCE | KEEP | canon row present; 1 incoming, 2 outgoing edges |
 | 3 | `brewercap` | stance | STANCE | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
 | 4 | `pacelc` | stance | STANCE | KEEP | canon row present; 0 incoming, 2 outgoing edges |
@@ -33,393 +33,394 @@ change not applied, with reason), **PASS** / **OBJECT** (panel seat),
 | 18 | `youngblood` | stance | STANCE | KEEP | canon row present; 0 incoming, 2 outgoing edges |
 | 19 | `waldonote` | stance | STANCE | DEFERRED | 1 counterpoint edges; no canon row yet |
 | 20 | `endtoendprinciple` | stance | STANCE | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 21 | `paxos` | rules | RULES | KEEP | canon row present; 3 incoming, 2 outgoing edges |
-| 22 | `paxossimple` | rules | RULES | KEEP | canon row present; 1 incoming, 1 outgoing edges |
-| 23 | `raft` | rules | RULES | KEEP | canon row present; 6 incoming, 1 outgoing edges |
-| 24 | `vsr` | rules | RULES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 25 | `zab` | rules | RULES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 26 | `pbft` | rules | RULES | KEEP | canon row present; 2 incoming, 2 outgoing edges |
-| 27 | `tendermint` | rules | RULES | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 28 | `jointconsensus` | rules | RULES | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 29 | `leaderelection` | rules | RULES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 30 | `fencing` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 31 | `quorumread` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 32 | `sloppyquorum` | rules | RULES | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
-| 33 | `readrepair` | rules | RULES | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 34 | `merkle` | rules | RULES | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
-| 35 | `vectorclock` | rules | RULES | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
-| 36 | `hlogicalclock` | rules | RULES | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 37 | `truetime` | rules | RULES | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 38 | `linearizability` | rules | RULES | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 39 | `serializability` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 40 | `snapshotiso` | rules | RULES | KEEP | canon row present; 2 incoming, 1 outgoing edges |
-| 41 | `eventual` | rules | RULES | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 42 | `causalconsistency` | rules | RULES | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
-| 43 | `twophase` | rules | RULES | KEEP | canon row present; 2 incoming, 2 outgoing edges |
-| 44 | `threephase` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 45 | `saga` | rules | RULES | KEEP | canon row present; 2 incoming, 1 outgoing edges |
-| 46 | `idempotence` | rules | RULES | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 47 | `wal` | rules | RULES | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
-| 48 | `lsmtree` | rules | RULES | KEEP | canon row present; 4 incoming, 1 outgoing edges |
-| 49 | `btree` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 50 | `bloomfilter` | rules | RULES | KEEP | canon row present; 1 incoming, 0 outgoing edges |
-| 51 | `consistenthash` | rules | RULES | KEEP | canon row present; 1 incoming, 1 outgoing edges |
-| 52 | `rendezvous` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 53 | `chord` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 54 | `kademlia` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 55 | `pastry` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 56 | `gossip` | rules | RULES | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
-| 57 | `swim` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 58 | `phiaccrual` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 59 | `failuredetector` | rules | RULES | DECLINE | 4 incoming, 0 outgoing edges; no printed claim it bears on |
-| 60 | `splitbrain` | rules | RULES | DECLINE | 3 incoming, 0 outgoing edges; no printed claim it bears on |
-| 61 | `chainrep` | rules | RULES | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
-| 62 | `primarybackup` | rules | RULES | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
-| 63 | `statemachine` | rules | RULES | DECLINE | 1 incoming, 2 outgoing edges; no printed claim it bears on |
-| 64 | `multipaxos` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 65 | `raftlog` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 66 | `membership` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 67 | `mvcc` | rules | RULES | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
-| 68 | `crdtspec` | rules | RULES | DECLINE | 4 incoming, 2 outgoing edges; no printed claim it bears on |
-| 69 | `sec` | rules | RULES | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 70 | `coordinationavoidance` | rules | RULES | KEEP | canon row present; 2 incoming, 1 outgoing edges |
-| 71 | `readonlytxn` | rules | RULES | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 72 | `leases` | rules | RULES | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
-| 73 | `transactions` | rules | RULES | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
-| 74 | `dynamo` | break | BREAK | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 75 | `localfirst` | break | BREAK | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 76 | `automerge` | break | BREAK | KEEP | canon row present; 2 incoming, 0 outgoing edges |
-| 77 | `peritext` | break | BREAK | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 78 | `ipfs` | break | BREAK | DECLINE | 0 incoming, 3 outgoing edges; no printed claim it bears on |
-| 79 | `libp2p` | break | BREAK | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 80 | `bitcoin` | break | BREAK | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 81 | `blockchain` | break | BREAK | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 82 | `byzantinebreak` | break | BREAK | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 83 | `chaosmonkey` | break | BREAK | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 84 | `chaoseng` | break | BREAK | DECLINE | 3 incoming, 2 outgoing edges; no printed claim it bears on |
-| 85 | `faultinjection` | break | BREAK | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 86 | `metastable` | break | BREAK | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 87 | `harvestyield` | break | BREAK | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 88 | `antientropybreak` | break | BREAK | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 89 | `decentralizedbreak` | break | BREAK | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 90 | `edgebreak` | break | BREAK | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 91 | `serverlessbreak` | break | BREAK | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
-| 92 | `nocoordbreak` | break | BREAK | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 93 | `crdtbreak` | break | BREAK | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 94 | `partitionbreak` | break | BREAK | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 95 | `blackboxbreak` | break | BREAK | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 96 | `tailatscale` | physics | PHYSICS | KEEP | canon row present; 0 incoming, 3 outgoing edges |
-| 97 | `latencynumbers` | physics | PHYSICS | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 98 | `littleslaw` | physics | PHYSICS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 99 | `usl` | physics | PHYSICS | KEEP | canon row present; 0 incoming, 2 outgoing edges |
-| 100 | `amdahl` | physics | PHYSICS | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 101 | `fiveminute` | physics | PHYSICS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 102 | `coordinatedomission` | physics | PHYSICS | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 103 | `codel` | physics | PHYSICS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 104 | `bbr` | physics | PHYSICS | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 105 | `hedgedrequests` | physics | PHYSICS | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 106 | `p99budget` | physics | PHYSICS | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
-| 107 | `hardwarebounds` | physics | PHYSICS | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 108 | `energyproportional` | physics | PHYSICS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 109 | `warehouse` | physics | PHYSICS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 110 | `networklimits` | physics | PHYSICS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 111 | `diskfail` | physics | PHYSICS | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 112 | `correlatedfail` | physics | PHYSICS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 113 | `jitter` | physics | PHYSICS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 114 | `chubby` | system | SYSTEMS | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 115 | `spanner` | system | SYSTEMS | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 116 | `bigtable` | system | SYSTEMS | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
-| 117 | `gfs` | system | SYSTEMS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 118 | `mapreduce` | system | SYSTEMS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 119 | `borg` | system | SYSTEMS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 120 | `kubernetes` | system | SYSTEMS | KEEP | canon row present; 1 incoming, 1 outgoing edges |
-| 121 | `zookeeper` | system | SYSTEMS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 122 | `etcd` | system | SYSTEMS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 123 | `consul` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 124 | `kafka` | system | SYSTEMS | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
-| 125 | `bookkeeper` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 126 | `cassandra` | system | SYSTEMS | DECLINE | 1 incoming, 2 outgoing edges; no printed claim it bears on |
-| 127 | `riak` | system | SYSTEMS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 128 | `cockroach` | system | SYSTEMS | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
-| 129 | `foundationdb` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 130 | `aurora` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 131 | `calvin` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 132 | `voltdb` | system | SYSTEMS | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 133 | `megastore` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 134 | `dapper` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 135 | `monarch` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 136 | `envoy` | system | SYSTEMS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 137 | `flyio` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 138 | `workers` | system | SYSTEMS | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
-| 139 | `fastlycompute` | system | SYSTEMS | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
-| 140 | `cdn` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 141 | `iroh` | system | SYSTEMS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 142 | `tor` | system | SYSTEMS | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 143 | `slo` | ops | OPS | DECLINE | 3 incoming, 2 outgoing edges; no printed claim it bears on |
-| 144 | `sli` | ops | OPS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 145 | `errorbudget` | ops | OPS | DECLINE | 2 incoming, 3 outgoing edges; no printed claim it bears on |
-| 146 | `toil` | ops | OPS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 147 | `postmortem` | ops | OPS | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
-| 148 | `incident` | ops | OPS | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
-| 149 | `oncall` | ops | OPS | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
-| 150 | `fourgolden` | ops | OPS | DECLINE | 2 incoming, 2 outgoing edges; no printed claim it bears on |
-| 151 | `redmethod` | ops | OPS | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 152 | `usemethod` | ops | OPS | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 153 | `observability` | ops | OPS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 154 | `distributedtracing` | ops | OPS | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
-| 155 | `canary` | ops | OPS | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
-| 156 | `featureflag` | ops | OPS | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 157 | `loadshedding` | ops | OPS | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
-| 158 | `backpressure` | ops | OPS | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
-| 159 | `circuitbreaker` | ops | OPS | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
-| 160 | `retrybudget` | ops | OPS | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
-| 161 | `timeout` | ops | OPS | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
-| 162 | `healthcheck` | ops | OPS | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
-| 163 | `gracefuldegradation` | ops | OPS | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
-| 164 | `overload` | ops | OPS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 165 | `cascadingfailure` | ops | OPS | KEEP | canon row present; 4 incoming, 1 outgoing edges |
-| 166 | `capacityplanning` | ops | OPS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 167 | `autoscaling` | ops | OPS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 168 | `disasterrecovery` | ops | OPS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 169 | `backup` | ops | OPS | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
-| 170 | `runbook` | ops | OPS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 171 | `configmanagement` | ops | OPS | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 172 | `releaseengineering` | ops | OPS | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
-| 173 | `monitoring` | ops | OPS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 174 | `alerting` | ops | OPS | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
-| 175 | `fog` | edge | EDGE | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 176 | `mec` | edge | EDGE | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 177 | `cloudlets` | edge | EDGE | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
-| 178 | `offlinefirst` | edge | EDGE | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
-| 179 | `storeforward` | edge | EDGE | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 180 | `dtn` | edge | EDGE | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 181 | `geo` | edge | EDGE | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
-| 182 | `anycast` | edge | EDGE | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
-| 183 | `holepunching` | edge | EDGE | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 184 | `p2p` | edge | EDGE | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
-| 185 | `dht` | edge | EDGE | DECLINE | 3 incoming, 0 outgoing edges; no printed claim it bears on |
-| 186 | `splitbrainedge` | edge | EDGE | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 187 | `zerotrust` | edge | EDGE | KEEP | canon row present; 2 incoming, 2 outgoing edges |
-| 188 | `sybil` | edge | EDGE | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 189 | `eclipse` | edge | EDGE | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 190 | `capability` | edge | EDGE | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 191 | `affinetypestate` | edge | EDGE | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
-| 192 | `edgephysics` | edge | EDGE | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 193 | `redbook` | canon | CANON | KEEP | canon row present; 0 incoming, 2 outgoing edges |
-| 194 | `tanenbaum` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 195 | `lynchbook` | canon | CANON | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 196 | `cachin` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 197 | `birman` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 198 | `sreworkbook` | canon | CANON | KEEP | canon row present; 0 incoming, 2 outgoing edges |
-| 199 | `srech8` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 200 | `buildsecure` | canon | CANON | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 201 | `databaseinternals` | canon | CANON | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 202 | `streamingsystems` | canon | CANON | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 203 | `ddia2` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 204 | `srech1` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 205 | `srech4` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 206 | `srech22` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 207 | `srech26` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 208 | `jepsencanon` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 209 | `fallaciescanon` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 210 | `capcanon` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 211 | `replicationcanon` | canon | CANON | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 212 | `batchcanon` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 213 | `c_ears` | catalog | CATALOG | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 214 | `c_invest` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 215 | `c_qas` | catalog | CATALOG | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
-| 216 | `c_premortem` | catalog | CATALOG | DECLINE | 0 incoming, 3 outgoing edges; no printed claim it bears on |
-| 217 | `c_devil` | catalog | CATALOG | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 218 | `c_spike` | catalog | CATALOG | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 219 | `c_pugh` | catalog | CATALOG | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 220 | `c_first` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 221 | `c_occam` | catalog | CATALOG | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 222 | `c_kiss` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 223 | `c_cynefin` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 224 | `c_genchi` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 225 | `c_five` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 226 | `c_adr` | catalog | CATALOG | DECLINE | 2 incoming, 8 outgoing edges; no printed claim it bears on |
-| 227 | `c_madr` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 228 | `c_bluf` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 229 | `c_pyramid` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 230 | `c_dreyfus` | catalog | CATALOG | DECLINE | isolated node; label False; no edge carries the claim |
-| 231 | `c_chest` | catalog | CATALOG | DECLINE | 1 incoming, 2 outgoing edges; no printed claim it bears on |
-| 232 | `c_second` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 233 | `c_dbs` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 234 | `c_a3` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 235 | `c_feynman` | catalog | CATALOG | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 236 | `c_naur` | catalog | CATALOG | DECLINE | 3 incoming, 0 outgoing edges; no printed claim it bears on |
-| 237 | `c_dod` | catalog | CATALOG | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
-| 238 | `c_keep` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 239 | `c_andon` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 240 | `c_jidoka` | catalog | CATALOG | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 241 | `c_pdca` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 242 | `c_kaizen` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 243 | `c_strangler` | catalog | CATALOG | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
-| 244 | `c_refactor` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 245 | `c_mutation` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 246 | `c_red` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 247 | `c_goodhart` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 248 | `c_fagan` | catalog | CATALOG | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
-| 249 | `c_fmea` | catalog | CATALOG | DEFERRED | 2 counterpoint edges; no canon row yet |
-| 250 | `c_stpa` | catalog | CATALOG | DEFERRED | 2 counterpoint edges; no canon row yet |
-| 251 | `c_faulttree` | catalog | CATALOG | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 252 | `c_chaos` | catalog | CATALOG | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
-| 253 | `c_montecarlo` | catalog | CATALOG | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 254 | `c_p99` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 255 | `c_io` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 256 | `c_adt` | catalog | CATALOG | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 257 | `c_kolmogorov` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 258 | `c_ssot` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 259 | `c_hyrum` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 260 | `c_mikado` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 261 | `c_fallacies` | catalog | CATALOG | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 262 | `toulmin` | reason | REASON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 263 | `aristotle` | reason | REASON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 264 | `buchanan` | reason | REASON | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
-| 265 | `schon` | reason | REASON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 266 | `simon` | reason | REASON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 267 | `rittel` | reason | REASON | DECLINE | 1 incoming, 2 outgoing edges; no printed claim it bears on |
-| 268 | `ibis` | reason | REASON | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 269 | `dorst` | reason | REASON | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 270 | `sontag` | reason | REASON | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 271 | `baxandall` | reason | REASON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 272 | `meadows` | reason | REASON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 273 | `naurtheory` | reason | REASON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 274 | `popperreason` | reason | REASON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 275 | `lehman` | reason | REASON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 276 | `tla` | verify | VERIFY | DEFERRED | 2 counterpoint edges; no canon row yet |
-| 277 | `tlc` | verify | VERIFY | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 278 | `clarke` | verify | VERIFY | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
-| 279 | `cegar` | verify | VERIFY | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 280 | `ltl` | verify | VERIFY | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 281 | `alloy` | verify | VERIFY | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 282 | `spin` | verify | VERIFY | KEEP | canon row present; 1 incoming, 0 outgoing edges |
-| 283 | `coq` | verify | VERIFY | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 284 | `verdi` | verify | VERIFY | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
-| 285 | `ironfleet` | verify | VERIFY | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 286 | `jepsen` | verify | VERIFY | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 287 | `knossos` | verify | VERIFY | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 288 | `porcupine` | verify | VERIFY | DEFERRED | 1 counterpoint edges; no canon row yet |
-| 289 | `quickcheck` | verify | VERIFY | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 290 | `hypothesis` | verify | VERIFY | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 291 | `fuzzing` | verify | VERIFY | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
-| 292 | `metamorphic` | verify | VERIFY | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 293 | `faganverify` | verify | VERIFY | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 294 | `pitypes` | verify | VERIFY | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
-| 295 | `refinement` | verify | VERIFY | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 296 | `witness` | verify | VERIFY | DECLINE | 4 incoming, 0 outgoing edges; no printed claim it bears on |
-| 297 | `idempotencecheck` | verify | VERIFY | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 298 | `lens_flp` | lens | LENSES | KEEP | canon row present; 0 incoming, 3 outgoing edges |
-| 299 | `lens_clarke` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 300 | `lens_emerson` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 301 | `lens_milner` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 302 | `lens_martinlof` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 303 | `lens_basiri` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 304 | `lens_allspaw` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 305 | `lens_beyer` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 306 | `lens_jones` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 307 | `lens_star` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 308 | `lens_bowker` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 309 | `lens_tufte` | lens | LENSES | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
-| 310 | `lens_cairo` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 311 | `lens_gilbert` | lens | LENSES | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
-| 312 | `lens_brewer` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 313 | `lens_kleppmann` | lens | LENSES | KEEP | canon row present; 0 incoming, 2 outgoing edges |
-| 314 | `lens_lamport` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 315 | `lens_ongaro` | lens | LENSES | KEEP | canon row present; 0 incoming, 2 outgoing edges |
-| 316 | `lens_shostak` | lens | LENSES | KEEP | canon row present; 0 incoming, 2 outgoing edges |
-| 317 | `lens_pease` | lens | LENSES | KEEP | canon row present; 0 incoming, 2 outgoing edges |
-| 318 | `lens_shapiro` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 319 | `lens_preguica` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 320 | `lens_satyanarayanan` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 321 | `lens_bonomi` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 322 | `lens_dean` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 323 | `lens_barroso` | lens | LENSES | DECLINE | 0 incoming, 3 outgoing edges; no printed claim it bears on |
-| 324 | `lens_cook` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 325 | `lens_perrow` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 326 | `lens_saltzer` | lens | LENSES | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
-| 327 | `lens_schroeder` | lens | LENSES | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
-| 328 | `lens_taleb` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 329 | `lens_kingsbury` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 330 | `lens_gray` | lens | LENSES | KEEP | canon row present; 0 incoming, 2 outgoing edges |
-| 331 | `lens_decandia` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 332 | `lens_wiggins` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 333 | `lens_beresford` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
-| 334 | `lens_nakamoto` | lens | LENSES | KEEP | canon row present; 0 incoming, 2 outgoing edges |
-| 335 | `lens_benet` | lens | LENSES | DECLINE | isolated node; label True; no edge carries the claim |
-| 336 | `lens_hollnagel` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 337 | `crit_imp_fischer` | critic | CRITICS | PASS | lens binding lens_flp; 1 incoming edges; quorum seat |
-| 338 | `crit_imp_lynch` | critic | CRITICS | PASS | lens binding lens_flp; 1 incoming edges; quorum seat |
-| 339 | `crit_imp_paterson` | critic | CRITICS | PASS | lens binding lens_flp; 1 incoming edges; quorum seat |
-| 340 | `crit_form_clarke` | critic | CRITICS | PASS | lens binding lens_clarke; 1 incoming edges; quorum seat |
-| 341 | `crit_form_emerson` | critic | CRITICS | PASS | lens binding lens_emerson; 1 incoming edges; quorum seat |
-| 342 | `crit_type_milner` | critic | CRITICS | PASS | lens binding lens_milner; 1 incoming edges; quorum seat |
-| 343 | `crit_type_martinlof` | critic | CRITICS | PASS | lens binding lens_martinlof; 1 incoming edges; quorum seat |
-| 344 | `crit_chaos_basiri` | critic | CRITICS | PASS | lens binding lens_basiri; 2 incoming edges; quorum seat |
-| 345 | `crit_chaos_allspaw` | critic | CRITICS | PASS | lens binding lens_allspaw; 1 incoming edges; quorum seat |
-| 346 | `crit_ops_beyer` | critic | CRITICS | PASS | lens binding lens_beyer; 1 incoming edges; quorum seat |
-| 347 | `crit_ops_jones` | critic | CRITICS | PASS | lens binding lens_jones; 1 incoming edges; quorum seat |
-| 348 | `crit_erasure_star` | critic | CRITICS | PASS | lens binding lens_star; 2 incoming edges; quorum seat |
-| 349 | `crit_erasure_bowker` | critic | CRITICS | PASS | lens binding lens_bowker; 1 incoming edges; quorum seat |
-| 350 | `crit_cons_lamport` | critic | CRITICS | PASS | lens binding lens_lamport; 3 incoming edges; quorum seat |
-| 351 | `crit_cons_ongaro` | critic | CRITICS | PASS | lens binding lens_ongaro; 1 incoming edges; quorum seat |
-| 352 | `crit_cons_oust` | critic | CRITICS | PASS | lens binding lens_ongaro; 1 incoming edges; quorum seat |
-| 353 | `crit_byz_shostak` | critic | CRITICS | PASS | lens binding lens_shostak; 1 incoming edges; quorum seat |
-| 354 | `crit_byz_pease` | critic | CRITICS | PASS | lens binding lens_pease; 1 incoming edges; quorum seat |
-| 355 | `crit_byz_castro` | critic | CRITICS | PASS | lens binding lens_shostak; 1 incoming edges; quorum seat |
-| 356 | `crit_byz_liskov` | critic | CRITICS | PASS | lens binding lens_pease; 1 incoming edges; quorum seat |
-| 357 | `crit_part_gilbert` | critic | CRITICS | PASS | lens binding lens_gilbert; 2 incoming edges; quorum seat |
-| 358 | `crit_part_brewer` | critic | CRITICS | PASS | lens binding lens_brewer; 1 incoming edges; quorum seat |
-| 359 | `crit_part_abadi` | critic | CRITICS | PASS | lens binding lens_gilbert; 1 incoming edges; quorum seat |
-| 360 | `crit_repl_decandia` | critic | CRITICS | PASS | lens binding lens_decandia; 2 incoming edges; quorum seat |
-| 361 | `crit_repl_kleppmann` | critic | CRITICS | PASS | lens binding lens_kleppmann; 1 incoming edges; quorum seat |
-| 362 | `crit_repl_gray` | critic | CRITICS | PASS | lens binding lens_gray; 1 incoming edges; quorum seat |
-| 363 | `crit_tail_dean` | critic | CRITICS | PASS | lens binding lens_dean; 2 incoming edges; quorum seat |
-| 364 | `crit_tail_barroso` | critic | CRITICS | PASS | lens binding lens_barroso; 1 incoming edges; quorum seat |
-| 365 | `crit_edge_saty` | critic | CRITICS | PASS | lens binding lens_satyanarayanan; 1 incoming edges; quorum seat |
-| 366 | `crit_edge_bonomi` | critic | CRITICS | PASS | lens binding lens_bonomi; 1 incoming edges; quorum seat |
-| 367 | `crit_local_wiggins` | critic | CRITICS | PASS | lens binding lens_wiggins; 2 incoming edges; quorum seat |
-| 368 | `crit_local_beresford` | critic | CRITICS | PASS | lens binding lens_beresford; 1 incoming edges; quorum seat |
-| 369 | `crit_crdt_shapiro` | critic | CRITICS | PASS | lens binding lens_shapiro; 2 incoming edges; quorum seat |
-| 370 | `crit_crdt_preguica` | critic | CRITICS | PASS | lens binding lens_preguica; 2 incoming edges; quorum seat |
-| 371 | `crit_safety_kingsbury` | critic | CRITICS | PASS | lens binding lens_kingsbury; 2 incoming edges; quorum seat |
-| 372 | `crit_sec_saltzer` | critic | CRITICS | PASS | lens binding lens_saltzer; 1 incoming edges; quorum seat |
-| 373 | `crit_sec_schroeder` | critic | CRITICS | PASS | lens binding lens_schroeder; 1 incoming edges; quorum seat |
-| 374 | `crit_human_cook` | critic | CRITICS | PASS | lens binding lens_cook; 1 incoming edges; quorum seat |
-| 375 | `crit_human_perrow` | critic | CRITICS | PASS | lens binding lens_perrow; 2 incoming edges; quorum seat |
-| 376 | `crit_econ_gunther` | critic | CRITICS | PASS | lens binding lens_barroso; 2 incoming edges; quorum seat |
-| 377 | `crit_econ_little` | critic | CRITICS | PASS | lens binding lens_barroso; 1 incoming edges; quorum seat |
-| 378 | `crit_evid_tufte` | critic | CRITICS | PASS | lens binding lens_tufte; 2 incoming edges; quorum seat |
-| 379 | `crit_evid_cairo` | critic | CRITICS | PASS | lens binding lens_cairo; 2 incoming edges; quorum seat |
-| 380 | `crit_hist_stonebraker` | critic | CRITICS | PASS | lens binding lens_gray; 2 incoming edges; quorum seat |
-| 381 | `crit_hist_hellerstein` | critic | CRITICS | PASS | lens binding lens_kleppmann; 2 incoming edges; quorum seat |
-| 382 | `crit_zt_gilman` | critic | CRITICS | PASS | lens binding lens_saltzer; 2 incoming edges; quorum seat |
-| 383 | `crit_zt_barth` | critic | CRITICS | PASS | lens binding lens_schroeder; 1 incoming edges; quorum seat |
-| 384 | `crit_dec_benet` | critic | CRITICS | PASS | lens binding lens_nakamoto; 2 incoming edges; quorum seat |
-| 385 | `crit_dec_nakamoto` | critic | CRITICS | PASS | lens binding lens_nakamoto; 2 incoming edges; quorum seat |
-| 386 | `crit_rupt_taleb` | critic | CRITICS | PASS | lens binding lens_taleb; 2 incoming edges; quorum seat |
-| 387 | `crit_res_hollnagel` | critic | CRITICS | PASS | lens binding lens_hollnagel; 2 incoming edges; quorum seat |
-| 388 | `crit_detach_sontag` | critic | CRITICS | PASS | lens binding lens_tufte; 2 incoming edges; quorum seat |
-| 389 | `surowiecki` | panel | PANEL | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 390 | `page` | panel | PANEL | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 391 | `debono` | panel | PANEL | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 392 | `lerman` | panel | PANEL | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 393 | `panel_quorum` | panel | PANEL | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
-| 394 | `panel_independence` | panel | PANEL | DECLINE | 9 incoming, 1 outgoing edges; no printed claim it bears on |
-| 395 | `popper` | adapt | ADAPT | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
-| 396 | `kuhn` | adapt | ADAPT | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 397 | `argyris` | adapt | ADAPT | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
-| 398 | `talebadapt` | adapt | ADAPT | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
-| 399 | `hollnagel` | adapt | ADAPT | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
-| 400 | `lehmanadapt` | adapt | ADAPT | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 21 | `flpbound` | stance | STANCE | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 22 | `paxos` | rules | RULES | KEEP | canon row present; 3 incoming, 2 outgoing edges |
+| 23 | `paxossimple` | rules | RULES | KEEP | canon row present; 1 incoming, 1 outgoing edges |
+| 24 | `raft` | rules | RULES | KEEP | canon row present; 6 incoming, 1 outgoing edges |
+| 25 | `vsr` | rules | RULES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 26 | `zab` | rules | RULES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 27 | `pbft` | rules | RULES | KEEP | canon row present; 2 incoming, 2 outgoing edges |
+| 28 | `tendermint` | rules | RULES | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 29 | `jointconsensus` | rules | RULES | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 30 | `leaderelection` | rules | RULES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 31 | `fencing` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 32 | `quorumread` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 33 | `sloppyquorum` | rules | RULES | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
+| 34 | `readrepair` | rules | RULES | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 35 | `merkle` | rules | RULES | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
+| 36 | `vectorclock` | rules | RULES | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
+| 37 | `hlogicalclock` | rules | RULES | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 38 | `truetime` | rules | RULES | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 39 | `linearizability` | rules | RULES | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 40 | `serializability` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 41 | `snapshotiso` | rules | RULES | KEEP | canon row present; 2 incoming, 1 outgoing edges |
+| 42 | `eventual` | rules | RULES | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 43 | `causalconsistency` | rules | RULES | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
+| 44 | `twophase` | rules | RULES | KEEP | canon row present; 2 incoming, 2 outgoing edges |
+| 45 | `threephase` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 46 | `saga` | rules | RULES | KEEP | canon row present; 2 incoming, 1 outgoing edges |
+| 47 | `idempotence` | rules | RULES | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 48 | `wal` | rules | RULES | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
+| 49 | `lsmtree` | rules | RULES | KEEP | canon row present; 4 incoming, 1 outgoing edges |
+| 50 | `btree` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 51 | `bloomfilter` | rules | RULES | KEEP | canon row present; 1 incoming, 0 outgoing edges |
+| 52 | `consistenthash` | rules | RULES | KEEP | canon row present; 1 incoming, 1 outgoing edges |
+| 53 | `rendezvous` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 54 | `chord` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 55 | `kademlia` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 56 | `pastry` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 57 | `gossip` | rules | RULES | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
+| 58 | `swim` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 59 | `phiaccrual` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 60 | `failuredetector` | rules | RULES | DECLINE | 5 incoming, 0 outgoing edges; no printed claim it bears on |
+| 61 | `splitbrain` | rules | RULES | DECLINE | 3 incoming, 0 outgoing edges; no printed claim it bears on |
+| 62 | `chainrep` | rules | RULES | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
+| 63 | `primarybackup` | rules | RULES | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
+| 64 | `statemachine` | rules | RULES | DECLINE | 1 incoming, 2 outgoing edges; no printed claim it bears on |
+| 65 | `multipaxos` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 66 | `raftlog` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 67 | `membership` | rules | RULES | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 68 | `mvcc` | rules | RULES | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
+| 69 | `crdtspec` | rules | RULES | DECLINE | 4 incoming, 2 outgoing edges; no printed claim it bears on |
+| 70 | `sec` | rules | RULES | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 71 | `coordinationavoidance` | rules | RULES | KEEP | canon row present; 2 incoming, 1 outgoing edges |
+| 72 | `readonlytxn` | rules | RULES | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 73 | `leases` | rules | RULES | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
+| 74 | `transactions` | rules | RULES | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
+| 75 | `dynamo` | break | BREAK | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 76 | `localfirst` | break | BREAK | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 77 | `automerge` | break | BREAK | KEEP | canon row present; 2 incoming, 0 outgoing edges |
+| 78 | `peritext` | break | BREAK | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 79 | `ipfs` | break | BREAK | DECLINE | 0 incoming, 3 outgoing edges; no printed claim it bears on |
+| 80 | `libp2p` | break | BREAK | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 81 | `bitcoin` | break | BREAK | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 82 | `blockchain` | break | BREAK | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 83 | `byzantinebreak` | break | BREAK | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 84 | `chaosmonkey` | break | BREAK | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 85 | `chaoseng` | break | BREAK | DECLINE | 3 incoming, 2 outgoing edges; no printed claim it bears on |
+| 86 | `faultinjection` | break | BREAK | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 87 | `metastable` | break | BREAK | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 88 | `harvestyield` | break | BREAK | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 89 | `antientropybreak` | break | BREAK | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 90 | `decentralizedbreak` | break | BREAK | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 91 | `edgebreak` | break | BREAK | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 92 | `serverlessbreak` | break | BREAK | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
+| 93 | `nocoordbreak` | break | BREAK | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 94 | `crdtbreak` | break | BREAK | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 95 | `partitionbreak` | break | BREAK | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 96 | `blackboxbreak` | break | BREAK | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 97 | `tailatscale` | physics | PHYSICS | KEEP | canon row present; 0 incoming, 3 outgoing edges |
+| 98 | `latencynumbers` | physics | PHYSICS | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 99 | `littleslaw` | physics | PHYSICS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 100 | `usl` | physics | PHYSICS | KEEP | canon row present; 0 incoming, 2 outgoing edges |
+| 101 | `amdahl` | physics | PHYSICS | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 102 | `fiveminute` | physics | PHYSICS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 103 | `coordinatedomission` | physics | PHYSICS | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 104 | `codel` | physics | PHYSICS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 105 | `bbr` | physics | PHYSICS | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 106 | `hedgedrequests` | physics | PHYSICS | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 107 | `p99budget` | physics | PHYSICS | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
+| 108 | `hardwarebounds` | physics | PHYSICS | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 109 | `energyproportional` | physics | PHYSICS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 110 | `warehouse` | physics | PHYSICS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 111 | `networklimits` | physics | PHYSICS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 112 | `diskfail` | physics | PHYSICS | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 113 | `correlatedfail` | physics | PHYSICS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 114 | `jitter` | physics | PHYSICS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 115 | `chubby` | system | SYSTEMS | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 116 | `spanner` | system | SYSTEMS | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 117 | `bigtable` | system | SYSTEMS | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
+| 118 | `gfs` | system | SYSTEMS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 119 | `mapreduce` | system | SYSTEMS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 120 | `borg` | system | SYSTEMS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 121 | `kubernetes` | system | SYSTEMS | KEEP | canon row present; 1 incoming, 1 outgoing edges |
+| 122 | `zookeeper` | system | SYSTEMS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 123 | `etcd` | system | SYSTEMS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 124 | `consul` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 125 | `kafka` | system | SYSTEMS | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
+| 126 | `bookkeeper` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 127 | `cassandra` | system | SYSTEMS | DECLINE | 1 incoming, 2 outgoing edges; no printed claim it bears on |
+| 128 | `riak` | system | SYSTEMS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 129 | `cockroach` | system | SYSTEMS | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
+| 130 | `foundationdb` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 131 | `aurora` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 132 | `calvin` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 133 | `voltdb` | system | SYSTEMS | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 134 | `megastore` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 135 | `dapper` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 136 | `monarch` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 137 | `envoy` | system | SYSTEMS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 138 | `flyio` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 139 | `workers` | system | SYSTEMS | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
+| 140 | `fastlycompute` | system | SYSTEMS | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
+| 141 | `cdn` | system | SYSTEMS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 142 | `iroh` | system | SYSTEMS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 143 | `tor` | system | SYSTEMS | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 144 | `slo` | ops | OPS | DECLINE | 3 incoming, 2 outgoing edges; no printed claim it bears on |
+| 145 | `sli` | ops | OPS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 146 | `errorbudget` | ops | OPS | DECLINE | 2 incoming, 3 outgoing edges; no printed claim it bears on |
+| 147 | `toil` | ops | OPS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 148 | `postmortem` | ops | OPS | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
+| 149 | `incident` | ops | OPS | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
+| 150 | `oncall` | ops | OPS | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
+| 151 | `fourgolden` | ops | OPS | DECLINE | 2 incoming, 2 outgoing edges; no printed claim it bears on |
+| 152 | `redmethod` | ops | OPS | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 153 | `usemethod` | ops | OPS | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 154 | `observability` | ops | OPS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 155 | `distributedtracing` | ops | OPS | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
+| 156 | `canary` | ops | OPS | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
+| 157 | `featureflag` | ops | OPS | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 158 | `loadshedding` | ops | OPS | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
+| 159 | `backpressure` | ops | OPS | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
+| 160 | `circuitbreaker` | ops | OPS | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
+| 161 | `retrybudget` | ops | OPS | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
+| 162 | `timeout` | ops | OPS | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
+| 163 | `healthcheck` | ops | OPS | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
+| 164 | `gracefuldegradation` | ops | OPS | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
+| 165 | `overload` | ops | OPS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 166 | `cascadingfailure` | ops | OPS | KEEP | canon row present; 4 incoming, 1 outgoing edges |
+| 167 | `capacityplanning` | ops | OPS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 168 | `autoscaling` | ops | OPS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 169 | `disasterrecovery` | ops | OPS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 170 | `backup` | ops | OPS | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
+| 171 | `runbook` | ops | OPS | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 172 | `configmanagement` | ops | OPS | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 173 | `releaseengineering` | ops | OPS | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
+| 174 | `monitoring` | ops | OPS | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 175 | `alerting` | ops | OPS | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
+| 176 | `fog` | edge | EDGE | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 177 | `mec` | edge | EDGE | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 178 | `cloudlets` | edge | EDGE | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
+| 179 | `offlinefirst` | edge | EDGE | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
+| 180 | `storeforward` | edge | EDGE | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 181 | `dtn` | edge | EDGE | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 182 | `geo` | edge | EDGE | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
+| 183 | `anycast` | edge | EDGE | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
+| 184 | `holepunching` | edge | EDGE | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 185 | `p2p` | edge | EDGE | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
+| 186 | `dht` | edge | EDGE | DECLINE | 3 incoming, 0 outgoing edges; no printed claim it bears on |
+| 187 | `splitbrainedge` | edge | EDGE | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 188 | `zerotrust` | edge | EDGE | KEEP | canon row present; 2 incoming, 2 outgoing edges |
+| 189 | `sybil` | edge | EDGE | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 190 | `eclipse` | edge | EDGE | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 191 | `capability` | edge | EDGE | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 192 | `affinetypestate` | edge | EDGE | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
+| 193 | `edgephysics` | edge | EDGE | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 194 | `redbook` | canon | CANON | KEEP | canon row present; 0 incoming, 2 outgoing edges |
+| 195 | `tanenbaum` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 196 | `lynchbook` | canon | CANON | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 197 | `cachin` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 198 | `birman` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 199 | `sreworkbook` | canon | CANON | KEEP | canon row present; 0 incoming, 2 outgoing edges |
+| 200 | `srech8` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 201 | `buildsecure` | canon | CANON | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 202 | `databaseinternals` | canon | CANON | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 203 | `streamingsystems` | canon | CANON | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 204 | `ddia2` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 205 | `srech1` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 206 | `srech4` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 207 | `srech22` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 208 | `srech26` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 209 | `jepsencanon` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 210 | `fallaciescanon` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 211 | `capcanon` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 212 | `replicationcanon` | canon | CANON | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 213 | `batchcanon` | canon | CANON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 214 | `c_ears` | catalog | CATALOG | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 215 | `c_invest` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 216 | `c_qas` | catalog | CATALOG | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
+| 217 | `c_premortem` | catalog | CATALOG | DECLINE | 0 incoming, 3 outgoing edges; no printed claim it bears on |
+| 218 | `c_devil` | catalog | CATALOG | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 219 | `c_spike` | catalog | CATALOG | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 220 | `c_pugh` | catalog | CATALOG | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 221 | `c_first` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 222 | `c_occam` | catalog | CATALOG | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 223 | `c_kiss` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 224 | `c_cynefin` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 225 | `c_genchi` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 226 | `c_five` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 227 | `c_adr` | catalog | CATALOG | DECLINE | 2 incoming, 8 outgoing edges; no printed claim it bears on |
+| 228 | `c_madr` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 229 | `c_bluf` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 230 | `c_pyramid` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 231 | `c_dreyfus` | catalog | CATALOG | DECLINE | isolated node; label False; no edge carries the claim |
+| 232 | `c_chest` | catalog | CATALOG | DECLINE | 1 incoming, 2 outgoing edges; no printed claim it bears on |
+| 233 | `c_second` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 234 | `c_dbs` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 235 | `c_a3` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 236 | `c_feynman` | catalog | CATALOG | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 237 | `c_naur` | catalog | CATALOG | DECLINE | 3 incoming, 0 outgoing edges; no printed claim it bears on |
+| 238 | `c_dod` | catalog | CATALOG | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
+| 239 | `c_keep` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 240 | `c_andon` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 241 | `c_jidoka` | catalog | CATALOG | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 242 | `c_pdca` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 243 | `c_kaizen` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 244 | `c_strangler` | catalog | CATALOG | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
+| 245 | `c_refactor` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 246 | `c_mutation` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 247 | `c_red` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 248 | `c_goodhart` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 249 | `c_fagan` | catalog | CATALOG | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
+| 250 | `c_fmea` | catalog | CATALOG | DEFERRED | 2 counterpoint edges; no canon row yet |
+| 251 | `c_stpa` | catalog | CATALOG | DEFERRED | 2 counterpoint edges; no canon row yet |
+| 252 | `c_faulttree` | catalog | CATALOG | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 253 | `c_chaos` | catalog | CATALOG | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
+| 254 | `c_montecarlo` | catalog | CATALOG | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 255 | `c_p99` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 256 | `c_io` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 257 | `c_adt` | catalog | CATALOG | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 258 | `c_kolmogorov` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 259 | `c_ssot` | catalog | CATALOG | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 260 | `c_hyrum` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 261 | `c_mikado` | catalog | CATALOG | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 262 | `c_fallacies` | catalog | CATALOG | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 263 | `toulmin` | reason | REASON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 264 | `aristotle` | reason | REASON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 265 | `buchanan` | reason | REASON | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
+| 266 | `schon` | reason | REASON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 267 | `simon` | reason | REASON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 268 | `rittel` | reason | REASON | DECLINE | 1 incoming, 2 outgoing edges; no printed claim it bears on |
+| 269 | `ibis` | reason | REASON | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 270 | `dorst` | reason | REASON | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 271 | `sontag` | reason | REASON | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 272 | `baxandall` | reason | REASON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 273 | `meadows` | reason | REASON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 274 | `naurtheory` | reason | REASON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 275 | `popperreason` | reason | REASON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 276 | `lehman` | reason | REASON | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 277 | `tla` | verify | VERIFY | DEFERRED | 2 counterpoint edges; no canon row yet |
+| 278 | `tlc` | verify | VERIFY | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 279 | `clarke` | verify | VERIFY | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
+| 280 | `cegar` | verify | VERIFY | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 281 | `ltl` | verify | VERIFY | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 282 | `alloy` | verify | VERIFY | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 283 | `spin` | verify | VERIFY | KEEP | canon row present; 1 incoming, 0 outgoing edges |
+| 284 | `coq` | verify | VERIFY | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 285 | `verdi` | verify | VERIFY | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
+| 286 | `ironfleet` | verify | VERIFY | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 287 | `jepsen` | verify | VERIFY | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 288 | `knossos` | verify | VERIFY | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 289 | `porcupine` | verify | VERIFY | DEFERRED | 1 counterpoint edges; no canon row yet |
+| 290 | `quickcheck` | verify | VERIFY | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 291 | `hypothesis` | verify | VERIFY | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 292 | `fuzzing` | verify | VERIFY | DECLINE | 1 incoming, 0 outgoing edges; no printed claim it bears on |
+| 293 | `metamorphic` | verify | VERIFY | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 294 | `faganverify` | verify | VERIFY | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 295 | `pitypes` | verify | VERIFY | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
+| 296 | `refinement` | verify | VERIFY | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 297 | `witness` | verify | VERIFY | DECLINE | 4 incoming, 0 outgoing edges; no printed claim it bears on |
+| 298 | `idempotencecheck` | verify | VERIFY | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 299 | `lens_flp` | lens | LENSES | KEEP | canon row present; 0 incoming, 3 outgoing edges |
+| 300 | `lens_clarke` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 301 | `lens_emerson` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 302 | `lens_milner` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 303 | `lens_martinlof` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 304 | `lens_basiri` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 305 | `lens_allspaw` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 306 | `lens_beyer` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 307 | `lens_jones` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 308 | `lens_star` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 309 | `lens_bowker` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 310 | `lens_tufte` | lens | LENSES | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
+| 311 | `lens_cairo` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 312 | `lens_gilbert` | lens | LENSES | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
+| 313 | `lens_brewer` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 314 | `lens_kleppmann` | lens | LENSES | KEEP | canon row present; 0 incoming, 2 outgoing edges |
+| 315 | `lens_lamport` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 316 | `lens_ongaro` | lens | LENSES | KEEP | canon row present; 0 incoming, 2 outgoing edges |
+| 317 | `lens_shostak` | lens | LENSES | KEEP | canon row present; 0 incoming, 2 outgoing edges |
+| 318 | `lens_pease` | lens | LENSES | KEEP | canon row present; 0 incoming, 2 outgoing edges |
+| 319 | `lens_shapiro` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 320 | `lens_preguica` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 321 | `lens_satyanarayanan` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 322 | `lens_bonomi` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 323 | `lens_dean` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 324 | `lens_barroso` | lens | LENSES | DECLINE | 0 incoming, 3 outgoing edges; no printed claim it bears on |
+| 325 | `lens_cook` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 326 | `lens_perrow` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 327 | `lens_saltzer` | lens | LENSES | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
+| 328 | `lens_schroeder` | lens | LENSES | DECLINE | 0 incoming, 2 outgoing edges; no printed claim it bears on |
+| 329 | `lens_taleb` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 330 | `lens_kingsbury` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 331 | `lens_gray` | lens | LENSES | KEEP | canon row present; 0 incoming, 2 outgoing edges |
+| 332 | `lens_decandia` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 333 | `lens_wiggins` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 334 | `lens_beresford` | lens | LENSES | KEEP | canon row present; 0 incoming, 1 outgoing edges |
+| 335 | `lens_nakamoto` | lens | LENSES | KEEP | canon row present; 0 incoming, 2 outgoing edges |
+| 336 | `lens_benet` | lens | LENSES | DECLINE | isolated node; label True; no edge carries the claim |
+| 337 | `lens_hollnagel` | lens | LENSES | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 338 | `crit_imp_fischer` | critic | CRITICS | PASS | lens binding lens_flp; 1 incoming edges; quorum seat |
+| 339 | `crit_imp_lynch` | critic | CRITICS | PASS | lens binding lens_flp; 1 incoming edges; quorum seat |
+| 340 | `crit_imp_paterson` | critic | CRITICS | PASS | lens binding lens_flp; 1 incoming edges; quorum seat |
+| 341 | `crit_form_clarke` | critic | CRITICS | PASS | lens binding lens_clarke; 1 incoming edges; quorum seat |
+| 342 | `crit_form_emerson` | critic | CRITICS | PASS | lens binding lens_emerson; 1 incoming edges; quorum seat |
+| 343 | `crit_type_milner` | critic | CRITICS | PASS | lens binding lens_milner; 1 incoming edges; quorum seat |
+| 344 | `crit_type_martinlof` | critic | CRITICS | PASS | lens binding lens_martinlof; 1 incoming edges; quorum seat |
+| 345 | `crit_chaos_basiri` | critic | CRITICS | PASS | lens binding lens_basiri; 2 incoming edges; quorum seat |
+| 346 | `crit_chaos_allspaw` | critic | CRITICS | PASS | lens binding lens_allspaw; 1 incoming edges; quorum seat |
+| 347 | `crit_ops_beyer` | critic | CRITICS | PASS | lens binding lens_beyer; 1 incoming edges; quorum seat |
+| 348 | `crit_ops_jones` | critic | CRITICS | PASS | lens binding lens_jones; 1 incoming edges; quorum seat |
+| 349 | `crit_erasure_star` | critic | CRITICS | PASS | lens binding lens_star; 2 incoming edges; quorum seat |
+| 350 | `crit_erasure_bowker` | critic | CRITICS | PASS | lens binding lens_bowker; 1 incoming edges; quorum seat |
+| 351 | `crit_cons_lamport` | critic | CRITICS | PASS | lens binding lens_lamport; 3 incoming edges; quorum seat |
+| 352 | `crit_cons_ongaro` | critic | CRITICS | PASS | lens binding lens_ongaro; 1 incoming edges; quorum seat |
+| 353 | `crit_cons_oust` | critic | CRITICS | PASS | lens binding lens_ongaro; 1 incoming edges; quorum seat |
+| 354 | `crit_byz_shostak` | critic | CRITICS | PASS | lens binding lens_shostak; 1 incoming edges; quorum seat |
+| 355 | `crit_byz_pease` | critic | CRITICS | PASS | lens binding lens_pease; 1 incoming edges; quorum seat |
+| 356 | `crit_byz_castro` | critic | CRITICS | PASS | lens binding lens_shostak; 1 incoming edges; quorum seat |
+| 357 | `crit_byz_liskov` | critic | CRITICS | PASS | lens binding lens_pease; 1 incoming edges; quorum seat |
+| 358 | `crit_part_gilbert` | critic | CRITICS | PASS | lens binding lens_gilbert; 2 incoming edges; quorum seat |
+| 359 | `crit_part_brewer` | critic | CRITICS | PASS | lens binding lens_brewer; 1 incoming edges; quorum seat |
+| 360 | `crit_part_abadi` | critic | CRITICS | PASS | lens binding lens_gilbert; 1 incoming edges; quorum seat |
+| 361 | `crit_repl_decandia` | critic | CRITICS | PASS | lens binding lens_decandia; 2 incoming edges; quorum seat |
+| 362 | `crit_repl_kleppmann` | critic | CRITICS | PASS | lens binding lens_kleppmann; 1 incoming edges; quorum seat |
+| 363 | `crit_repl_gray` | critic | CRITICS | PASS | lens binding lens_gray; 1 incoming edges; quorum seat |
+| 364 | `crit_tail_dean` | critic | CRITICS | PASS | lens binding lens_dean; 2 incoming edges; quorum seat |
+| 365 | `crit_tail_barroso` | critic | CRITICS | PASS | lens binding lens_barroso; 1 incoming edges; quorum seat |
+| 366 | `crit_edge_saty` | critic | CRITICS | PASS | lens binding lens_satyanarayanan; 1 incoming edges; quorum seat |
+| 367 | `crit_edge_bonomi` | critic | CRITICS | PASS | lens binding lens_bonomi; 1 incoming edges; quorum seat |
+| 368 | `crit_local_wiggins` | critic | CRITICS | PASS | lens binding lens_wiggins; 2 incoming edges; quorum seat |
+| 369 | `crit_local_beresford` | critic | CRITICS | PASS | lens binding lens_beresford; 1 incoming edges; quorum seat |
+| 370 | `crit_crdt_shapiro` | critic | CRITICS | PASS | lens binding lens_shapiro; 2 incoming edges; quorum seat |
+| 371 | `crit_crdt_preguica` | critic | CRITICS | PASS | lens binding lens_preguica; 2 incoming edges; quorum seat |
+| 372 | `crit_safety_kingsbury` | critic | CRITICS | PASS | lens binding lens_kingsbury; 2 incoming edges; quorum seat |
+| 373 | `crit_sec_saltzer` | critic | CRITICS | PASS | lens binding lens_saltzer; 1 incoming edges; quorum seat |
+| 374 | `crit_sec_schroeder` | critic | CRITICS | PASS | lens binding lens_schroeder; 1 incoming edges; quorum seat |
+| 375 | `crit_human_cook` | critic | CRITICS | PASS | lens binding lens_cook; 1 incoming edges; quorum seat |
+| 376 | `crit_human_perrow` | critic | CRITICS | PASS | lens binding lens_perrow; 2 incoming edges; quorum seat |
+| 377 | `crit_econ_gunther` | critic | CRITICS | PASS | lens binding lens_barroso; 2 incoming edges; quorum seat |
+| 378 | `crit_econ_little` | critic | CRITICS | PASS | lens binding lens_barroso; 1 incoming edges; quorum seat |
+| 379 | `crit_evid_tufte` | critic | CRITICS | PASS | lens binding lens_tufte; 2 incoming edges; quorum seat |
+| 380 | `crit_evid_cairo` | critic | CRITICS | PASS | lens binding lens_cairo; 2 incoming edges; quorum seat |
+| 381 | `crit_hist_stonebraker` | critic | CRITICS | PASS | lens binding lens_gray; 2 incoming edges; quorum seat |
+| 382 | `crit_hist_hellerstein` | critic | CRITICS | PASS | lens binding lens_kleppmann; 2 incoming edges; quorum seat |
+| 383 | `crit_zt_gilman` | critic | CRITICS | PASS | lens binding lens_saltzer; 2 incoming edges; quorum seat |
+| 384 | `crit_zt_barth` | critic | CRITICS | PASS | lens binding lens_schroeder; 1 incoming edges; quorum seat |
+| 385 | `crit_dec_benet` | critic | CRITICS | PASS | lens binding lens_nakamoto; 2 incoming edges; quorum seat |
+| 386 | `crit_dec_nakamoto` | critic | CRITICS | PASS | lens binding lens_nakamoto; 2 incoming edges; quorum seat |
+| 387 | `crit_rupt_taleb` | critic | CRITICS | PASS | lens binding lens_taleb; 2 incoming edges; quorum seat |
+| 388 | `crit_res_hollnagel` | critic | CRITICS | PASS | lens binding lens_hollnagel; 2 incoming edges; quorum seat |
+| 389 | `crit_detach_sontag` | critic | CRITICS | PASS | lens binding lens_tufte; 2 incoming edges; quorum seat |
+| 390 | `surowiecki` | panel | PANEL | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 391 | `page` | panel | PANEL | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 392 | `debono` | panel | PANEL | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 393 | `lerman` | panel | PANEL | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 394 | `panel_quorum` | panel | PANEL | DECLINE | 0 incoming, 1 outgoing edges; no printed claim it bears on |
+| 395 | `panel_independence` | panel | PANEL | DECLINE | 9 incoming, 1 outgoing edges; no printed claim it bears on |
+| 396 | `popper` | adapt | ADAPT | DECLINE | 2 incoming, 1 outgoing edges; no printed claim it bears on |
+| 397 | `kuhn` | adapt | ADAPT | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 398 | `argyris` | adapt | ADAPT | DECLINE | 3 incoming, 1 outgoing edges; no printed claim it bears on |
+| 399 | `talebadapt` | adapt | ADAPT | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
+| 400 | `hollnagel` | adapt | ADAPT | DECLINE | 2 incoming, 0 outgoing edges; no printed claim it bears on |
+| 401 | `lehmanadapt` | adapt | ADAPT | DECLINE | 1 incoming, 1 outgoing edges; no printed claim it bears on |
 
-Counts: 400 nodes, 400 judged in this run, 0 visited in an earlier run and not re-judged.
+Counts: 401 nodes, 401 judged in this run, 0 visited in an earlier run and not re-judged.
 
 | Verdict | Count |
 |---|---:|
 | DECLINE | 251 |
-| DEFERRED | 35 |
+| DEFERRED | 36 |
 | KEEP | 62 |
 | PASS | 52 |
 

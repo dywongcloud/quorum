@@ -158,6 +158,8 @@ called it.
 | Run the panel | One sub-agent per authority, not per critic | Sequential, written one authority at a time, each report fully written before the next is read |
 | Persist the log | Docs or artifact tool, in addition to `QUORUM-LOG.md` | `QUORUM-LOG.md` only |
 | Discharge axioms | `epistemic_audit.py` and `verify_invariants.py` | A witnessed command per axiom in the log |
+| Model-check safety | `epistemic_audit.py --model-check` | Exhaustive finite LTS with a counterexample trace |
+| Run the crucible | `epistemic_audit.py --crucible 200` | Control, fault-injected treatment, blast-radius guard |
 
 ### Step 1. Traversal Plan (before touching the work)
 
@@ -397,9 +399,23 @@ edge, red critics, magenta lenses, cyan panel method, lime adaptation, blue
 catalog anchors, gold verification. Status classes for the live graph:
 `visited`, `kept`, `adapted`, `scrapped`.
 
-Read `references/anchor-graph.md` before choosing the seed and the panel. Copy
-labels from it exactly. Read `references/critic-panel.md` for the seats,
-`references/panel-protocol.md` for convening them,
-`references/invariant-ledger.md` for the axiom-to-witness map,
-`references/fault-taxonomy.md` for the fault codes, and
-`references/canon.md` for the source of every label.
+Read [references/anchor-graph.md](references/anchor-graph.md) before choosing
+the seed and the panel. Copy labels from it exactly. The rest of the reference
+set is a map, not a reading order:
+
+| File | What it carries |
+|---|---|
+| [references/critic-panel.md](references/critic-panel.md) | seats, lens bindings, counterpoint closure |
+| [references/panel-protocol.md](references/panel-protocol.md) | transport-safe rounds, one agent per authority |
+| [references/invariant-ledger.md](references/invariant-ledger.md) | axiom-to-witness map |
+| [references/fault-taxonomy.md](references/fault-taxonomy.md) | the four fault codes and the exception model |
+| [references/canon.md](references/canon.md) | source and provenance of every anchor |
+| [references/primary-texts.md](references/primary-texts.md) | SRE and DDIA chapter-to-node map, read during the build |
+| [references/traversal-ledger.md](references/traversal-ledger.md) | one measured verdict per node |
+| [references/field-notes.md](references/field-notes.md) | carry-forward facts established by measurement |
+| [references/model-assumptions.md](references/model-assumptions.md) | the FLP bound and the assumptions that discharge liveness |
+
+The executable forms of the walk and the daemon are
+`skills/quorum/scripts/graph_walk.py` and
+`skills/quorum/scripts/epistemic_audit.py`. A run is not compliant while a
+required verdict file is missing: `collect_panel.py` decides the quorum.

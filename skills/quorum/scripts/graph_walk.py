@@ -64,15 +64,13 @@ class Graph:
         found: list[dict[str, str]] = []
         for e in self.edges:
             if e.dst == node:
+                direction = "counterpoint" if e.kind == "dotted" else "incoming"
                 found.append({"candidate": e.src, "via": e.label,
-                              "direction": "incoming", "kind": e.kind, "from": node})
+                              "direction": direction, "kind": e.kind, "from": node})
             elif e.src == node:
+                direction = "counterpoint" if e.kind == "dotted" else "outgoing"
                 found.append({"candidate": e.dst, "via": e.label,
-                              "direction": "outgoing", "kind": e.kind, "from": node})
-            elif e.kind == "dotted" and (e.src == node or e.dst == node):
-                other = e.dst if e.src == node else e.src
-                found.append({"candidate": other, "via": e.label,
-                              "direction": "counterpoint", "kind": e.kind, "from": node})
+                              "direction": direction, "kind": e.kind, "from": node})
         return found
 
     def counterpoint_pairs(self) -> tuple[tuple[str, str, str], ...]:
@@ -281,6 +279,7 @@ def main(argv: list[str]) -> int:
             "clusters": len(graph.clusters),
             "critics": len([n for n in graph.labels if n.startswith("crit_")]),
             "critic_pairs": len(graph.counterpoint_pairs()),
+            "timing_model": "asynchronous, no bound on message delay or process pause",
         }, sort_keys=True))
         return 0
     if args.check_dag:

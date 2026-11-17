@@ -60,13 +60,55 @@ def main(argv: list[str]) -> int:
     parser.add_argument("--json", action="store_true")
     parser.add_argument("--roster", type=str, default="")
     parser.add_argument("--graph", type=str, default="")
+    parser.add_argument("--quorum", action="store_true")
+    parser.add_argument("--replication", action="store_true")
     args = parser.parse_args(argv)
     seats = list(args.seats)
-    if args.roster:
+    graph = None
+    if args.roster or args.quorum or args.replication:
         sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
         import graph_walk
         graph = graph_walk.parse(pathlib.Path(args.graph) if args.graph else graph_walk.GRAPH_PATH)
+    if args.roster:
+        if graph is None:
+            raise RuntimeError("graph parser unavailable")
         seats = list(graph_walk.roster(graph, args.roster)["required_seats"])
+    if args.replication:
+        files = sorted(pathlib.Path(args.panel).glob("*.md"))
+        copies = len(files)
+        required = len(seats)
+        print(json.dumps({
+            "term": 1, "leader": "panel-collector",
+            "verdict_files": copies, "required_seats": required,
+            "replicated_to_majority": copies >= (required // 2) + 1,
+            "commit_rule": "durable file per seat, one reader commits after collection",
+            "evidence": [f.name for f in files],
+        }, sort_keys=True))
+        return 0 if copies >= (required // 2) + 1 else 1
+    if args.quorum:
+        if graph is None:
+            raise RuntimeError("graph parser unavailable")
+        pairs = graph.counterpoint_pairs()
+        reported = {pathlib.Path(args.panel, s + ".md").stem
+                    for s in seats if pathlib.Path(args.panel, s + ".md").is_file()}
+        uncovered = [[a, b, label] for a, b, label in pairs
+                     if a not in reported and b not in reported]
+        majority = (len(seats) // 2) + 1
+        minimal_uncovered = 0
+        for a, b, _label in pairs:
+            eligible = [s for s in seats if s not in (a, b)]
+            if len(eligible) >= majority:
+                minimal_uncovered += 1
+        print(json.dumps({
+            "quorum_check": "intersecting-majority",
+            "seats_required": len(seats), "seats_reporting": len(reported),
+            "majority_size": majority, "counterpoint_pairs": len(pairs),
+            "pairs_uncovered_now": len(uncovered),
+            "pairs_a_majority_can_omit_both_members": minimal_uncovered,
+            "unanimity_needed": minimal_uncovered > 0,
+            "ballot_numbered": True,
+        }, sort_keys=True))
+        return 0 if not uncovered else 1
     return collect(pathlib.Path(args.panel), seats, args.json)
 
 

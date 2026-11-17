@@ -1,0 +1,11 @@
+{
+  "timing_model": "asynchronous, no bound on message delay or process pause",
+  "schedule": [
+    {"t": 0, "event": "leader elected", "term": 1, "participants": 14},
+    {"t": 1, "event": "one replica crashes", "term": 1, "participants": 13, "fault": "crash-stop"},
+    {"t": 2, "event": "partition isolates 5 seats", "term": 1, "participants": 8, "fault": "partition"},
+    {"t": 3, "event": "recovery and re-collection", "term": 2, "participants": 14, "fault": "healed"}
+  ],
+  "liveness_claim": false,
+  "note": "Safety holds at every t. Termination is not asserted under this schedule; the FLP bound in model-assumptions.md governs."
+}

@@ -80,10 +80,17 @@ def main() -> int:
             "reproducible": target is not None and all(v == target for v in values),
         })
     missing = sorted(set(expected) - set(shown))
+    faults = [{"fault": "FIGURE_MISMATCH", "figure": r["figure"],
+               "printed": r["printed"], "computed": r["computed"]}
+              for r in rows if not r["reproducible"]]
+    for key in missing:
+        faults.append({"fault": "FIGURE_MISMATCH", "figure": key,
+                       "printed": [], "computed": None})
     result = {
         "figure_count": len(rows),
         "figures_not_printed": missing,
-        "all_reproducible": all(r["reproducible"] for r in rows) and not missing,
+        "all_reproducible": not faults,
+        "faults": faults,
         "rows": rows,
     }
     print(json.dumps(result, sort_keys=True))

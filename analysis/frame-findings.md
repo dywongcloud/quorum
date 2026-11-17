@@ -3,7 +3,11 @@
 Two of three frame scouts reported. The third, canon fidelity, did not
 report before its transport was stopped; its finding is recorded as
 NOT REPORTED, never reconstructed. Findings are the scouts own words.
-Each was resolved by an ADAPT described in QUORUM-LOG.md.
+Each was resolved by an ADAPT described in QUORUM-LOG.md. These are
+point-in-time measurements taken while the tree was being written. Numbers in
+this file are historical evidence of what the scout observed, not current
+figures; `validate_figures.py` and `verify_invariants.py --all` are the current
+authority.
 
 ## F1: Surface inventory: claim-bearing files -> verifying command, and the coverage gap
 

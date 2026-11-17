@@ -6,7 +6,7 @@ rework of [DADA](https://github.com/AnEntrypoint/dada) for distributed systems
 theory, infrastructure, edge computing, fault tolerance and decentralization.
 
 DADA traverses an anchor graph of graphic-design literature with a panel of art
-critics. QUORUM keeps the machinery and replaces the domain: 400 nodes drawn
+critics. QUORUM keeps the machinery and replaces the domain: 401 nodes drawn
 from the SRE books, Designing Data-Intensive Applications, the impossibility
 results, the systems papers, the operations canon, and formal verification;
 52 adversarial critic seats; and a graph walk whose stop conditions include a
@@ -19,7 +19,7 @@ chaos crucible and a replay idempotence proof.
 | Graphic design at maximum ambition | Distributed systems design under failure |
 | Autonomous / Adaptive modes | Fail-Closed / Graceful modes |
 | Inner necessity vs MAYA | Invariant discharge vs Bounded Optimism (p99 budget) |
-| 302 art-literature anchors | 400 distributed-systems anchors |
+| 302 art-literature anchors | 401 distributed-systems anchors |
 | Art critics (Greenberg, Barthes, Papanek) | Authorities (Fischer, Lynch, Paterson, Lamport, Kleppmann, Star) |
 | `DESIGN-LOG.md`, five artifacts | `QUORUM-LOG.md`, five artifacts |
 | Measurement of contrast and pixel counts | Measurement of graph counts, digests, p99 and quorum certificates |

@@ -1,0 +1,47 @@
+{
+  "aria_live_status": true,
+  "contrast_band_paper": 15.177,
+  "contrast_paper_ink": 14.657,
+  "contrast_paper_muted": 6.978,
+  "css_bytes": 5757,
+  "figure_keys": [
+    "assignment_count",
+    "axioms",
+    "clusters",
+    "critic_pairs",
+    "critic_seats",
+    "dotted",
+    "edges",
+    "fail_closed_seats",
+    "fault_codes",
+    "nodes",
+    "panel_verdicts",
+    "probe_samples",
+    "selftest_cases",
+    "solid"
+  ],
+  "figures_printed": 15,
+  "h1_count": 1,
+  "hero_alt_text": true,
+  "html_bytes": 9609,
+  "interactive_targets": [
+    "copy",
+    "skip",
+    "step-n",
+    "wordmark"
+  ],
+  "lang_attribute": true,
+  "method": "static source computation, no browser",
+  "min_interactive_target_px": 44,
+  "procedures": {
+    "contrast": "WCAG relative luminance from the CSS custom properties",
+    "figures": "count data-figure attributes in index.html",
+    "targets": "minimum min-height declaration in the two stylesheets"
+  },
+  "reduced_motion_guard": true,
+  "render_note": "gm browser verb is headful-only and needs a desktop session in this environment",
+  "rendered": false,
+  "section_count": 5,
+  "skip_link": true,
+  "table_count": 1
+}

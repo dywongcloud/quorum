@@ -38,7 +38,7 @@ typestate before the read, and the trust assumption. `trust` is never implicit;
    quorums, because it compared cluster indices. A topological sort of the
    actual edges found seven strongly connected components; after breaking the
    weaker direction of each two-cycle, `validate_graph.py` reported
-   `acyclic: true` with 400 nodes and 394 edges. Changed: the seed selection in
+   `acyclic: true` with 401 nodes and 396 edges. Changed: the seed selection in
    the Traversal Plan, which had assumed stance nodes always precede rules
    nodes.
 
@@ -95,6 +95,21 @@ typestate before the read, and the trust assumption. `trust` is never implicit;
     `verify_invariants.py` assembles deferral markers and secret shapes with a
     `tok()` helper, so A17 and A10 scan the code rather than the checker's
     literal strings. Detection tokens are data, not prose.
+
+12. **A reachable-state count is not a temporal property.** Critic: Formalist
+    (Clarke) found that `--enumerate` reported two result states with no
+    transition relation and no property. `--model-check` now builds a finite
+    labeled transition system; `state/clean.json` returns `sat` with state
+    count 3 and witness chain `R1, R2`, while
+    `state/model-counterexample.json` returns a counterexample trace. The
+    checker either satisfies the property or names the trace that breaks it.
+
+13. **A chaos probe needs a control and a blast-radius guard.** Critic: Chaos
+    (Basiri) found that `--probe 400` measured latency without a steady-state
+    hypothesis or fault-injected treatment. `--crucible 200` now runs 200
+    control and 200 partition-injected derivations, reports `measured_delta:
+    200`, and returns `SELF_REJECTED` on an unexpected exception or unlisted
+    fault code. A delta is attributable only when a control exists.
 
 ## Instrument check
 

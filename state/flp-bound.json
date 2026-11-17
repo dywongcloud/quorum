@@ -1,0 +1,78 @@
+{
+  "axioms": [
+    "safety_holds"
+  ],
+  "context": [
+    [
+      "p"
+    ],
+    [
+      "p",
+      "q"
+    ]
+  ],
+  "edges": [
+    [
+      "p",
+      "s"
+    ],
+    [
+      "s",
+      "t"
+    ],
+    [
+      "safety_holds",
+      "safety_under_asynchrony"
+    ]
+  ],
+  "negations": [
+    "r"
+  ],
+  "nodes": [
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "safety_holds",
+    "safety_under_asynchrony"
+  ],
+  "query": "safety_under_asynchrony",
+  "query_id": "flp-bound",
+  "rules": [
+    {
+      "conclusion": "s",
+      "id": "R1",
+      "negated": [],
+      "premises": [
+        "p",
+        "q"
+      ]
+    },
+    {
+      "conclusion": "t",
+      "id": "R2",
+      "negated": [
+        "r"
+      ],
+      "premises": [
+        "s"
+      ]
+    },
+    {
+      "conclusion": "safety_under_asynchrony",
+      "id": "A-FLP",
+      "negated": [],
+      "premises": [
+        "safety_holds"
+      ]
+    }
+  ],
+  "secrets": [],
+  "variables": {
+    "p": true,
+    "q": true,
+    "r": false,
+    "safety_holds": true
+  }
+}

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>QUORUM - closed-loop verification for distributed systems</title>
-<meta name="description" content="QUORUM is a closed-loop formal verification sandbox for distributed systems design, with an adversarial critic quorum and a 400-node anchor graph.">
+<meta name="description" content="QUORUM is a closed-loop formal verification sandbox for distributed systems design, with an adversarial critic quorum and a 401-node anchor graph.">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="install.css">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -70,7 +70,7 @@
 <section class="section" id="what">
   <p class="section-index">01 / WHAT IT IS</p>
   <h2>A design agent that argues against itself</h2>
-  <p>DADA traverses an anchor graph of graphic-design literature with a panel of art critics. QUORUM keeps the machinery and replaces the domain: a <span data-figure="nodes">400</span>-node graph built from Site Reliability Engineering, Designing Data-Intensive Applications, the impossibility results, the systems papers, and the operations canon. Its critics are the authorities who wrote them.</p>
+  <p>DADA traverses an anchor graph of graphic-design literature with a panel of art critics. QUORUM keeps the machinery and replaces the domain: a <span data-figure="nodes">401</span>-node graph built from Site Reliability Engineering, Designing Data-Intensive Applications, the impossibility results, the systems papers, and the operations canon. Its critics are the authorities who wrote them.</p>
   <p>Each move is a state transition. Each transition is derived, not asserted. A quorum of independent critics examines the measured artifact, and any one of them can stop the line. The run closes only when the frontier is empty, the quorum passes, and every axiom has a live witness.</p>
   <div class="fault-strip" aria-label="Fault codes">
     <code>[FAULT: JANK_DETECTED]</code>
@@ -89,10 +89,10 @@
     <caption>QUORUM repository specification, measured at final state</caption>
     <thead><tr><th scope="col">Property</th><th scope="col">Value</th><th scope="col">Procedure</th></tr></thead>
     <tbody>
-      <tr><th scope="row">Anchor nodes</th><td><span data-figure="nodes">400</span></td><td>graph_walk.py --counts</td></tr>
-      <tr><th scope="row">Edges</th><td><span data-figure="edges">394</span></td><td>graph_walk.py --counts</td></tr>
-      <tr><th scope="row">Solid edges</th><td><span data-figure="solid">347</span></td><td>graph_walk.py --counts</td></tr>
-      <tr><th scope="row">Dotted counterpoints</th><td><span data-figure="dotted">47</span></td><td>graph_walk.py --counts</td></tr>
+      <tr><th scope="row">Anchor nodes</th><td><span data-figure="nodes">401</span></td><td>graph_walk.py --counts</td></tr>
+      <tr><th scope="row">Edges</th><td><span data-figure="edges">396</span></td><td>graph_walk.py --counts</td></tr>
+      <tr><th scope="row">Solid edges</th><td><span data-figure="solid">348</span></td><td>graph_walk.py --counts</td></tr>
+      <tr><th scope="row">Dotted counterpoints</th><td><span data-figure="dotted">48</span></td><td>graph_walk.py --counts</td></tr>
       <tr><th scope="row">Clusters</th><td><span data-figure="clusters">15</span></td><td>graph_walk.py --counts</td></tr>
       <tr><th scope="row">Critic seats</th><td><span data-figure="critic_seats">52</span></td><td>graph_walk.py --counts</td></tr>
       <tr><th scope="row">Critic counterpoint pairs</th><td><span data-figure="critic_pairs">23</span></td><td>graph_walk.py --counts</td></tr>

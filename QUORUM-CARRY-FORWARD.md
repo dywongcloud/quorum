@@ -7,7 +7,7 @@ established it, and the move it changed.
 | Fact | Measurement | Move it changed |
 |---|---|---|
 | A verdict that exists only in a return value is lost when the seat's transport drops; the file survives | R1 collection reported every filed seat from `panel/R1/<seat>.md` even where the launch reported a failure | Kept the verdict-is-a-file protocol; `collect_panel.py` never infers a verdict |
-| Cluster index is not a topological rank | The first builder rejected 88 real cross-cluster edges; a topological sort found 7 cycles and admitted all 400 nodes | Replaced cluster-rank ordering with topological rank in `build_graph.py` |
+| Cluster index is not a topological rank | The first builder rejected 88 real cross-cluster edges; a topological sort found 7 cycles and admitted all 401 nodes | Replaced cluster-rank ordering with topological rank in `build_graph.py` |
 | A two-cycle between two anchors makes the whole graph non-DAG | Tarjan reported 7 strongly connected components including `cdn`/`anycast` and `zookeeper`/`zab` | Broke each cycle by removing the weaker direction, keeping the stronger labelled relation |
 | Fault codes are cheaper than interpolation | `--selftest` returns 5 of 5 cases: clean, contradiction, unmapped, self-rejected, dangling edge | Removed the default-value path for unbound symbols from the daemon |
 | Replay detects a second mutation | `--replay` emits one digest twice and `f(f(x)) = f(x)` | Made the Compliance Check record the digest instead of a prose claim |

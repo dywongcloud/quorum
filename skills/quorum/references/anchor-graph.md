@@ -30,6 +30,7 @@ flowchart LR
   youngblood["Notes on Distributed Systems for Young Bloods (Hodges)"]:::stance
   waldonote["A Note on Distributed Computing (Waldo, Wyant, Wollrath, Kendall)"]:::stance
   endtoendprinciple["The Design Philosophy of the DARPA Internet Protocols (Clark)"]:::stance
+  flpbound["FLP Asynchrony Assumption: No Deterministic Termination Witness (Fischer, Lynch, Paterson)"]:::stance
   end
   subgraph RULES["Rules: Mechanisms to Earn the Break"]
   paxos["The Part-Time Parliament (Lamport)"]:::rules
@@ -441,6 +442,8 @@ flowchart LR
   end
   flp -->|impossibility bounds| paxos
   flp -->|impossibility bounds| raft
+  flp -.->|bounds liveness of| flpbound
+  flpbound -->|partially discharged by| failuredetector
   flp -->|motivates| failuredetector
   gilbert -->|formalizes tradeoff for| quorumread
   gilbert -->|distinguishes from| linearizability
@@ -854,7 +857,7 @@ flowchart LR
   classDef visited fill:#ffffff,stroke:#111827,stroke-width:3px,color:#111827
 ```
 
-Counts: 400 nodes, 394 edges (347 solid, 47 dotted), 0 cycles, 15 clusters, 52 critic seats, 52 lens bindings, 23 critic counterpoint pairs.
+Counts: 401 nodes, 396 edges (348 solid, 48 dotted), 0 cycles, 15 clusters, 52 critic seats, 52 lens bindings, 23 critic counterpoint pairs.
 
 One seat per authority. A required critic named in the workflow for two or
 three thinkers is that many seats. A lens binding names the single text a
