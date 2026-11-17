@@ -680,7 +680,7 @@ active path, and `anchor-graph.md` itself is not edited.
 | S7 | Every axiom has a live witness | verify_invariants.py --all: 24/24 PASS | MET |
 | S8 | Replay is idempotent | replay=idempotent composition=f(f(x)) = f(x) | MET |
 
-Axiom digest: `73c9be537e5a63d6b43f901654edcb03438aa9837543ed38b0ec44c2c9e03abf` (24/24 passing).
+Axiom digest: `c02974a7dad5c4030c02bd7caf43730811d516b782c105a9253b68de56017580` (24/24 passing).
 Validators at final state: validate_skills exit 0, validate_graph exit 0, validate_figures exit 0 (all_reproducible=True).
 Graph: 401 nodes, 396 edges, acyclic=True.
 <!-- STOP:END -->
@@ -696,15 +696,15 @@ Graph: 401 nodes, 396 edges, acyclic=True.
 | A4 | PASS | acyclic=True, cap_sacrifice_declared=True |
 | A5 | PASS | bound_rows=4, web_figures=18 |
 | A6 | PASS | boundary_rows=7 |
-| A7 | PASS | budget_ms=5.0, p99_ms=0.1628 |
+| A7 | PASS | budget_ms=5.0, p99_ms=0.0715 |
 | A8 | PASS | passing=23, total=23 |
 | A9 | PASS | budget_named=True, mode_field_named=True |
 | A10 | PASS | ambient_env=False, secret_shapes_found=[] |
 | A11 | PASS | crucible_move=True |
 | A12 | PASS | all_reproducible=True, figures=17 |
-| A13 | PASS | principal_schemes=669, source_files=23 |
+| A13 | PASS | principal_schemes=699, source_files=24 |
 | A14 | PASS | dynamic_execution=[] |
-| A15 | PASS | modules=['validate_canon.py', 'validate_figures.py', 'validate_graph.py', 'validate_install.py', 'validate_skills.py', 'verify_all.py', 'collect_panel.py', 'epistemic_audit.py', 'graph_walk.py', 'quorum_paths.py', 'verify_invariants.py', 'witnesses.py', 'build_compliance.py', 'build_decision_ledger.py', 'build_dotted_decisions.py', 'build_graph.py', 'build_ledger.py', 'build_panel_report.py', 'build_provenance.py', 'build_resolutions.py', 'install.py', 'measure_web.py', 'run_traversal.py'] |
+| A15 | PASS | modules=['validate_canon.py', 'validate_figures.py', 'validate_graph.py', 'validate_install.py', 'validate_skills.py', 'verify_all.py', 'collect_panel.py', 'epistemic_audit.py', 'graph_walk.py', 'quorum_paths.py', 'verify_invariants.py', 'witnesses.py', 'build_compliance.py', 'build_decision_ledger.py', 'build_dotted_decisions.py', 'build_graph.py', 'build_ledger.py', 'build_panel_report.py', 'build_provenance.py', 'build_research_synthesis.py', 'build_resolutions.py', 'install.py', 'measure_web.py', 'run_traversal.py'] |
 | A16 | PASS | io_in_pure_core=[], proof_term_discharged=True |
 | A17 | PASS | deferral_markers=[] |
 | A18 | PASS | canon_labels_bound_to_graph=50, cited_anchors=146 |

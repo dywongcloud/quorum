@@ -1,0 +1,121 @@
+{
+  "claims_with_votes": 18,
+  "confirmed": [
+    {
+      "claim": "Convergence is defined by five explicit stop conditions S1-S5 that must all hold (empty Frontier; unanimous WHOLE-panel PASS with no Andon; two consecutive saturated WHOLE rounds; a deliberately escalated Breaker with a measured delta; every dotted edge applied or declined with a reason), gated on a final-state re-measurement pass (Step 2g), with failure sending the run back to Step 2 \u2014 a falsifiable, closed-loop termination rule rather than a vibe/effort heuristic.",
+      "refutations": 0,
+      "source": "https://raw.githubusercontent.com/AnEntrypoint/dada/main/skills/dada/SKILL.md",
+      "votes": 3
+    },
+    {
+      "claim": "The graph walk is non-linear and frontier-based: candidates are reached by traversing all three edge directions from already-visited anchors (outgoing solid edges, incoming back-reference edges, dotted counterpoint edges), with an explicit six-rank candidate priority order plus branch, reopen (REOPENED dependents) and merge (interaction-as-candidate) operators \u2014 so a strict-DAG/monoidal graph-walk port must support bidirectional and dotted edges, not a linear checklist.",
+      "refutations": 1,
+      "source": "https://raw.githubusercontent.com/AnEntrypoint/dada/main/skills/dada/SKILL.md",
+      "votes": 3
+    },
+    {
+      "claim": "The graph walk is a living-Frontier traversal of a Mermaid anchor graph, not a linear checklist: each pass spends one candidate reached via outgoing solid, incoming, and dotted edges of visited anchors; candidate priority is (1) open Andon objections, (2) REOPENED moves, (3) dotted counterpoints of BREAK moves, (4) sharpest critic disagreement, (5) incoming grounding anchors, (6) outgoing solid edges; rival Breakers are branched and compared in a Pugh-Matrix with losers SCRAPped; every move records dependencies and dependents are marked REOPENED on ADAPT/SCRAP; interacting moves are merged as new candidates. Raw graph file https://github.com/AnEntrypoint/dada/blob/main/skills/dada/references/anchor-graph.md contains 302 node definitions, 52 `:::critic` nodes, 375 solid-arrow lines and 159 dotted-arrow lines; https://github.com/AnEntrypoint/dada/blob/main/skills/dada/references/traversal-ledger.md states Counts: 302 nodes, 302 judged in this run, 0 visited in an earlier run and not re-judged. These counts are reproducible by grep on the raw files.",
+      "refutations": 0,
+      "source": "https://github.com/AnEntrypoint/dada",
+      "votes": 3
+    },
+    {
+      "claim": "Convergence is a conjunction of five explicit stop conditions (S1-S5), not an iteration budget: empty Frontier, a WHOLE panel round with PASS from every required critic and no Andon, saturation across two consecutive WHOLE rounds, a logged ambition push, and every dotted edge from a used anchor applied or declined with a reason. SKILL.md hardens S4 with a measurement requirement \u2014 A push that cannot be shown to have changed anything does not satisfy S4 \u2014 it is a declaration, not an escalation. \u2014 and adds Step 2g requiring every figure the artifact displays to be re-measured at final state with a reproducible procedure. Step 3 forces a frame swap or double-loop revision after 3 consecutive WHOLE rounds each producing a new OBJECT. https://github.com/AnEntrypoint/dada/blob/main/skills/dada/SKILL.md#step-4-stop-test-and-close",
+      "refutations": 0,
+      "source": "https://github.com/AnEntrypoint/dada",
+      "votes": 3
+    },
+    {
+      "claim": "Position bias in LLM judges is measurable and model-specific (GPT-4 favors the first position, ChatGPT the second), with named metrics Position Consistency and Preference Fairness and a stated need for anonymous evaluation. Design implication for an adversarial critic panel: anonymize candidates, swap/randomize presentation order, and score consistency across swaps rather than trusting a single unblinded verdict.",
+      "refutations": 1,
+      "source": "https://arxiv.org/abs/2411.15594",
+      "votes": 3
+    },
+    {
+      "claim": "LLM judges are gameable by trivial adversarial inputs: a constant-output null model can achieve high win rates and learned adversarial phrases inflate scores without improving quality. An adversarial critic panel therefore needs explicit attack-resistance/meta-evaluation checks and cannot treat critic agreement alone as verification.",
+      "refutations": 0,
+      "source": "https://arxiv.org/abs/2411.15594",
+      "votes": 3
+    },
+    {
+      "claim": "ToG's core architecture is an LLM-as-agent iterative beam search that maintains a frontier of candidate reasoning paths over a knowledge graph \u2014 the closest canonical precedent in this source for DADA's anchor/frontier graph walk. UNMAPPED: the paper defines reasoning-path search over a KG, not a design-critic anchor graph; no adversarial critic panel or distinct critic roles appear in this source. [https://arxiv.org/abs/2307.07697]",
+      "refutations": 0,
+      "source": "https://arxiv.org/abs/2307.07697",
+      "votes": 3
+    },
+    {
+      "claim": "ToG implements an explicit convergence/loopback rule: a Search-and-Prune cycle scored by the LLM, then an LLM adequacy evaluation that repeats exploration until positive or max depth. This is a single-judge sufficiency test (self-evaluation), NOT a falsification loopback or independent adversarial critics \u2014 the requested SELF_REJECTED / boolean-derivation semantics are UNMAPPED here. [https://ar5iv.labs.arxiv.org/html/2307.07697]",
+      "refutations": 0,
+      "source": "https://arxiv.org/abs/2307.07697",
+      "votes": 3
+    }
+  ],
+  "confirmed_count": 8,
+  "incomplete_count": 1,
+  "method": "three-vote adversarial verification; two refutations kill a claim",
+  "not_reported": [
+    {
+      "claim": "ToG claims closed-loop knowledge traceability and correction: explicit reasoning paths can be replayed, and feedback from humans or other LLMs can localize erroneous triples and correct them. This is the nearest analogue to a critic-driven correction loop, but it is human/LLM-in-the-loop KG repair, not strict derivability from a bounded STATE_PAYLOAD (monotonic context, no interpolation are UNMAPPED). [https://ar5iv.labs.arxiv.org/html/2307.07697]",
+      "refutations": 2,
+      "source": "https://arxiv.org/abs/2307.07697",
+      "votes": 2
+    }
+  ],
+  "refuted": [
+    {
+      "claim": "DADA's canonical contract requires exactly five named artifacts written into DESIGN-LOG.md (Traversal Plan with a living Frontier, Decision Records, Panel Reports, Anchor Ledger, Compliance Check), forbids using a move quota as a stopping rule, and mandates resume-from-Open-frontier rather than restart \u2014 a reusable structural template and a monotonic-context (Gamma_t superset Gamma_{t-1}) mechanism for a distributed-systems re-implementation.",
+      "refutations": 3,
+      "source": "https://raw.githubusercontent.com/AnEntrypoint/dada/main/skills/dada/SKILL.md",
+      "votes": 3
+    },
+    {
+      "claim": "DADA's completion contract is artifact-defined, not turn-defined: skills/dada/SKILL.md requires exactly five named artifacts in DESIGN-LOG.md (Traversal Plan with living Frontier, Decision Records one per move, Panel Reports one per round, Anchor Ledger, Compliance Check), states **There is no move quota.** and If `DESIGN-LOG.md` already exists with an Open frontier, resume from it instead of starting over. Verifiable at https://github.com/AnEntrypoint/dada/blob/main/skills/dada/SKILL.md and https://github.com/AnEntrypoint/dada/blob/main/README.md. FLAGGED CONTRADICTION (spec vs practice): references/field-notes.md \u00a76 states Every one of these runs wrote Decision Records in batches before each group of moves, and ran the panel per WHOLE round rather than per move. The contract asks for one at a time. \u2014 the shipped runs do not satisfy the shipped contract, so a formal-verification reimplementation cannot assume the stated loop is the observed loop.",
+      "refutations": 2,
+      "source": "https://github.com/AnEntrypoint/dada",
+      "votes": 3
+    },
+    {
+      "claim": "The adversarial critic panel is specified with verifiable anti-fabrication rules: one independent agent per literary reference (never per critic, never a merged composite voice), at most three seats launched concurrently, each filing its verdict to <panel_dir>/<seat>.md, an Andon objection halting new moves, and a missing verdict recorded as NOT REPORTED rather than reconstructed \u2014 plus a premise-falsification loopback requiring the objection's premise to be measured before a move is spent, with OVERRULE only on a recorded measurement. This is the portable epistemics core for a formal-verification-sandbox rebrand.",
+      "refutations": 3,
+      "source": "https://raw.githubusercontent.com/AnEntrypoint/dada/main/skills/dada/SKILL.md",
+      "votes": 3
+    },
+    {
+      "claim": "Intrinsic self-correction (a closed loop with no external verifier) reduced reasoning accuracy for every model/benchmark tested: GPT-4 on GSM8K fell 95.5% (standard, 1 call) -> 91.5% (round 1, 3 calls) -> 89.0% (round 2, 5 calls); Llama-2-70b-chat on CommonSenseQA fell 64.0% -> 37.5% -> 36.5% (Tables 3-4). GPT-3.5 kept its initial GSM8K answer 74.7% of the time and of the remainder changed correct->incorrect more often than incorrect->correct. Design implication: a meta-cognitive falsification loopback built only from the generating model is empirically unreliable; termination needs an external deterministic verifier/witness. https://arxiv.org/abs/2310.01798 ; full text https://ar5iv.labs.arxiv.org/html/2310.01798",
+      "refutations": 3,
+      "source": "https://arxiv.org/abs/2310.01798",
+      "votes": 3
+    },
+    {
+      "claim": "The repo contains a measured reliability result for adversarial LLM-critic panels: a single batch of seven seats produced five gateway-error deaths, with the two survivors being the shortest prompts. The resulting protocol at https://github.com/AnEntrypoint/dada/blob/main/skills/dada/references/panel-protocol.md mandates A verdict is a file, not a return value., one panel directory per round, at most three seats at a time, prompts under ~350 words, three retries per seat, and `NOT REPORTED (3 attempts, transport failure)` for a missing required seat (never reconstructed from memory), which leaves the run incomplete. SKILL.md \u00a72c additionally requires one agent per literary reference, not per critic, an observable-artifact evidence rule, and the Lerman Critical Response Process ordering. This is first-party empirical evidence on the state of adversarial LLM-critic designs, not a literature survey.",
+      "refutations": 3,
+      "source": "https://github.com/AnEntrypoint/dada",
+      "votes": 3
+    },
+    {
+      "claim": "An LLM adversarial critic panel did not beat a cost-matched sampling baseline: replicating Du et al. 2023 on the full GSM8K test set with gpt-3.5-turbo-0301 (3 agents, 2 debate rounds), multi-agent debate scored 83.2% with 6 responses and 83.0% with 9, while self-consistency majority voting scored 85.3% at 6 responses and 88.2% at 9 (Table 7). Gains from a critic panel are therefore attributable to extra samples/consistency, not to critique; any new critic-panel design must report an equal-inference-cost baseline. https://arxiv.org/abs/2310.01798 ; https://ar5iv.labs.arxiv.org/html/2310.01798",
+      "refutations": 3,
+      "source": "https://arxiv.org/abs/2310.01798",
+      "votes": 3
+    },
+    {
+      "claim": "Reported self-correction gains depend on oracle ground-truth labels used as the loop's stopping criterion: with oracle labels GPT-3.5-Turbo rose 75.9% -> 84.3% on GSM8K and 75.8% -> 89.7% on CommonSenseQA (Table 2), but without labels it fell to 75.1%/74.7% and 38.1%/41.8% across two rounds (Table 3). CONTRADICTION FLAG: the paper's negative title and positive Table 2 are consistent only because the positive results are oracle-gated, i.e. not an agent capability. A formal-verification sandbox must source its ground truth from a checker, not from an oracle label smuggled into the agent loop. https://arxiv.org/abs/2310.01798 ; https://ar5iv.labs.arxiv.org/html/2310.01798",
+      "refutations": 2,
+      "source": "https://arxiv.org/abs/2310.01798",
+      "votes": 3
+    },
+    {
+      "claim": "Independent, heterogeneous critics are required rather than a same-model falsification loopback: the survey's own empirical experiment found self-validation minimally effective because of LLM overconfidence, and it recommends not using the same model as evaluator because judges favor their own outputs. CONTRADICTION FLAG: this evidence contradicts the sandbox spec's assumption that one agent can reliably falsify its own derivation (f\u2218f\u2261f), so the loopback must be an external/independent critic.",
+      "refutations": 3,
+      "source": "https://arxiv.org/abs/2411.15594",
+      "votes": 3
+    },
+    {
+      "claim": "Concrete convergence/aggregation rule for a critic panel: the survey's empirical comparison found majority voting over 5 repeated judgments improves multiple reliability dimensions, while mean-of-5 and best-of-5 do not improve and can hurt; multi-LLM vote outcomes depend strongly on which models sit on the panel; and a decentralized peer-review design with majority voting to resolve score conflicts already exists (relevant precedent for a decentralized critic panel and its convergence rule).",
+      "refutations": 3,
+      "source": "https://arxiv.org/abs/2411.15594",
+      "votes": 3
+    }
+  ],
+  "refuted_count": 9
+}

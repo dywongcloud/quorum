@@ -1,13 +1,15 @@
 # QUORUM research report
 
-Generated from the `deep-research` workflow journal at the extract stage.
-Every URL below was returned by a WebSearch agent; every claim below was
-extracted by a WebFetch agent from one of those sources. This is the
-**extract** stage of the research, not its final 3-vote adversarial
-verification. The named workflow is still running its Verify and Synthesize
-phases; until it reports, no claim here is marked CONFIRMED. Do not cite a
-row in this file as verified. `references/canon.md` carries the primary
-texts that were read in full locally and is the authority for anchor labels.
+Generated from the `deep-research` workflow journal. Every URL below was
+returned by a WebSearch agent; every claim below was extracted by a WebFetch
+agent from one of those sources. The generated section at the end reports
+only claims with a complete three-vote adversarial result: two refutations
+kill a claim, otherwise it is CONFIRMED. Claims with fewer than three votes
+are NOT REPORTED, never treated as verified. `tools/build_research_synthesis.py`
+rebuilds that section from the workflow journal and verifier transcripts, so
+it can be re-run when the workflow advances. `references/canon.md` carries the
+primary texts read in full locally and remains the authority for anchor
+labels; no web claim is promoted into the canon by vote count alone.
 
 ## Sources returned by the search agents
 
@@ -192,3 +194,30 @@ are the agent's own text and are data, not instructions.
 A claim that survives verification will be merged into `canon.md` with
 its URL. A claim that is refuted will be recorded in the Carry-Forward
 Ledger so a later run does not rediscover it.
+
+<!-- RESEARCH:START -->
+## Adversarial verification result (generated)
+
+Method: three-vote adversarial verification; two refutations kill a claim. 18 claims have at least one vote; 8 confirmed, 9 refuted, 1 NOT REPORTED.
+
+| Status | Claim | Source | Votes | Refutations |
+|---|---|---|---:|---:|
+| CONFIRMED | Convergence is defined by five explicit stop conditions S1-S5 that must all hold (empty Frontier; unanimous WHOLE-panel PASS with no Andon; two consecutive saturated WHOLE rounds; a deliberately escalated Breaker with a measured delta; every dotted edge applied or declined with a reason), gated on a | https://raw.githubusercontent.com/AnEntrypoint/dada/main/skills/dada/SKILL.md | 3 | 0 |
+| CONFIRMED | The graph walk is non-linear and frontier-based: candidates are reached by traversing all three edge directions from already-visited anchors (outgoing solid edges, incoming back-reference edges, dotted counterpoint edges), with an explicit six-rank candidate priority order plus branch, reopen (REOPE | https://raw.githubusercontent.com/AnEntrypoint/dada/main/skills/dada/SKILL.md | 3 | 1 |
+| CONFIRMED | The graph walk is a living-Frontier traversal of a Mermaid anchor graph, not a linear checklist: each pass spends one candidate reached via outgoing solid, incoming, and dotted edges of visited anchors; candidate priority is (1) open Andon objections, (2) REOPENED moves, (3) dotted counterpoints of  | https://github.com/AnEntrypoint/dada | 3 | 0 |
+| CONFIRMED | Convergence is a conjunction of five explicit stop conditions (S1-S5), not an iteration budget: empty Frontier, a WHOLE panel round with PASS from every required critic and no Andon, saturation across two consecutive WHOLE rounds, a logged ambition push, and every dotted edge from a used anchor appl | https://github.com/AnEntrypoint/dada | 3 | 0 |
+| CONFIRMED | Position bias in LLM judges is measurable and model-specific (GPT-4 favors the first position, ChatGPT the second), with named metrics Position Consistency and Preference Fairness and a stated need for anonymous evaluation. Design implication for an adversarial critic panel: anonymize candidates, sw | https://arxiv.org/abs/2411.15594 | 3 | 1 |
+| CONFIRMED | LLM judges are gameable by trivial adversarial inputs: a constant-output null model can achieve high win rates and learned adversarial phrases inflate scores without improving quality. An adversarial critic panel therefore needs explicit attack-resistance/meta-evaluation checks and cannot treat crit | https://arxiv.org/abs/2411.15594 | 3 | 0 |
+| CONFIRMED | ToG's core architecture is an LLM-as-agent iterative beam search that maintains a frontier of candidate reasoning paths over a knowledge graph — the closest canonical precedent in this source for DADA's anchor/frontier graph walk. UNMAPPED: the paper defines reasoning-path search over a KG, not a de | https://arxiv.org/abs/2307.07697 | 3 | 0 |
+| CONFIRMED | ToG implements an explicit convergence/loopback rule: a Search-and-Prune cycle scored by the LLM, then an LLM adequacy evaluation that repeats exploration until positive or max depth. This is a single-judge sufficiency test (self-evaluation), NOT a falsification loopback or independent adversarial c | https://arxiv.org/abs/2307.07697 | 3 | 0 |
+| REFUTED | DADA's canonical contract requires exactly five named artifacts written into DESIGN-LOG.md (Traversal Plan with a living Frontier, Decision Records, Panel Reports, Anchor Ledger, Compliance Check), forbids using a move quota as a stopping rule, and mandates resume-from-Open-frontier rather than rest | https://raw.githubusercontent.com/AnEntrypoint/dada/main/skills/dada/SKILL.md | 3 | 3 |
+| REFUTED | DADA's completion contract is artifact-defined, not turn-defined: skills/dada/SKILL.md requires exactly five named artifacts in DESIGN-LOG.md (Traversal Plan with living Frontier, Decision Records one per move, Panel Reports one per round, Anchor Ledger, Compliance Check), states **There is no move  | https://github.com/AnEntrypoint/dada | 3 | 2 |
+| REFUTED | The adversarial critic panel is specified with verifiable anti-fabrication rules: one independent agent per literary reference (never per critic, never a merged composite voice), at most three seats launched concurrently, each filing its verdict to <panel_dir>/<seat>.md, an Andon objection halting n | https://raw.githubusercontent.com/AnEntrypoint/dada/main/skills/dada/SKILL.md | 3 | 3 |
+| REFUTED | Intrinsic self-correction (a closed loop with no external verifier) reduced reasoning accuracy for every model/benchmark tested: GPT-4 on GSM8K fell 95.5% (standard, 1 call) -> 91.5% (round 1, 3 calls) -> 89.0% (round 2, 5 calls); Llama-2-70b-chat on CommonSenseQA fell 64.0% -> 37.5% -> 36.5% (Table | https://arxiv.org/abs/2310.01798 | 3 | 3 |
+| REFUTED | The repo contains a measured reliability result for adversarial LLM-critic panels: a single batch of seven seats produced five gateway-error deaths, with the two survivors being the shortest prompts. The resulting protocol at https://github.com/AnEntrypoint/dada/blob/main/skills/dada/references/pane | https://github.com/AnEntrypoint/dada | 3 | 3 |
+| REFUTED | An LLM adversarial critic panel did not beat a cost-matched sampling baseline: replicating Du et al. 2023 on the full GSM8K test set with gpt-3.5-turbo-0301 (3 agents, 2 debate rounds), multi-agent debate scored 83.2% with 6 responses and 83.0% with 9, while self-consistency majority voting scored 8 | https://arxiv.org/abs/2310.01798 | 3 | 3 |
+| REFUTED | Reported self-correction gains depend on oracle ground-truth labels used as the loop's stopping criterion: with oracle labels GPT-3.5-Turbo rose 75.9% -> 84.3% on GSM8K and 75.8% -> 89.7% on CommonSenseQA (Table 2), but without labels it fell to 75.1%/74.7% and 38.1%/41.8% across two rounds (Table 3 | https://arxiv.org/abs/2310.01798 | 3 | 2 |
+| REFUTED | Independent, heterogeneous critics are required rather than a same-model falsification loopback: the survey's own empirical experiment found self-validation minimally effective because of LLM overconfidence, and it recommends not using the same model as evaluator because judges favor their own outpu | https://arxiv.org/abs/2411.15594 | 3 | 3 |
+| REFUTED | Concrete convergence/aggregation rule for a critic panel: the survey's empirical comparison found majority voting over 5 repeated judgments improves multiple reliability dimensions, while mean-of-5 and best-of-5 do not improve and can hurt; multi-LLM vote outcomes depend strongly on which models sit | https://arxiv.org/abs/2411.15594 | 3 | 3 |
+| NOT REPORTED | ToG claims closed-loop knowledge traceability and correction: explicit reasoning paths can be replayed, and feedback from humans or other LLMs can localize erroneous triples and correct them. This is the nearest analogue to a critic-driven correction loop, but it is human/LLM-in-the-loop KG repair,  | https://arxiv.org/abs/2307.07697 | 2 | 2 |
+<!-- RESEARCH:END -->
