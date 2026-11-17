@@ -33,7 +33,7 @@ No seat reads another seat's verdict before filing its own.
 
 Verification is live execution against the real artifact, same turn as the
 work. No test files, no mocks, no synthetic fixtures, no elision markers in
-source, no TODO or FIXME, no graphical glyphs in source lines, no hedge
+source, no admit/deferral markers, no graphical glyphs in source lines, no hedge
 language, no secrets, and no unchecked panics. Run all four validators and
 `verify_invariants.py --all` before recording a Compliance Check. Re-run them
 after the last edit so no recorded digest is stale.

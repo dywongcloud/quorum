@@ -9,6 +9,11 @@ publisher's page or the authors' copy.
 
 ## Primary books (full text read during the build)
 
+The extract-stage output of the named deep-research workflow is in
+[research-report.md](research-report.md). It is not a substitute for the rows
+below: those were read locally, this list was fetched. No claim in that report
+is marked verified until its 3-vote stage completes.
+
 | Label | Source | Provenance |
 |---|---|---|
 | Site Reliability Engineering (Beyer, Jones, Petoff, Murphy) | https://sre.google/sre-book/table-of-contents/ | local: `Site Reliability Engineering.pdf`, chapters 1, 4, 5, 6, 8, 10, 15, 22, 26 read |

@@ -15,6 +15,7 @@ jobs:
           python-version: '3.12'
       - run: python3 -m pip install PyYAML==6.0.2
       - run: python3 -I scripts/validate_skills.py
+      - run: python3 -I scripts/validate_canon.py
       - run: python3 -I tools/build_graph.py && python3 -I scripts/validate_graph.py
       - run: python3 -I tools/build_ledger.py && python3 -I tools/run_traversal.py
       - run: python3 -I tools/build_panel_report.py && python3 -I scripts/validate_figures.py

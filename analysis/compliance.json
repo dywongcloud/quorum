@@ -57,7 +57,7 @@
       "axiom": "A7",
       "measured": {
         "budget_ms": 5.0,
-        "p99_ms": 0.144,
+        "p99_ms": 0.3897,
         "sample_count": 400
       },
       "status": "PASS"
@@ -105,7 +105,7 @@
     {
       "axiom": "A13",
       "measured": {
-        "source_files": 12,
+        "source_files": 15,
         "style_violations": []
       },
       "status": "PASS"
@@ -121,9 +121,11 @@
       "axiom": "A15",
       "measured": {
         "modules": [
+          "validate_canon.py",
           "validate_figures.py",
           "validate_graph.py",
           "validate_skills.py",
+          "verify_all.py",
           "collect_panel.py",
           "epistemic_audit.py",
           "graph_walk.py",
@@ -132,6 +134,7 @@
           "build_graph.py",
           "build_ledger.py",
           "build_panel_report.py",
+          "measure_web.py",
           "run_traversal.py"
         ]
       },
@@ -172,7 +175,7 @@
       "measured": {
         "open_prd_rows": 0,
         "owned": 0,
-        "panel_verdict_files": 14,
+        "panel_verdict_files": 24,
         "resolved_log_rows": 11
       },
       "status": "PASS"
@@ -260,18 +263,26 @@
   },
   "digest": {
     "axiom_count": 24,
-    "digest": "4c2d23165a7b56cc9f0fa3056c73f4b4dc7160dcde0ccc86317c76cde35593ef",
+    "digest": "4cce7533b053af12b95a9762982c8e3f0d1ea261f3ff61d56052106bcb7234f8",
     "passing": 22
   },
   "figures": {
     "all_reproducible": false,
     "faults": [
       {
-        "computed": 14,
+        "computed": 25,
         "fault": "FIGURE_MISMATCH",
         "figure": "panel_verdicts",
         "printed": [
           28
+        ]
+      },
+      {
+        "computed": 6,
+        "fault": "FIGURE_MISMATCH",
+        "figure": "selftest_cases",
+        "printed": [
+          5
         ]
       }
     ],
@@ -369,7 +380,7 @@
         "reproducible": true
       },
       {
-        "computed": 14,
+        "computed": 25,
         "figure": "panel_verdicts",
         "occurrences": 1,
         "printed": [
@@ -387,13 +398,13 @@
         "reproducible": true
       },
       {
-        "computed": 5,
+        "computed": 6,
         "figure": "selftest_cases",
         "occurrences": 1,
         "printed": [
           5
         ],
-        "reproducible": true
+        "reproducible": false
       },
       {
         "computed": 348,
@@ -500,33 +511,22 @@
     "R2": {
       "empty": [],
       "missing": [
-        "crit_chaos_basiri",
-        "crit_cons_lamport",
         "crit_cons_oust",
-        "crit_form_clarke",
-        "crit_form_emerson",
-        "crit_human_perrow",
-        "crit_imp_fischer",
-        "crit_imp_lynch",
-        "crit_imp_paterson",
-        "crit_part_gilbert",
         "crit_rupt_taleb",
-        "crit_safety_kingsbury",
-        "crit_type_martinlof",
-        "crit_type_milner"
+        "crit_safety_kingsbury"
       ],
       "panel": "panel/R2",
       "quorum": false,
       "rows": [
         {
           "seat": "crit_chaos_basiri",
-          "status": "MISSING",
-          "words": 0
+          "status": "REPORTED",
+          "words": 92
         },
         {
           "seat": "crit_cons_lamport",
-          "status": "MISSING",
-          "words": 0
+          "status": "REPORTED",
+          "words": 100
         },
         {
           "seat": "crit_cons_oust",
@@ -535,38 +535,38 @@
         },
         {
           "seat": "crit_form_clarke",
-          "status": "MISSING",
-          "words": 0
+          "status": "REPORTED",
+          "words": 95
         },
         {
           "seat": "crit_form_emerson",
-          "status": "MISSING",
-          "words": 0
+          "status": "REPORTED",
+          "words": 101
         },
         {
           "seat": "crit_human_perrow",
-          "status": "MISSING",
-          "words": 0
+          "status": "REPORTED",
+          "words": 106
         },
         {
           "seat": "crit_imp_fischer",
-          "status": "MISSING",
-          "words": 0
+          "status": "REPORTED",
+          "words": 90
         },
         {
           "seat": "crit_imp_lynch",
-          "status": "MISSING",
-          "words": 0
+          "status": "REPORTED",
+          "words": 96
         },
         {
           "seat": "crit_imp_paterson",
-          "status": "MISSING",
-          "words": 0
+          "status": "REPORTED",
+          "words": 91
         },
         {
           "seat": "crit_part_gilbert",
-          "status": "MISSING",
-          "words": 0
+          "status": "REPORTED",
+          "words": 102
         },
         {
           "seat": "crit_rupt_taleb",
@@ -580,16 +580,16 @@
         },
         {
           "seat": "crit_type_martinlof",
-          "status": "MISSING",
-          "words": 0
+          "status": "REPORTED",
+          "words": 106
         },
         {
           "seat": "crit_type_milner",
-          "status": "MISSING",
-          "words": 0
+          "status": "REPORTED",
+          "words": 98
         }
       ],
-      "seats_reporting": 0,
+      "seats_reporting": 11,
       "seats_required": 14
     }
   },
@@ -604,13 +604,13 @@
       "condition": "WHOLE panel round PASS from every required critic, no Andon",
       "id": "S2",
       "met": false,
-      "witness": "collect_panel.py R2: 0/14 reporting, OBJECT verdicts=0"
+      "witness": "collect_panel.py R2: 11/14 reporting, OBJECT verdicts=8"
     },
     {
       "condition": "Two consecutive WHOLE rounds with no ADAPT, SCRAP, REOPEN or new OPEN",
       "id": "S3",
       "met": false,
-      "witness": "R2 OBJECT=0, R2 collected twice with identical stdout digest"
+      "witness": "R2 OBJECT=8, R2 collected twice with identical stdout digest"
     },
     {
       "condition": "Crucible push with a measured delta",

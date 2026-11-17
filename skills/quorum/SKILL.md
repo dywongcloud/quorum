@@ -83,7 +83,7 @@ witness for each row. An axiom that cannot be discharged is a blocking OBJECT.
 | A14 | `forall q in IO: q = Parameterized (not exists inj)` | no string-built query, command or selector |
 | A15 | `K(Code) = min(K)` | no boilerplate file, no duplicate implementation, no dead module |
 | A16 | `Effects = IO_Monad (not exists hidden_mut)` | IO is confined to named entry points; pure core has no IO |
-| A17 | `not exists (TODO or FIXME or "...")` | no deferral marker in any committed source line |
+| A17 | `not exists (deferral markers or elision)` | no deferral marker in any committed source line |
 | A18 | `AuthZ = ZeroTrust` | every read of a foreign surface states its authority and is checked |
 | A19 | `f(f(x)) = f(x)` | the daemon is idempotent; replay of one payload yields one result |
 | A20 | `forall i != j: S_i disjoint S_j and R_i disjoint R_j` | one writer per surface; one owner per row |
@@ -414,6 +414,7 @@ set is a map, not a reading order:
 | [references/traversal-ledger.md](references/traversal-ledger.md) | one measured verdict per node |
 | [references/field-notes.md](references/field-notes.md) | carry-forward facts established by measurement |
 | [references/model-assumptions.md](references/model-assumptions.md) | the FLP bound and the assumptions that discharge liveness |
+| [references/research-report.md](references/research-report.md) | cited extract-stage research, explicitly not yet verified |
 
 The executable forms of the walk and the daemon are
 `skills/quorum/scripts/graph_walk.py` and

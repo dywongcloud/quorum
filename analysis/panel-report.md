@@ -7,43 +7,43 @@ A missing file is NOT REPORTED, never PASS. Do not hand-edit.
 
 | Seat | Anchor used | Observed | Verdict | Requested change | Words |
 |---|---|---|---|---|---:|
-| `crit_chaos_basiri` | - | - | NOT REPORTED | - | 0 |
-| `crit_cons_lamport` | - | - | NOT REPORTED | - | 0 |
-| `crit_cons_oust` | - | - | NOT REPORTED | - | 0 |
-| `crit_form_clarke` | - | - | NOT REPORTED | - | 0 |
-| `crit_form_emerson` | - | - | NOT REPORTED | - | 0 |
-| `crit_human_perrow` | - | - | NOT REPORTED | - | 0 |
-| `crit_imp_fischer` | - | - | NOT REPORTED | - | 0 |
-| `crit_imp_lynch` | - | - | NOT REPORTED | - | 0 |
-| `crit_imp_paterson` | - | - | NOT REPORTED | - | 0 |
-| `crit_part_gilbert` | - | - | NOT REPORTED | - | 0 |
-| `crit_rupt_taleb` | - | - | NOT REPORTED | - | 0 |
-| `crit_safety_kingsbury` | - | - | NOT REPORTED | - | 0 |
-| `crit_type_martinlof` | - | - | NOT REPORTED | - | 0 |
-| `crit_type_milner` | - | - | NOT REPORTED | - | 0 |
+| `crit_chaos_basiri` | Chaos Engineering (Basiri et al.) | stdout reports monte-carlo-derivation-latency p99_ms=0.1932 for sample_count=400. | OBJECT | Add a fault-injected control/treatment run with a steady-state hypothesis and abort-on-blast-radius guard. | 92 |
+| `crit_cons_lamport` | The Part-Time Parliament (Lamport) | stdout declares all 14 seats required in fail-closed mode. | OBJECT | replace the fourteen-seat PASS condition with a ballot-numbered, intersecting majority quorum of eight. | 105 |
+| `crit_cons_oust` | In Search of an Understandable Consensus Algorithm (Ongaro, Ousterhout) | graph_walk.py --counts reported nodes=401, edges=396, clusters=15, critics=52, critic_pairs=23 | OBJECT | Elect one leader per term and replicate each verdict to a majority of critics before commitment, replacing critic_pairs. | 95 |
+| `crit_form_clarke` | Model Checking (Clarke, Grumberg, Peled) | gm stdout: reachable_result_states=2. | OBJECT | Supply a temporal property over a labeled transition relation. | 73 |
+| `crit_form_emerson` | Temporal Logic and CTL (Emerson, Clarke) | replay stdout returned "replay": "idempotent" with first_digest == second_digest == 50e036c9ba5197bf872b6b0a68c5623003c8e96917f2c13b3701921b238acb44. | OBJECT | Recast idempotence as AG(f(f(x))=f(x)) over M=(S,S0,R,L) with fairness constraints. | 94 |
+| `crit_human_perrow` | Normal Accidents (Perrow) | the panel_verdicts row had computed 9, printed [28], and reproducible false. | OBJECT | Emit a distinct panel_verdicts mismatch fault code before the global all_reproducible result is finalized. | 99 |
+| `crit_imp_fischer` | Impossibility of Distributed Consensus with One Faulty Process (Fischer, Lynch, Paterson) | stdout reported topological_order_size=400. | OBJECT | Add an explicit one-crash termination witness and name the synchrony, failure detector, or randomization assumption. | 95 |
+| `crit_imp_lynch` | Impossibility of Distributed Consensus with One Faulty Process (Fischer, Lynch, Paterson) | The epistemic_audit selftest reported all_pass true across five cases. | OBJECT | Add a synchrony bound to the quorum convergence contract. | 96 |
+| `crit_imp_paterson` | Impossibility of Distributed Consensus with One Faulty Process (Fischer, Lynch, Paterson) | The dispatch stdout reported exit_code 0 for the single validate_graph.py run. | OBJECT | Add a timing_model field and one crash-fault schedule row to the graph walk before any consensus claim. | 102 |
+| `crit_part_gilbert` | Brewers Conjecture and the Feasibility (Gilbert, Lynch) | A4 reported status PASS with measured acyclic=true. | OBJECT | Add an A4 partition check that fails unless the log names consistency or availability as sacrificed under a partition. | 103 |
+| `crit_rupt_taleb` | Antifragile (Taleb) | The dispatch stdout reports exit_code 1, fault JANK_DETECTED, and reason logical-contradiction: ['q'] asserted and negated. | OBJECT | Log every JANK_DETECTED case and auto-generate a stricter preflight rule replayed against prior payloads. | 98 |
+| `crit_safety_kingsbury` | Jepsen Analyses (Kingsbury) | The audit stdout reports code STATE_UNMAPPED. | OBJECT | Add fault-injected black-box histories and check linearizability against a formal model. | 97 |
+| `crit_type_martinlof` | Intuitionistic Type Theory (Martin-Lof) | verify_invariants.py --axiom A16 returned status PASS with measured io_in_pure_core as an empty list. | OBJECT | Replace the boolean PASS with an explicit proof term inhabiting the universal no-IO-in-core claim. | 96 |
+| `crit_type_milner` | A Theory of Type Polymorphism in Programming (Milner) | verify_invariants.py returned A13 status PASS with 11 source files and style_violations []. | OBJECT | Replace A13 style_violations lint with a principal-type-scheme and unification check for every let-bound expression. | 98 |
 
-Quorum certificate: 0/14 seats reporting; PASS 0, OBJECT 0, quorum false.
+Quorum certificate: 14/14 seats reporting; PASS 0, OBJECT 14, quorum true.
 
 ## Round R2
 
 | Seat | Anchor used | Observed | Verdict | Requested change | Words |
 |---|---|---|---|---|---:|
-| `crit_chaos_basiri` | - | - | NOT REPORTED | - | 0 |
-| `crit_cons_lamport` | - | - | NOT REPORTED | - | 0 |
+| `crit_chaos_basiri` | Chaos Engineering (Basiri et al.) | The 400-sample probe reported p99_ms 0.1868 for monte-carlo-derivation-latency. | OBJECT | Add a continuously scheduled experiment that varies at least two real-world fault classes while measuring p99_ms as the steady-state metric. | 92 |
+| `crit_cons_lamport` | The Part-Time Parliament (Lamport) | Roster stdout reports "seat_count": 14, all fourteen in required_seats, no ballot numbers. | OBJECT | Replace all-14 PASS with one numbered ballot chosen by eight intersecting-majority votes carrying the highest prior ballot. | 100 |
 | `crit_cons_oust` | - | - | NOT REPORTED | - | 0 |
-| `crit_form_clarke` | - | - | NOT REPORTED | - | 0 |
-| `crit_form_emerson` | - | - | NOT REPORTED | - | 0 |
+| `crit_form_clarke` | Model Checking (Clarke, Grumberg, Peled) | The command stdout reported bound=12. | OBJECT | Add a least-fixpoint closure certificate for the explored state set and reject any bounded enumeration that is not closed under R. | 95 |
+| `crit_form_emerson` | Temporal Logic and CTL (Emerson, Clarke) | The replay stdout reports replay "idempotent" with first_digest equal to second_digest (50e036c9ba5197bf872b6b0a68c5623003c8e96917f2c13b3701921b238acb44). | PASS | none | 101 |
 | `crit_human_perrow` | - | - | NOT REPORTED | - | 0 |
-| `crit_imp_fischer` | - | - | NOT REPORTED | - | 0 |
-| `crit_imp_lynch` | - | - | NOT REPORTED | - | 0 |
-| `crit_imp_paterson` | - | - | NOT REPORTED | - | 0 |
-| `crit_part_gilbert` | - | - | NOT REPORTED | - | 0 |
+| `crit_imp_fischer` | Impossibility of Distributed Consensus with One Faulty Process (Fischer, Lynch, Paterson) | graph_walk.py --check-dag reported acyclic=true, blocked=[], node_count=401, edge_count=396, topological_order_size=401. | PASS | none | 90 |
+| `crit_imp_lynch` | Impossibility of Distributed Consensus with One Faulty Process (Fischer, Lynch, Paterson) | The selftest reported all_pass=true across six cases. | OBJECT | Add a bivalence-preserving one-crash admissible schedule to the graph walk that invalidates any guaranteed-termination consensus claim. | 96 |
+| `crit_imp_paterson` | Impossibility of Distributed Consensus with One Faulty Process (Fischer, Lynch, Paterson) | validate_graph.py reported acyclic=true. | PASS | none | 91 |
+| `crit_part_gilbert` | Brewers Conjecture and the Feasibility (Gilbert, Lynch) | A4 stdout reports measured.cap_sacrifice_declared=true. | OBJECT | Add a partition schedule and a read/write witness showing a stale read or a nonterminating operation; fail A4 without one. | 102 |
 | `crit_rupt_taleb` | - | - | NOT REPORTED | - | 0 |
 | `crit_safety_kingsbury` | - | - | NOT REPORTED | - | 0 |
-| `crit_type_martinlof` | - | - | NOT REPORTED | - | 0 |
-| `crit_type_milner` | - | - | NOT REPORTED | - | 0 |
+| `crit_type_martinlof` | Intuitionistic Type Theory (Martin-Lof) | A16 stdout is {"axiom": "A16", "measured": {"io_in_pure_core": []}, "status": "PASS"}. | OBJECT | Replace status: PASS with a type-checked dependent proof term for forall e : CoreExpr, Not (HasIO e). | 106 |
+| `crit_type_milner` | A Theory of Type Polymorphism in Programming (Milner) | A13 stdout reports measured source_files 14, style_violations [], and status PASS. | OBJECT | Replace the A13 style_violations lint with a principal-type-scheme and unification check for every let-bound expression. | 98 |
 
-Quorum certificate: 0/14 seats reporting; PASS 0, OBJECT 0, quorum false.
+Quorum certificate: 10/14 seats reporting; PASS 3, OBJECT 7, quorum false.
 
 ## Saturation re-collection of R2
 
