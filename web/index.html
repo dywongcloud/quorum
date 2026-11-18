@@ -119,11 +119,11 @@
   <p class="section-index">04 / INSTALL</p>
   <h2>Three steps</h2>
   <ol class="steps">
-    <li><span class="step-n">1</span><p>Run <code>python3 -I tools/install.py ~/.claude/skills/quorum</code> from the repository root. The distributable is repo-wide: the state payloads, panel verdicts, validators and run log travel with the skill.</p></li>
+    <li><span class="step-n">1</span><p>Install from the published GitHub repository with <code>npx skills add dywongcloud/quorum -s quorum</code>, or clone the repo and run <code>python3 -I tools/install.py ~/.claude/skills/quorum</code>. The distributable is repo-wide: the state payloads, panel verdicts, validators and run log travel with the skill.</p></li>
     <li><span class="step-n">2</span><p>Confirm the installed <code>SKILL.md</code> link resolves, then run <code>python3 -I scripts/validate_skills.py</code> and <code>python3 -I scripts/validate_install.py</code>.</p></li>
     <li><span class="step-n">3</span><p>Invoke <code>$quorum</code> with a distributed-systems design brief. The run writes the five artifacts into <code>QUORUM-LOG.md</code>.</p></li>
   </ol>
-  <button class="copy" type="button" data-copy="python3 -I tools/install.py ~/.claude/skills/quorum">Copy install command</button>
+  <button class="copy" type="button" data-copy="npx skills add dywongcloud/quorum -s quorum">Copy install command</button>
   <p class="copy-status" role="status" aria-live="polite"></p>
   <p class="prereq">Requires Python 3.10 or later for the graph walk and audit daemon. PyYAML 6.0.2 is required only by <code>validate_skills.py</code>. No network access is needed after the skill is installed.</p>
 </section>

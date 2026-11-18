@@ -52,9 +52,10 @@ performs that install into a fresh temporary directory and runs all 24 axiom
 discharges from a foreign working directory; that live run is the portability
 witness.
 
-Once the repository is published, the skills CLI form is
-`npx skills add <owner>/quorum -s quorum`; that URL is not claimed as an
-existing remote in this checkout.
+The repository is published at https://github.com/dywongcloud/quorum. The
+skills CLI form is ``npx skills add dywongcloud/quorum -s quorum``; the CLI
+lists the `quorum` skill from that repository, and a clean global install was
+verified with ``npx skills add dywongcloud/quorum -s quorum --json -y -g -a claude-code``.
 
 Invoke `$quorum` with a design brief. The skill writes five artifacts to
 `QUORUM-LOG.md`: Traversal Plan with a living Frontier, Decision Records, Panel
