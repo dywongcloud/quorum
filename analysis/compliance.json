@@ -82,11 +82,11 @@
       "command": "python3 -I skills/quorum/scripts/verify_invariants.py --axiom A7",
       "measured": {
         "budget_ms": 5.0,
-        "p99_ms": 0.1813,
+        "p99_ms": 0.2377,
         "sample_count": 400
       },
       "status": "PASS",
-      "witness": "c592a65149df2a18"
+      "witness": "527f926ebfd155a0"
     },
     {
       "axiom": "A8",
@@ -340,7 +340,7 @@
   },
   "digest": {
     "axiom_count": 24,
-    "digest": "6999b0e91033174f4cc65f263f9861a998aa084b1240a579a74851172b466e50",
+    "digest": "5895b1c87f6e4cf28788212675971bb0e538a4dd0c64e138fb1043a8d3672466",
     "passing": 24
   },
   "figures": {

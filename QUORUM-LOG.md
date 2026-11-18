@@ -680,7 +680,7 @@ active path, and `anchor-graph.md` itself is not edited.
 | S7 | Every axiom has a live witness | verify_invariants.py --all: 24/24 PASS | MET |
 | S8 | Replay is idempotent | replay=idempotent composition=f(f(x)) = f(x) | MET |
 
-Axiom digest: `6999b0e91033174f4cc65f263f9861a998aa084b1240a579a74851172b466e50` (24/24 passing).
+Axiom digest: `5895b1c87f6e4cf28788212675971bb0e538a4dd0c64e138fb1043a8d3672466` (24/24 passing).
 Validators at final state: validate_skills exit 0, validate_graph exit 0, validate_figures exit 0 (all_reproducible=True).
 Graph: 401 nodes, 396 edges, acyclic=True.
 <!-- STOP:END -->
@@ -696,7 +696,7 @@ Graph: 401 nodes, 396 edges, acyclic=True.
 | A4 | PASS | acyclic=True, cap_sacrifice_declared=True |
 | A5 | PASS | bound_rows=4, web_figures=18 |
 | A6 | PASS | boundary_rows=7 |
-| A7 | PASS | budget_ms=5.0, p99_ms=0.1813 |
+| A7 | PASS | budget_ms=5.0, p99_ms=0.2377 |
 | A8 | PASS | passing=23, total=23 |
 | A9 | PASS | budget_named=True, mode_field_named=True |
 | A10 | PASS | ambient_env=False, secret_shapes_found=[] |

@@ -35,6 +35,14 @@ Its output port accepts JSON, YAML or rigid Markdown tables only. The faults are
 `[FAULT: SELF_REJECTED]`, and `[FAULT: IO_FAULT]`. Read
 [the fault taxonomy](skills/quorum/references/fault-taxonomy.md).
 
+## Live deployment
+
+The landing page is deployed on Vercel at
+https://quorum-psi-seven.vercel.app (production deployment
+`dpl_D6QFPGAAFo7Mc5aDNjyJ6zCUjQJ2`). `vercel.json` serves `web/` as a static
+site, `.vercelignore` excludes local session state, caches and credentials, and
+the public alias was verified with a live HTTP 200 returning the QUORUM page.
+
 ## Install
 
 ```sh
